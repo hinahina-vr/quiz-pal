@@ -95,11 +95,6 @@ npm run preview
 
 `docs/`は生成物です。編集は`src/`・`public/`・`portable/html/`と入口HTMLで行い、再生成してください。Web版とダウンロード版には同じビルドのファイルを使用し、`PUBLICATION_MANIFEST.json`にハッシュを記録します。
 
-- [構成と制作上の工夫](DESIGN.md)
-- [応募情報・説明文](SUBMISSION.md)
-- [レギュレーション確認](CONTEST_COMPLIANCE.md)
-- [公開記録と保守手順](PUBLISHING.md)
-- [ブラウザーテストの再実行](TESTING.md)
 
 ## ライセンスと制作
 
