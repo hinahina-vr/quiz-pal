@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "browser": "152.0.7977.83",
+  "url": "http://127.0.0.1:60999/contest-preview/",
+  "scope": "Actual Chrome on local HTTP; no public deployment or physical phone",
+  "zipSha256": "a01ce60f755ddddb3ef4b27b89a2260ee670821e4aeaaacd7f1a962bf92e966a",
+  "checks": [
+    "Web download introduction fits five desktop, narrow and landscape viewports and describes the HTML edition",
+    "Actual browser download from the local HTTP site has the exact prepared ZIP hash",
+    "Sidebar download and planned repository link point to the prepared destinations",
+    "Hosted quiz progress, actual image upload and Studio edit are included in a real exported backup",
+    "Legal page uses GitHub Pages copy and planned source/contact URLs; its download returns the same ZIP",
+    "No missing HTTP assets, browser exceptions or external requests during the preparation preview"
+  ],
+  "errors": [],
+  "failed": [],
+  "external": []
+}

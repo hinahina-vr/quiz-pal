@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "browser": "152.0.7977.83",
+  "url": "http://127.0.0.1:55854/contest-preview/",
+  "scope": "Local HTTP to offline HTML; no public deployment",
+  "checks": [
+    "Web backup restores the edited subject, exact image bytes and exam progress in the freshly extracted offline HTML, then exports again",
+    "The offline HTML backup restores the same subject, image and exam progress into a fresh hosted browser context"
+  ],
+  "errors": []
+}

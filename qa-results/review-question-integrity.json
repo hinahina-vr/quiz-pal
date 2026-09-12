@@ -1,0 +1,738 @@
+{
+  "passed": true,
+  "scope": "Actual Chrome on previous and freshly extracted HTML; all 183 runtime views checked for source fidelity, not a complete factual review",
+  "audit": [
+    {
+      "id": "sample-math-1",
+      "valid": true
+    },
+    {
+      "id": "sample-math-2",
+      "valid": true
+    },
+    {
+      "id": "sample-math-3",
+      "valid": true
+    },
+    {
+      "id": "sample-ratio-1",
+      "valid": true
+    },
+    {
+      "id": "sample-ratio-2",
+      "valid": true
+    },
+    {
+      "id": "sample-ratio-3",
+      "valid": true
+    },
+    {
+      "id": "sample-password-1",
+      "valid": true
+    },
+    {
+      "id": "sample-password-2",
+      "valid": true
+    },
+    {
+      "id": "sample-password-3",
+      "valid": true
+    },
+    {
+      "id": "sample-phishing-1",
+      "valid": true
+    },
+    {
+      "id": "sample-phishing-2",
+      "valid": true
+    },
+    {
+      "id": "sample-phishing-3",
+      "valid": true
+    },
+    {
+      "id": "sample-ip-1",
+      "valid": true
+    },
+    {
+      "id": "sample-ip-2",
+      "valid": true
+    },
+    {
+      "id": "sample-ip-3",
+      "valid": true
+    },
+    {
+      "id": "sample-ip-4",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q1",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q39",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q40",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q41",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q42",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q60",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q61",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q62",
+      "valid": true
+    },
+    {
+      "id": "ipa-ip-2026-q63",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q1",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q5",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q6",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q7",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q8",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q9",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2026-q10",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q1",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q5",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q6",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q7",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q8",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q9",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2025-q10",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q1",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q5",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q6",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q7",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q8",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q9",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ip-2024-q10",
+      "valid": true
+    },
+    {
+      "id": "sample-fe-1",
+      "valid": true
+    },
+    {
+      "id": "sample-fe-2",
+      "valid": true
+    },
+    {
+      "id": "sample-fe-3",
+      "valid": true
+    },
+    {
+      "id": "sample-fe-4",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q16",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q17",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q18",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q19",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q11",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q12",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q13",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q14",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q1",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-fe-2026-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q1",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q5",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q7",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q8",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q9",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q10",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q11",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q12",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q13",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q14",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q15",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q16",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q17",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q18",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q19",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2026-q20",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q1",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q5",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q6",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q7",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q8",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q9",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q10",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q11",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q12",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q13",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q14",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q15",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q16",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q17",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q18",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q19",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2025-q20",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q1",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q5",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q6",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q7",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q8",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q9",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q10",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q11",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q12",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q13",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q14",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q15",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q16",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q17",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q18",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q19",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-fe-2024-q20",
+      "valid": true
+    },
+    {
+      "id": "sample-ap-1",
+      "valid": true
+    },
+    {
+      "id": "sample-ap-2",
+      "valid": true
+    },
+    {
+      "id": "sample-ap-3",
+      "valid": true
+    },
+    {
+      "id": "sample-ap-4",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q61",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q62",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q63",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q64",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q51",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q52",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q55",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q59",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-ap-2025a-q5",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q5",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q7",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q8",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q9",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q12",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q13",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-fall-q14",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q5",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q7",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q8",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q9",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q10",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q11",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q12",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2025-spring-q14",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q1",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q2",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q3",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q4",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q6",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q7",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q8",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q9",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q10",
+      "valid": true
+    },
+    {
+      "id": "ipa-practice-ap-2024-fall-q11",
+      "valid": true
+    },
+    {
+      "id": "sample-electric-1",
+      "valid": true
+    },
+    {
+      "id": "sample-electric-2",
+      "valid": true
+    },
+    {
+      "id": "sample-electric-3",
+      "valid": true
+    },
+    {
+      "id": "sample-electric-4",
+      "valid": true
+    }
+  ]
+}

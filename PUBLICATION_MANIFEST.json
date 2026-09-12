@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "preparedAt": "2026-09-12T09:51:39.666Z",
+  "preparedAt": "2026-09-12T12:52:12.128Z",
   "status": "local-preparation-only",
   "plannedRepositoryUrl": "https://github.com/hinahina-vr/quiz-pal",
   "plannedSiteUrl": "https://hinahina-vr.github.io/quiz-pal/",
@@ -8,13 +8,13 @@
   "sourceFiles": [
     {
       "path": "src/App.tsx",
-      "size": 10164,
-      "sha256": "2b5ead744b7ccf8b7df08408342a9de2ea20e868a34dfad0d333ad2f5edf606e"
+      "size": 7912,
+      "sha256": "77d540ebacb023ec22d5fd05b1d0a9f4635eb5d90792e7583f62c8a5c0df21fe"
     },
     {
       "path": "src/bridge/legacyDataset.ts",
-      "size": 4093,
-      "sha256": "47154d3c1db70d9e9fc2d6a6393e2d0a0af4f5cda16ac3d9e25e0f43f71b61d4"
+      "size": 4519,
+      "sha256": "4ec97c55e862a900b52e3261107395b7b334d6a9fae2f6e2364359321d9bb4ef"
     },
     {
       "path": "src/db/database.ts",
@@ -38,8 +38,8 @@
     },
     {
       "path": "src/features/ai-author/AiAuthorDialog.tsx",
-      "size": 25485,
-      "sha256": "392cf762fd725eaca6613452db0b31538c84cbf453c691b424e49f815dce9055"
+      "size": 24963,
+      "sha256": "3ceb1d03dc21148553b822225b4cb1f8fae596ce88ef6ce690fc7427d199b8f7"
     },
     {
       "path": "src/features/backup/backup.ts",
@@ -58,8 +58,8 @@
     },
     {
       "path": "src/features/library/LibraryView.tsx",
-      "size": 28977,
-      "sha256": "120138d415c0c596fb2683327e61e5c4420d082c39b8c413adf18ed2d4e1dc04"
+      "size": 29010,
+      "sha256": "8ab5d972ce376511a800070f435c83c1eaacedbd06eb5abee5ecf727750cc991"
     },
     {
       "path": "src/features/onboarding/Onboarding.tsx",
@@ -148,8 +148,8 @@
     },
     {
       "path": "public/app.js",
-      "size": 839213,
-      "sha256": "dad86fbd2b2e74dc09625a1def656ad363e71770557d459d770ffd2691934c3e"
+      "size": 842157,
+      "sha256": "967b0bc96b5fe93dc552107bfbde5784c6a5bab972712b8b791c573f1976b8bf"
     },
     {
       "path": "public/assets/academy-stage.png",
@@ -413,8 +413,8 @@
     },
     {
       "path": "public/data/courses/sample-electrician-2.js",
-      "size": 2679,
-      "sha256": "2bb625d4be68ba87b3d7053ed27b018c54683b382443dee517995c8516f40e78"
+      "size": 2959,
+      "sha256": "a892d30f0ff4bf0d44bde66b69aa81693107835ce0db2f9e7e11b21380496e5f"
     },
     {
       "path": "public/data/courses/sample-fe.js",
@@ -423,23 +423,23 @@
     },
     {
       "path": "public/data/courses/sample-it-passport.js",
-      "size": 51625,
-      "sha256": "7c20ada13c60719bf4d625be814c7cb60493e9c65ecb20edf70dec30154e1867"
+      "size": 51917,
+      "sha256": "8628a3987af7b3bf8ad6a714b0248bc59dbaafb47aa9035a2a1311702af7e5dc"
     },
     {
       "path": "public/data/courses/sample-math.js",
-      "size": 2832,
-      "sha256": "e384011ea9c27daff882605293dfb2566a571d031e771e8d5133c30608b709ba"
+      "size": 2987,
+      "sha256": "5d4e2b173a2c4ae852cef8ad773c33391b65016d512011be4aa04ff564732b78"
     },
     {
       "path": "public/data/courses/sample-web-safety.js",
-      "size": 3855,
-      "sha256": "b443be992ade52f374dbdaa72ab68375cb8a92ffb3a7fe157ae524191caa5c07"
+      "size": 4171,
+      "sha256": "1aedcde5ace18f5fec48e95b978b31c3761f3270ce16f8ab31d8aa64131ff637"
     },
     {
       "path": "public/data.js",
-      "size": 224682,
-      "sha256": "9af30c4af115c2fcd73153b4a7e56e8eeccc3dcda98f7171a96f4ee93048727e"
+      "size": 226465,
+      "sha256": "cc45491e338b8e47c94248ca29e95efa8ebbd611037424649bcbbb09f0ddaa7f"
     },
     {
       "path": "public/exam-progress.css",
@@ -512,6 +512,16 @@
       "sha256": "2e098d97072fa6df474ab2b8a9ff9b97c0a5b2280bcce1c8e993d0eaff636d2f"
     },
     {
+      "path": "public/intro-art/hinahina-portrait.png",
+      "size": 2335324,
+      "sha256": "cf005cccfc439798fd01ace470d531c6272ee545dc765830ea234b58ac817ac5"
+    },
+    {
+      "path": "public/intro-art/mascot-before-after-v2.webp",
+      "size": 159432,
+      "sha256": "3332b05a6df0f83c7ae1468b50f9d689d9131e01324ca3061a6b85692787349d"
+    },
+    {
       "path": "public/intro-art/partners-flat.png",
       "size": 1362667,
       "sha256": "bc42aaad229923112e6bbbf300b7f090276b20b2074f1c81b5eed48dc68dbe2a"
@@ -522,24 +532,9 @@
       "sha256": "b9e622dbabb5985d4d42b407b600d59d29b6622f02ad72fdaa4667184c5369b0"
     },
     {
-      "path": "public/intro-art/portable-flat.png",
-      "size": 1321079,
-      "sha256": "ad49c3bb9a3881b46cb256dcf020e1c1401a5dcc9459080c0c26fe98be6ad4e8"
-    },
-    {
-      "path": "public/intro-art/portable-flat.webp",
-      "size": 53036,
-      "sha256": "b13134bafe20b57dd78e274da164aa2520428703812dd74edc3b2eab8b35c625"
-    },
-    {
-      "path": "public/intro-art/tutor-flat.png",
-      "size": 1429326,
-      "sha256": "8f620b50479adbf57e3122f9117cde46e4faeb09f2996b1a5a1dd78d46b2aa84"
-    },
-    {
-      "path": "public/intro-art/tutor-flat.webp",
-      "size": 60140,
-      "sha256": "c5af7708ae7479496aba7ac587db677fc690e22befea281cd7976bc33e8a19f0"
+      "path": "public/intro-art/quizpal-teacher.webp",
+      "size": 50362,
+      "sha256": "5a889bde7f6ddb1053b2a4181a04ddc461730c920df9d915688344450fc18d24"
     },
     {
       "path": "public/legacy-data-safety.js",
@@ -558,8 +553,8 @@
     },
     {
       "path": "public/llm-provider-bridge.js",
-      "size": 39333,
-      "sha256": "bbe46b9a73be4a8327841201871a474365bf8933b5499e7b8d923d1bfcb1c03f"
+      "size": 39992,
+      "sha256": "4a89da565620f9420cf0148890d076f2dfcb3f77688fe46da724471819678a9e"
     },
     {
       "path": "public/native-math.css",
@@ -568,8 +563,8 @@
     },
     {
       "path": "public/native-runtime.js",
-      "size": 14501,
-      "sha256": "bc761fc2127e57a7025528dce2f7df95f10bb55012d4577f8b2159dddb98d219"
+      "size": 14828,
+      "sha256": "c2ddadf3ecad0842241d8439ac40c1d4443e71fc5e672a6b69add6620fffe64d"
     },
     {
       "path": "public/native-stage.js",
@@ -583,13 +578,13 @@
     },
     {
       "path": "public/product-intro.css",
-      "size": 53731,
-      "sha256": "f065ad1e6584a3189c39ecba459fb7b38c234209ed41bf26811f7daab8331298"
+      "size": 63005,
+      "sha256": "916e8d585ed27d42015c9b113ee7ee275838ca175c328c107bf379ccf69f9454"
     },
     {
       "path": "public/product-intro.js",
-      "size": 29114,
-      "sha256": "3d1fb58d3ab652b3a655759f6ff2f5e317f2a855ddf64d194901de056cdedb1c"
+      "size": 40144,
+      "sha256": "10de37f4d82ccb9f3ff0e0aad9aae79bb13ff90af4cccf19330e6ffb024e15b2"
     },
     {
       "path": "public/quiz-bootstrap.js",
@@ -598,8 +593,8 @@
     },
     {
       "path": "public/quiz-controls.css",
-      "size": 6736,
-      "sha256": "47b7f94174d682194658c317ad9443e86581d26a3a168b790eddb8319dea5174"
+      "size": 9375,
+      "sha256": "f904c33de3f03d22575b7269ff5e1749f6cc9ee770d19a58cbeb7df4e779817a"
     },
     {
       "path": "public/quiz-tour.css",
@@ -638,8 +633,18 @@
     },
     {
       "path": "public/studio.css",
-      "size": 71222,
-      "sha256": "db0ad669c43cfa7f56f092d66bbce7b1e352f7353fbf8555c0250c8486d521fc"
+      "size": 72727,
+      "sha256": "9c0cec6139213698a3ba04dfe60a0d0f4f464e0b2c1ec855f4a4c82a30535e4a"
+    },
+    {
+      "path": "public/study-panels.css",
+      "size": 15683,
+      "sha256": "6346ce879b3f0554b5ec1727133eae7f80c2791c7faf73a4d2c9e413086e0314"
+    },
+    {
+      "path": "public/study-panels.js",
+      "size": 39646,
+      "sha256": "cbb902ee1f87a1814ca89e0944ae6942435a839e5defa75c116f097cfdbaf911"
     },
     {
       "path": "public/styles.css",
@@ -653,8 +658,8 @@
     },
     {
       "path": "portable/html/boot.js",
-      "size": 8588,
-      "sha256": "164dc0a16323f26e812d85c54a6015b3216ab2416140d34d0f05690cb9a27e83"
+      "size": 8600,
+      "sha256": "bc2731646e526f8b208a87dc4818d3b8991393ec58e916362db0ce9b53079fc6"
     },
     {
       "path": "portable/html/index.html",
@@ -668,8 +673,8 @@
     },
     {
       "path": "index.html",
-      "size": 44197,
-      "sha256": "0740535b6929bb1b9cd2d4a133f16c222730f79acfa2720f72166687cfed5c5e"
+      "size": 44085,
+      "sha256": "1d38b976c3d7cbeeda741553c0dd1265414d2b63855f906a07370f8eda34012b"
     },
     {
       "path": "studio.html",
@@ -723,13 +728,13 @@
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "size": 4891,
-      "sha256": "d1312bdc94ae44500d870ff15f83fe39f4eb3d1396358cf40cddedf6d280b618"
+      "size": 5557,
+      "sha256": "2b6d9ad6cc8f9fa96e352bdd8c64a4872dd11817553de3856428af0e2ef70e5b"
     },
     {
       "path": "scripts/build-legacy-sample-data.mjs",
-      "size": 11638,
-      "sha256": "58c7afc90d39c70ddc7090a3ac6a36c6715df4fbc65e4522e054f91cf715cdd8"
+      "size": 10658,
+      "sha256": "e381b80ba823e4484d9826407a83059b20fb999f7f9aee5e47df2204b1a1bc37"
     },
     {
       "path": "scripts/build-portable-html.mjs",
@@ -755,8 +760,8 @@
     },
     {
       "path": "app.js",
-      "size": 839213,
-      "sha256": "dad86fbd2b2e74dc09625a1def656ad363e71770557d459d770ffd2691934c3e"
+      "size": 842157,
+      "sha256": "967b0bc96b5fe93dc552107bfbde5784c6a5bab972712b8b791c573f1976b8bf"
     },
     {
       "path": "assets/academy-stage.png",
@@ -1005,8 +1010,8 @@
     },
     {
       "path": "data/courses/sample-electrician-2.js",
-      "size": 2679,
-      "sha256": "2bb625d4be68ba87b3d7053ed27b018c54683b382443dee517995c8516f40e78"
+      "size": 2959,
+      "sha256": "a892d30f0ff4bf0d44bde66b69aa81693107835ce0db2f9e7e11b21380496e5f"
     },
     {
       "path": "data/courses/sample-fe.js",
@@ -1015,28 +1020,28 @@
     },
     {
       "path": "data/courses/sample-it-passport.js",
-      "size": 51625,
-      "sha256": "7c20ada13c60719bf4d625be814c7cb60493e9c65ecb20edf70dec30154e1867"
+      "size": 51917,
+      "sha256": "8628a3987af7b3bf8ad6a714b0248bc59dbaafb47aa9035a2a1311702af7e5dc"
     },
     {
       "path": "data/courses/sample-math.js",
-      "size": 2832,
-      "sha256": "e384011ea9c27daff882605293dfb2566a571d031e771e8d5133c30608b709ba"
+      "size": 2987,
+      "sha256": "5d4e2b173a2c4ae852cef8ad773c33391b65016d512011be4aa04ff564732b78"
     },
     {
       "path": "data/courses/sample-web-safety.js",
-      "size": 3855,
-      "sha256": "b443be992ade52f374dbdaa72ab68375cb8a92ffb3a7fe157ae524191caa5c07"
+      "size": 4171,
+      "sha256": "1aedcde5ace18f5fec48e95b978b31c3761f3270ce16f8ab31d8aa64131ff637"
     },
     {
       "path": "data.js",
-      "size": 224609,
-      "sha256": "57c935cdfca386e779b96f99bb944a5f64e331a7d1e7c3b42e2f01c907994c2b"
+      "size": 226392,
+      "sha256": "244143b43990913471bf7846e36392ca53c71a0144c4fe5123f43f53bfa493a0"
     },
     {
       "path": "downloads/Quiz-Pal-HTML.zip",
-      "size": 65853885,
-      "sha256": "4c275d85ea102420cf64ac5c997924ee88be4b343cee2cc6e5965c9349c6fa64"
+      "size": 65894352,
+      "sha256": "a01ce60f755ddddb3ef4b27b89a2260ee670821e4aeaaacd7f1a962bf92e966a"
     },
     {
       "path": "exam-progress.css",
@@ -1110,13 +1115,13 @@
     },
     {
       "path": "html-boot.js",
-      "size": 8588,
-      "sha256": "164dc0a16323f26e812d85c54a6015b3216ab2416140d34d0f05690cb9a27e83"
+      "size": 8600,
+      "sha256": "bc2731646e526f8b208a87dc4818d3b8991393ec58e916362db0ce9b53079fc6"
     },
     {
       "path": "html-pages.js",
-      "size": 69288,
-      "sha256": "958dc8e78ad6915100b865c01bb748e4f4d7a698804e30bf0e1578b017ea68ac"
+      "size": 69173,
+      "sha256": "bad9be36aa215a39c9f7e8cf832e9e50e89587f14262237d1dc2a969873e7af3"
     },
     {
       "path": "html-stage.js",
@@ -1129,6 +1134,16 @@
       "sha256": "3b85a1061900e026453f07ad6f3acff6d14e4e6651456fd69d531840dbf8e08d"
     },
     {
+      "path": "intro-art/hinahina-portrait.png",
+      "size": 2335324,
+      "sha256": "cf005cccfc439798fd01ace470d531c6272ee545dc765830ea234b58ac817ac5"
+    },
+    {
+      "path": "intro-art/mascot-before-after-v2.webp",
+      "size": 159432,
+      "sha256": "3332b05a6df0f83c7ae1468b50f9d689d9131e01324ca3061a6b85692787349d"
+    },
+    {
       "path": "intro-art/partners-flat.png",
       "size": 1362667,
       "sha256": "bc42aaad229923112e6bbbf300b7f090276b20b2074f1c81b5eed48dc68dbe2a"
@@ -1139,24 +1154,9 @@
       "sha256": "b9e622dbabb5985d4d42b407b600d59d29b6622f02ad72fdaa4667184c5369b0"
     },
     {
-      "path": "intro-art/portable-flat.png",
-      "size": 1321079,
-      "sha256": "ad49c3bb9a3881b46cb256dcf020e1c1401a5dcc9459080c0c26fe98be6ad4e8"
-    },
-    {
-      "path": "intro-art/portable-flat.webp",
-      "size": 53036,
-      "sha256": "b13134bafe20b57dd78e274da164aa2520428703812dd74edc3b2eab8b35c625"
-    },
-    {
-      "path": "intro-art/tutor-flat.png",
-      "size": 1429326,
-      "sha256": "8f620b50479adbf57e3122f9117cde46e4faeb09f2996b1a5a1dd78d46b2aa84"
-    },
-    {
-      "path": "intro-art/tutor-flat.webp",
-      "size": 60140,
-      "sha256": "c5af7708ae7479496aba7ac587db677fc690e22befea281cd7976bc33e8a19f0"
+      "path": "intro-art/quizpal-teacher.webp",
+      "size": 50362,
+      "sha256": "5a889bde7f6ddb1053b2a4181a04ddc461730c920df9d915688344450fc18d24"
     },
     {
       "path": "legacy-data-safety.js",
@@ -1185,8 +1185,8 @@
     },
     {
       "path": "llm-provider-bridge.js",
-      "size": 39333,
-      "sha256": "bbe46b9a73be4a8327841201871a474365bf8933b5499e7b8d923d1bfcb1c03f"
+      "size": 39992,
+      "sha256": "4a89da565620f9420cf0148890d076f2dfcb3f77688fe46da724471819678a9e"
     },
     {
       "path": "native-math.css",
@@ -1195,8 +1195,8 @@
     },
     {
       "path": "native-runtime.js",
-      "size": 14501,
-      "sha256": "bc761fc2127e57a7025528dce2f7df95f10bb55012d4577f8b2159dddb98d219"
+      "size": 14828,
+      "sha256": "c2ddadf3ecad0842241d8439ac40c1d4443e71fc5e672a6b69add6620fffe64d"
     },
     {
       "path": "native-stage.js",
@@ -1210,13 +1210,13 @@
     },
     {
       "path": "product-intro.css",
-      "size": 53731,
-      "sha256": "f065ad1e6584a3189c39ecba459fb7b38c234209ed41bf26811f7daab8331298"
+      "size": 63005,
+      "sha256": "916e8d585ed27d42015c9b113ee7ee275838ca175c328c107bf379ccf69f9454"
     },
     {
       "path": "product-intro.js",
-      "size": 29114,
-      "sha256": "3d1fb58d3ab652b3a655759f6ff2f5e317f2a855ddf64d194901de056cdedb1c"
+      "size": 40144,
+      "sha256": "10de37f4d82ccb9f3ff0e0aad9aae79bb13ff90af4cccf19330e6ffb024e15b2"
     },
     {
       "path": "quiz-bootstrap.js",
@@ -1225,8 +1225,8 @@
     },
     {
       "path": "quiz-controls.css",
-      "size": 6736,
-      "sha256": "47b7f94174d682194658c317ad9443e86581d26a3a168b790eddb8319dea5174"
+      "size": 9375,
+      "sha256": "f904c33de3f03d22575b7269ff5e1749f6cc9ee770d19a58cbeb7df4e779817a"
     },
     {
       "path": "quiz-tour.css",
@@ -1270,18 +1270,28 @@
     },
     {
       "path": "studio.bundle.js",
-      "size": 234883,
-      "sha256": "24c69acfa4dd48c425d18332d1a7f2ef8cae5f32447da1fd0b91e6aa54d65ec9"
+      "size": 232948,
+      "sha256": "f6feddd847fdcca897049128ca4d19e3e9988b62be8920542ba52f3a064e20e3"
     },
     {
       "path": "studio.css",
-      "size": 71222,
-      "sha256": "db0ad669c43cfa7f56f092d66bbce7b1e352f7353fbf8555c0250c8486d521fc"
+      "size": 72727,
+      "sha256": "9c0cec6139213698a3ba04dfe60a0d0f4f464e0b2c1ec855f4a4c82a30535e4a"
     },
     {
       "path": "studio.html",
       "size": 177,
       "sha256": "0df00be1acb2571c7cd2285467878f05338a7908cd2c03169001014a7b680920"
+    },
+    {
+      "path": "study-panels.css",
+      "size": 15683,
+      "sha256": "6346ce879b3f0554b5ec1727133eae7f80c2791c7faf73a4d2c9e413086e0314"
+    },
+    {
+      "path": "study-panels.js",
+      "size": 39646,
+      "sha256": "cbb902ee1f87a1814ca89e0944ae6942435a839e5defa75c116f097cfdbaf911"
     },
     {
       "path": "styles.css",
@@ -1295,14 +1305,14 @@
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "size": 4891,
-      "sha256": "d1312bdc94ae44500d870ff15f83fe39f4eb3d1396358cf40cddedf6d280b618"
+      "size": 5557,
+      "sha256": "2b6d9ad6cc8f9fa96e352bdd8c64a4872dd11817553de3856428af0e2ef70e5b"
     }
   ],
   "download": {
     "path": "downloads/Quiz-Pal-HTML.zip",
-    "size": 65853885,
-    "sha256": "4c275d85ea102420cf64ac5c997924ee88be4b343cee2cc6e5965c9349c6fa64"
+    "size": 65894352,
+    "sha256": "a01ce60f755ddddb3ef4b27b89a2260ee670821e4aeaaacd7f1a962bf92e966a"
   },
   "portableFiles": [
     {
@@ -1312,8 +1322,8 @@
     },
     {
       "path": "Quiz-Pal-HTML/app.js",
-      "size": 839213,
-      "sha256": "dad86fbd2b2e74dc09625a1def656ad363e71770557d459d770ffd2691934c3e"
+      "size": 842157,
+      "sha256": "967b0bc96b5fe93dc552107bfbde5784c6a5bab972712b8b791c573f1976b8bf"
     },
     {
       "path": "Quiz-Pal-HTML/assets/academy-stage.png",
@@ -1562,8 +1572,8 @@
     },
     {
       "path": "Quiz-Pal-HTML/data/courses/sample-electrician-2.js",
-      "size": 2679,
-      "sha256": "2bb625d4be68ba87b3d7053ed27b018c54683b382443dee517995c8516f40e78"
+      "size": 2959,
+      "sha256": "a892d30f0ff4bf0d44bde66b69aa81693107835ce0db2f9e7e11b21380496e5f"
     },
     {
       "path": "Quiz-Pal-HTML/data/courses/sample-fe.js",
@@ -1572,23 +1582,23 @@
     },
     {
       "path": "Quiz-Pal-HTML/data/courses/sample-it-passport.js",
-      "size": 51625,
-      "sha256": "7c20ada13c60719bf4d625be814c7cb60493e9c65ecb20edf70dec30154e1867"
+      "size": 51917,
+      "sha256": "8628a3987af7b3bf8ad6a714b0248bc59dbaafb47aa9035a2a1311702af7e5dc"
     },
     {
       "path": "Quiz-Pal-HTML/data/courses/sample-math.js",
-      "size": 2832,
-      "sha256": "e384011ea9c27daff882605293dfb2566a571d031e771e8d5133c30608b709ba"
+      "size": 2987,
+      "sha256": "5d4e2b173a2c4ae852cef8ad773c33391b65016d512011be4aa04ff564732b78"
     },
     {
       "path": "Quiz-Pal-HTML/data/courses/sample-web-safety.js",
-      "size": 3855,
-      "sha256": "b443be992ade52f374dbdaa72ab68375cb8a92ffb3a7fe157ae524191caa5c07"
+      "size": 4171,
+      "sha256": "1aedcde5ace18f5fec48e95b978b31c3761f3270ce16f8ab31d8aa64131ff637"
     },
     {
       "path": "Quiz-Pal-HTML/data.js",
-      "size": 224609,
-      "sha256": "57c935cdfca386e779b96f99bb944a5f64e331a7d1e7c3b42e2f01c907994c2b"
+      "size": 226392,
+      "sha256": "244143b43990913471bf7846e36392ca53c71a0144c4fe5123f43f53bfa493a0"
     },
     {
       "path": "Quiz-Pal-HTML/exam-progress.css",
@@ -1662,13 +1672,13 @@
     },
     {
       "path": "Quiz-Pal-HTML/html-boot.js",
-      "size": 8588,
-      "sha256": "164dc0a16323f26e812d85c54a6015b3216ab2416140d34d0f05690cb9a27e83"
+      "size": 8600,
+      "sha256": "bc2731646e526f8b208a87dc4818d3b8991393ec58e916362db0ce9b53079fc6"
     },
     {
       "path": "Quiz-Pal-HTML/html-pages.js",
-      "size": 69288,
-      "sha256": "958dc8e78ad6915100b865c01bb748e4f4d7a698804e30bf0e1578b017ea68ac"
+      "size": 69173,
+      "sha256": "bad9be36aa215a39c9f7e8cf832e9e50e89587f14262237d1dc2a969873e7af3"
     },
     {
       "path": "Quiz-Pal-HTML/html-stage.js",
@@ -1681,6 +1691,16 @@
       "sha256": "3b85a1061900e026453f07ad6f3acff6d14e4e6651456fd69d531840dbf8e08d"
     },
     {
+      "path": "Quiz-Pal-HTML/intro-art/hinahina-portrait.png",
+      "size": 2335324,
+      "sha256": "cf005cccfc439798fd01ace470d531c6272ee545dc765830ea234b58ac817ac5"
+    },
+    {
+      "path": "Quiz-Pal-HTML/intro-art/mascot-before-after-v2.webp",
+      "size": 159432,
+      "sha256": "3332b05a6df0f83c7ae1468b50f9d689d9131e01324ca3061a6b85692787349d"
+    },
+    {
       "path": "Quiz-Pal-HTML/intro-art/partners-flat.png",
       "size": 1362667,
       "sha256": "bc42aaad229923112e6bbbf300b7f090276b20b2074f1c81b5eed48dc68dbe2a"
@@ -1691,24 +1711,9 @@
       "sha256": "b9e622dbabb5985d4d42b407b600d59d29b6622f02ad72fdaa4667184c5369b0"
     },
     {
-      "path": "Quiz-Pal-HTML/intro-art/portable-flat.png",
-      "size": 1321079,
-      "sha256": "ad49c3bb9a3881b46cb256dcf020e1c1401a5dcc9459080c0c26fe98be6ad4e8"
-    },
-    {
-      "path": "Quiz-Pal-HTML/intro-art/portable-flat.webp",
-      "size": 53036,
-      "sha256": "b13134bafe20b57dd78e274da164aa2520428703812dd74edc3b2eab8b35c625"
-    },
-    {
-      "path": "Quiz-Pal-HTML/intro-art/tutor-flat.png",
-      "size": 1429326,
-      "sha256": "8f620b50479adbf57e3122f9117cde46e4faeb09f2996b1a5a1dd78d46b2aa84"
-    },
-    {
-      "path": "Quiz-Pal-HTML/intro-art/tutor-flat.webp",
-      "size": 60140,
-      "sha256": "c5af7708ae7479496aba7ac587db677fc690e22befea281cd7976bc33e8a19f0"
+      "path": "Quiz-Pal-HTML/intro-art/quizpal-teacher.webp",
+      "size": 50362,
+      "sha256": "5a889bde7f6ddb1053b2a4181a04ddc461730c920df9d915688344450fc18d24"
     },
     {
       "path": "Quiz-Pal-HTML/legacy-data-safety.js",
@@ -1737,8 +1742,8 @@
     },
     {
       "path": "Quiz-Pal-HTML/llm-provider-bridge.js",
-      "size": 39333,
-      "sha256": "bbe46b9a73be4a8327841201871a474365bf8933b5499e7b8d923d1bfcb1c03f"
+      "size": 39992,
+      "sha256": "4a89da565620f9420cf0148890d076f2dfcb3f77688fe46da724471819678a9e"
     },
     {
       "path": "Quiz-Pal-HTML/native-math.css",
@@ -1747,8 +1752,8 @@
     },
     {
       "path": "Quiz-Pal-HTML/native-runtime.js",
-      "size": 14501,
-      "sha256": "bc761fc2127e57a7025528dce2f7df95f10bb55012d4577f8b2159dddb98d219"
+      "size": 14828,
+      "sha256": "c2ddadf3ecad0842241d8439ac40c1d4443e71fc5e672a6b69add6620fffe64d"
     },
     {
       "path": "Quiz-Pal-HTML/native-stage.js",
@@ -1762,13 +1767,13 @@
     },
     {
       "path": "Quiz-Pal-HTML/product-intro.css",
-      "size": 53731,
-      "sha256": "f065ad1e6584a3189c39ecba459fb7b38c234209ed41bf26811f7daab8331298"
+      "size": 63005,
+      "sha256": "916e8d585ed27d42015c9b113ee7ee275838ca175c328c107bf379ccf69f9454"
     },
     {
       "path": "Quiz-Pal-HTML/product-intro.js",
-      "size": 29114,
-      "sha256": "3d1fb58d3ab652b3a655759f6ff2f5e317f2a855ddf64d194901de056cdedb1c"
+      "size": 40144,
+      "sha256": "10de37f4d82ccb9f3ff0e0aad9aae79bb13ff90af4cccf19330e6ffb024e15b2"
     },
     {
       "path": "Quiz-Pal-HTML/quiz-bootstrap.js",
@@ -1777,8 +1782,8 @@
     },
     {
       "path": "Quiz-Pal-HTML/quiz-controls.css",
-      "size": 6736,
-      "sha256": "47b7f94174d682194658c317ad9443e86581d26a3a168b790eddb8319dea5174"
+      "size": 9375,
+      "sha256": "f904c33de3f03d22575b7269ff5e1749f6cc9ee770d19a58cbeb7df4e779817a"
     },
     {
       "path": "Quiz-Pal-HTML/quiz-tour.css",
@@ -1822,18 +1827,28 @@
     },
     {
       "path": "Quiz-Pal-HTML/studio.bundle.js",
-      "size": 234883,
-      "sha256": "24c69acfa4dd48c425d18332d1a7f2ef8cae5f32447da1fd0b91e6aa54d65ec9"
+      "size": 232948,
+      "sha256": "f6feddd847fdcca897049128ca4d19e3e9988b62be8920542ba52f3a064e20e3"
     },
     {
       "path": "Quiz-Pal-HTML/studio.css",
-      "size": 71222,
-      "sha256": "db0ad669c43cfa7f56f092d66bbce7b1e352f7353fbf8555c0250c8486d521fc"
+      "size": 72727,
+      "sha256": "9c0cec6139213698a3ba04dfe60a0d0f4f464e0b2c1ec855f4a4c82a30535e4a"
     },
     {
       "path": "Quiz-Pal-HTML/studio.html",
       "size": 177,
       "sha256": "0df00be1acb2571c7cd2285467878f05338a7908cd2c03169001014a7b680920"
+    },
+    {
+      "path": "Quiz-Pal-HTML/study-panels.css",
+      "size": 15683,
+      "sha256": "6346ce879b3f0554b5ec1727133eae7f80c2791c7faf73a4d2c9e413086e0314"
+    },
+    {
+      "path": "Quiz-Pal-HTML/study-panels.js",
+      "size": 39646,
+      "sha256": "cbb902ee1f87a1814ca89e0944ae6942435a839e5defa75c116f097cfdbaf911"
     },
     {
       "path": "Quiz-Pal-HTML/styles.css",
@@ -1847,8 +1862,8 @@
     },
     {
       "path": "Quiz-Pal-HTML/THIRD_PARTY_NOTICES.md",
-      "size": 4891,
-      "sha256": "d1312bdc94ae44500d870ff15f83fe39f4eb3d1396358cf40cddedf6d280b618"
+      "size": 5557,
+      "sha256": "2b6d9ad6cc8f9fa96e352bdd8c64a4872dd11817553de3856428af0e2ef70e5b"
     }
   ]
 }

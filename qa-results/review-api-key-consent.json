@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "Default temporary key disappears after a full browser restart",
+    "Consent cancellation leaves no persistent key",
+    "Approved key persists in the local profile but neither key nor consent store enters the actual JSON save",
+    "Full restart restores the approved API key without displaying its value",
+    "Revoking persistence keeps this session usable but leaves no key after restart",
+    "Delete removes both persistent and current keys",
+    "Changing the API endpoint removes its saved key and consent",
+    "Loading that backup into a clean profile does not import a key or grant storage permission"
+  ],
+  "errors": [],
+  "scope": "Fresh final HTML ZIP; isolated persistent Chrome profiles and dummy API key only; offline, no live AI call"
+}

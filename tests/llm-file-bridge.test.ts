@@ -5,6 +5,8 @@ import { describe, expect, it, vi } from "vitest";
 
 describe("LLM bridge in local HTML files", () => {
   it.each(["file:///C:/Quiz-Pal-HTML/index.html", "file:///Users/example/Quiz-Pal-HTML/index.html", "file:///home/example/Quiz-Pal-HTML/index.html"])("handles settings and explanation routes without disk reads at %s", async (url) => {
+    // jsdom has no modal implementation; model the user's explicit session-only choice.
+    Object.defineProperty(HTMLDialogElement.prototype, "showModal", { configurable:true, value:function(this: HTMLDialogElement) { this.returnValue="session"; this.dispatchEvent(new Event("close")); } });
     document.body.replaceChildren(); localStorage.clear(); sessionStorage.clear();
     const external = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => new Response(JSON.stringify({ choices: [{ message: { content: "test answer" } }] }), { status: 200 }));
     const context: any = { document, localStorage, sessionStorage, location: new URL(url), URL, Response, fetch: external, setTimeout, clearTimeout, AbortController, console };

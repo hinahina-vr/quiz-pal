@@ -107,7 +107,7 @@
     }
     if (view === "quiz" && !localStorage.getItem("quiz-zen-product-intro-version")) {
       const hero = document.createElement("link");
-      hero.rel = "preload"; hero.as = "image"; hero.href = "./intro-art/tutor-flat.webp";
+      hero.rel = "preload"; hero.as = "image"; hero.href = "./intro-art/mascot-before-after-v2.webp";
       document.head.append(hero);
     }
     await checkStorage();

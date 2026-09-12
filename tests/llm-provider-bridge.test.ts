@@ -6,6 +6,8 @@ const originalFetch = window.fetch;
 
 describe("multi-provider LLM bridge", () => {
   it("keeps API keys session-only and normalizes five API response formats", async () => {
+    // jsdom has no modal implementation; model the user's explicit session-only choice.
+    Object.defineProperty(HTMLDialogElement.prototype, "showModal", { configurable:true, value:function(this: HTMLDialogElement) { this.returnValue="session"; this.dispatchEvent(new Event("close")); } });
     document.body.innerHTML = `
       <div class="llm-panel-toolbar"><label for="llmModelSelect">モデル</label><select id="llmModelSelect">
         <option value="deepseek/deepseek-v4-flash">a</option>

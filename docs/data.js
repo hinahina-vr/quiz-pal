@@ -197,10 +197,13 @@
             },
             {
               "id": "sample-ratio-2",
-              "prompt": "値が50%を表すものをすべて選んでください。（該当する選択肢の組合せ）",
+              "prompt": "値が50%を表すものをすべて選んでください。\n\nア：1/2\nイ：0.5\nウ：5\nエ：50/100\n\n該当するものをすべて含む組合せを選んでください。",
               "options": [
-                "A・B・D",
-                "A・B・D以外（Cを含む）"
+                "ア・イ・エ",
+                "イ・エ",
+                "ア・エ",
+                "ア・イ・ウ・エ",
+                "ア・イ"
               ],
               "answer": 0,
               "explanation": "1/2、0.5、50/100はいずれも同じ割合です。",
@@ -259,10 +262,13 @@
             },
             {
               "id": "sample-password-3",
-              "prompt": "パスワード管理ツールを使うときに適切な行動を選んでください。（該当する選択肢の組合せ）",
+              "prompt": "パスワード管理ツールを使うときに適切な行動を選んでください。\n\nア：強いマスターパスワードを使う\nイ：利用可能なら多要素認証を有効にする\nウ：マスターパスワードをSNSへ投稿する\nエ：復旧方法を確認しておく\n\n該当するものをすべて含む組合せを選んでください。",
               "options": [
-                "A・B・D",
-                "A・B・D以外（Cを含む）"
+                "ア・イ・エ",
+                "イ・エ",
+                "ア・エ",
+                "ア・イ・ウ・エ",
+                "ア・イ"
               ],
               "answer": 0,
               "explanation": "保護、追加認証、復旧手段の確認を組み合わせます。",
@@ -376,10 +382,13 @@
             },
             {
               "id": "sample-ip-4",
-              "prompt": "フィッシング対策として適切な行動をすべて選んでください。（該当する選択肢の組合せ）",
+              "prompt": "フィッシング対策として適切な行動をすべて選んでください。\n\nア：メールのリンク先を確認する\nイ：公式サイトをブックマークから開く\nウ：パスワードを返信で送る\nエ：多要素認証を利用する\n\n該当するものをすべて含む組合せを選んでください。",
               "options": [
-                "A・B・D",
-                "A・B・D以外（Cを含む）"
+                "ア・イ・エ",
+                "イ・エ",
+                "ア・エ",
+                "ア・イ・ウ・エ",
+                "ア・イ"
               ],
               "answer": 0,
               "explanation": "リンク先の確認、既知の正規経路、多要素認証は被害の予防に役立ちます。認証情報を返信してはいけません。",
@@ -2909,10 +2918,13 @@
             },
             {
               "id": "sample-electric-4",
-              "prompt": "電気工事の安全確保に役立つものをすべて選んでください。（該当する選択肢の組合せ）",
+              "prompt": "電気工事の安全確保に役立つものをすべて選んでください。\n\nア：作業前に電源を遮断する\nイ：検電器で無電圧を確認する\nウ：濡れた手で充電部に触れる\nエ：適切な保護具を使用する\n\n該当するものをすべて含む組合せを選んでください。",
               "options": [
-                "A・B・D",
-                "A・B・D以外（Cを含む）"
+                "ア・イ・エ",
+                "イ・エ",
+                "ア・エ",
+                "ア・イ・ウ・エ",
+                "ア・イ"
               ],
               "answer": 0,
               "explanation": "電源遮断、無電圧確認、適切な保護具は基本的な安全対策です。濡れた手で電気設備に触れてはいけません。",
@@ -2929,6 +2941,14 @@
     const saved = localStorage.getItem("local-quiz-studio-legacy-dataset-v1");
     const parsed = saved ? window.quizPalValidateLegacyDataset(JSON.parse(saved)) : null;
     if (Array.isArray(parsed?.manifest?.courses) && Array.isArray(parsed.courses)) {
+      // Repair only unchanged, previously broken bundled combinations. Keep user edits and progress IDs.
+      const bundledQuestions = new Map(defaultPayload.courses.flatMap(course => course.chapters.flatMap(chapter => chapter.questions)).map(question => [question.id, question]));
+      parsed.courses.forEach(course => course.chapters.forEach(chapter => {
+        chapter.questions = chapter.questions.map(question => {
+          const fixed = bundledQuestions.get(question.id);
+          return fixed && question.prompt.endsWith("（該当する選択肢の組合せ）") && question.options.some(option => option.includes("以外（")) ? { ...fixed } : question;
+        });
+      }));
       payload = parsed;
       if (Number(parsed.manifest.sampleContentVersion || 0) < 6) {
         const savedCourses = new Map(parsed.courses.map((course) => [String(course.id), course]));

@@ -862,3 +862,17 @@ dialog textarea:focus-visible { outline: 3px solid color-mix(in srgb, var(--stud
 }
 
 
+
+/* AI authoring is a regular workspace inside the studio, keeping navigation available. */
+.studio-shell .ai-author-inline { position: static; display: block; width: 100%; height: auto; max-width: 100%; max-height: none; margin: 0; overflow: visible; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; min-width: 0; }
+.ai-author-inline .ai-author-back { margin: 0 0 18px; }
+.ai-author-inline .ai-author-shell { display: block; height: auto; min-height: 0; overflow: visible; border: 1px solid var(--studio-line); border-radius: 16px; }
+.ai-author-inline .ai-author-content { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); height: auto; min-height: 480px; }
+.ai-author-inline .ai-chat-panel, .ai-author-inline .ai-preview-panel { min-width: 0; }
+.ai-author-inline .ai-chat-messages { max-height: 55dvh; overflow: auto; }
+@media (max-width: 1280px) { .ai-author-inline .ai-author-content { grid-template-columns: minmax(0, 1fr); } }
+.ai-author-inline .ai-author-target { grid-template-columns: minmax(0, 1fr); align-items: stretch; }
+.ai-author-inline .ai-target-grid, .ai-author-inline .ai-target-grid input, .ai-author-inline .ai-target-grid select { min-width: 0; }
+.ai-author-inline .ai-author-scope-tabs { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.ai-author-inline .ai-author-scope-tabs button strong { font-size: clamp(12px,1.3vw,20px); white-space: nowrap; }
+.ai-author-inline .ai-author-scope-tabs button small { font-size: clamp(10px,1vw,16px); }

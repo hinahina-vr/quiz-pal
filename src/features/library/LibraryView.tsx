@@ -119,6 +119,7 @@ export function LibraryView({ snapshot, reload, announce, preferredSubjectId, sh
 
   return (
     <section className="quiz-panel library-view" id="main-content">
+      {!aiScope && <>
       <header className="view-heading library-heading">
         <div><span className="eyebrow">QUESTION STUDIO</span><h1>教材をつくる</h1><p>{authoringMode === "choose" ? "まず、作り方を選んでください。" : "科目から順番に、迷わず編集できます。"}</p></div>
       </header>
@@ -262,6 +263,7 @@ export function LibraryView({ snapshot, reload, announce, preferredSubjectId, sh
           )}
         </div>
       )}
+      </>}
       {aiScope && <AiAuthorDialog
         initialScope={aiScope}
         snapshot={snapshot}

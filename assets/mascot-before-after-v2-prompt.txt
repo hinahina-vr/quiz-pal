@@ -1,0 +1,8 @@
+Built-in OpenAI imagegen, 2026-09-12. Author's original mascot and Quiz Pal logo adapted with explicit permission.
+
+Edit image 1, the study before/after diptych. Image 2 is the EXACT Quiz Pal logo character reference.
+Make ONLY these targeted changes:
+1. LEFT learner mascot has one missing eyebrow. Add a visible short dark-brown worried eyebrow above the eye on viewer's LEFT to form a natural balanced worried pair with the existing eyebrow on viewer's right. Put it clearly in the exposed forehead just above the eye, not hidden by hair. Keep the same tiny facial line style; preserve eyes, mouth, cheeks, hair and all identity.
+2. RIGHT scene: replace the round yellow floating chat companion with a small friendly teacher character based EXACTLY on logo image 2: golden-yellow rounded square speech-bubble body, short downward-left speech tail, dark plum outline, teal folded page corner at upper right, two dark-plum vertical eyes, small dark-plum curved smile, tiny orange cheeks. Its square folded-corner silhouette must remain recognizable; do NOT use a plain circle. No limbs necessary. Keep its friendly teacher/AI role and similar location.
+3. In the illustrated chat screen, make assistant reply icons use tiny versions of the same golden square logo. Retain the silver-haired pink-beret original mascot as the USER's icon; do not replace the learner with the logo. Nonverbal text-like lines and chat bubbles only.
+Everything else stays the same: both silver-haired pink-beret learner figures, cream sailor outfit/light blue collar/red ribbon, proportions, poses, left tangled search windows, right unified screen and saved diagram, wide 2:1 diptych layout and center split, all colors and clean cute style. No written text or watermark.

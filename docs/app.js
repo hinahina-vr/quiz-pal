@@ -1,3 +1,4 @@
+const LLM_FONT_SCALE_STORAGE_KEY = "quiz-zen-llm-font-scale-v1";
 /**
  * 学習画面の中心となる処理。科目・問題の切り替え、採点、学習記録、AIへの質問を画面操作につなぎます。
  * 基本の学習データはブラウザー内で扱い、AIへの通信は接続設定に応じて別の連携処理へ渡します。
@@ -13641,7 +13642,7 @@ function isTypableAnswer(value) {
 }
 
 function formatFor(question) {
-  return "four";
+  return question.format === "typing" ? "typing" : "four";
 }
 
 function currentViewQuestion() {
@@ -13667,7 +13668,7 @@ function fourChoiceView(question) {
   return {
     source: question,
     format: "four",
-    formatLabel: "5択",
+    formatLabel: `${question.options.length}択`,
     prompt: promptText(question),
     promptHtml: promptHtml(question),
     clues: [],
@@ -13762,6 +13763,12 @@ function typingView(question) {
 }
 
 function choiceOptions(question, count, salt) {
+  // Never borrow answers from other questions or invent extra choices.
+  const authored = question.options.map((text, index) => ({ key: `${question.id}:source:${index}`, text, html: optionHtmlFor(question, index), sourceIndex: index, correct: index === question.answer }));
+  return state.optionShuffleMode ? seededChoiceShuffle(authored, optionShuffleSeed(question, `${salt}:source-final`)) : authored;
+}
+
+function legacyGeneratedChoiceOptions(question, count, salt) {
   const correct = {
     key: `${question.id}:answer`,
     text: answerText(question),
@@ -16771,7 +16778,7 @@ function llmAnswerClipboardText() {
 
 function setLlmCopyButtonIcon(iconName) {
   if (!els.llmCopyButton) return;
-  els.llmCopyButton.innerHTML = `<i data-lucide="${iconName}"></i>`;
+  els.llmCopyButton.innerHTML = `<i data-lucide="${iconName}"></i><span>コピー</span>`;
   if (window.lucide) window.lucide.createIcons();
 }
 
@@ -16835,6 +16842,7 @@ function setLlmImageStatus(message, kind = "") {
   if (!els.llmImageStatus) return;
   els.llmImageStatus.textContent = String(message || "");
   els.llmImageStatus.dataset.kind = kind;
+  window.QuizStudyPanels?.imageStatusChanged(message, kind, llmImagesSaving);
 }
 
 function llmImageStorageStatus(items = llmImageItems) {
@@ -16926,6 +16934,7 @@ async function writeLocalLlmImages(items) {
 }
 
 function renderLlmImageLibrary() {
+  window.QuizStudyPanels?.imagesChanged(llmImageItems, llmImagesLoading, els.llmImageStatus?.textContent, els.llmImageStatus?.dataset.kind, llmImagesSaving);
   els.explanationImagesButton?.setAttribute("aria-expanded", String(llmImageLibraryOpen));
   els.llmImageLibraryToggle?.classList.toggle("active", llmImageLibraryOpen);
   els.llmImageLibraryToggle?.setAttribute("aria-expanded", String(llmImageLibraryOpen));
@@ -16956,7 +16965,9 @@ function renderLlmImageLibrary() {
       image.setAttribute("role", "button");
       image.setAttribute("aria-label", item.name + "を拡大表示");
       image.setAttribute("aria-expanded", "false");
+      image.dataset.studyImageId = item.id;
       const toggleImage = () => {
+        if (window.QuizStudyPanels) { setLlmImageLibraryOpen(false); window.QuizStudyPanels.openImage(image); return; }
         const expanded = card.classList.toggle("expanded");
         image.setAttribute("aria-expanded", String(expanded));
         image.setAttribute("aria-label", item.name + (expanded ? "を縮小表示" : "を拡大表示"));
@@ -17057,7 +17068,7 @@ async function addLocalLlmImages(files) {
   if (llmImagesSaving) return;
   const candidates = [...(files || [])].filter((file) => file instanceof File);
   if (!candidates.length) return;
-  setLlmImageLibraryOpen(true);
+  if (!window.QuizStudyPanels?.isImageOpen()) setLlmImageLibraryOpen(true);
   if (!llmImagesLoaded) await refreshLlmImages();
   llmImagesSaving = true;
   renderLlmImageLibrary();
@@ -17142,7 +17153,41 @@ function renderLlmModelOptions() {
   els.llmModelSelect.value = state.llmModel;
 }
 
+function loadLlmFontScale() {
+  try {
+    const value = Number(localStorage.getItem(LLM_FONT_SCALE_STORAGE_KEY));
+    return Number.isFinite(value) && value >= 80 && value <= 200 ? Math.round(value / 10) * 10 : 100;
+  } catch { return 100; }
+}
+
+function renderLlmFontControls() {
+  els.llmExplanationBody?.style.setProperty("--llm-font-scale", String(state.llmFontScale / 100));
+  if (els.llmFontDecrease) els.llmFontDecrease.disabled = state.llmFontScale <= 80;
+  if (els.llmFontIncrease) els.llmFontIncrease.disabled = state.llmFontScale >= 200;
+  if (els.llmFontReset) {
+    els.llmFontReset.querySelector("span").textContent = `${state.llmFontScale}%`;
+    els.llmFontReset.setAttribute("aria-label", `文字サイズ${state.llmFontScale}%、100%に戻す`);
+    els.llmFontReset.disabled = state.llmFontScale === 100;
+  }
+}
+
+function setLlmFontScale(value) {
+  const body = els.llmExplanationBody;
+  const bounds = body?.getBoundingClientRect();
+  const anchor = bounds && [...body.querySelectorAll(".llm-markdown > *, .llm-message-user > p, .llm-option-reference")]
+    .find(element => { const rect = element.getBoundingClientRect(); return rect.bottom > bounds.top + 1 && rect.top < bounds.bottom; });
+  const anchorTop = anchor?.getBoundingClientRect().top;
+  state.llmFontScale = Math.max(80, Math.min(200, Math.round(value / 10) * 10));
+  try { localStorage.setItem(LLM_FONT_SCALE_STORAGE_KEY, String(state.llmFontScale)); } catch { /* Keep this page's reading size. */ }
+  renderLlmFontControls();
+  // Resize the existing content in place, keeping the visible reading block in position.
+  if (anchor) body.scrollTop += anchor.getBoundingClientRect().top - anchorTop;
+}
+
+
 function setLlmPanelOpen(open) {
+  window.QuizStudyPanels?.explanationVisibilityChanged(open);
+  renderLlmFontControls();
   if (!els.llmExplanationPanel) return;
   els.llmExplanationPanel.hidden = !open;
   els.llmExplanationPanel.classList.toggle("hidden", !open);
@@ -17708,14 +17753,7 @@ async function saveLlmApiKey() {
     });
     els.llmApiKeyInput.value = "";
     renderLlmSettingsStatus(llmSettingsCache);
-    // ローカル版は次回用の保存許可を続けて選べるよう、設定画面に留まります。
-    if (location.protocol === "file:" && document.querySelector("#llmRememberApiKey")) {
-      setLlmStatus("APIキーを保存しました。次回も使う場合は保存のチェックを入れてください", "success");
-      return;
-    }
-    setLlmSettingsOpen(false);
-    setLlmStatus("APIキーを保存しました", "success");
-    await generateLlmExplanation();
+    setLlmStatus("APIキーを設定しました", "success");
   } catch (error) {
     if (els.llmSettingsStatus) els.llmSettingsStatus.textContent = error?.message || "APIキーを保存できませんでした";
   } finally {
@@ -20529,7 +20567,7 @@ els.llmTeachButton?.addEventListener("click", (event) => {
 });
 els.llmCopyButton?.addEventListener("click", copyLlmAnswers);
 els.llmPanelClose?.addEventListener("click", () => setLlmPanelOpen(false));
-els.explanationImagesButton?.addEventListener("click", () => setLlmImageLibraryOpen(true));
+// The imported study panel owns the explanation-image launcher.
 els.explanationImagesClose?.addEventListener("click", () => setLlmImageLibraryOpen(false));
 els.explanationImagesDialog?.addEventListener("keydown", (event) => event.stopPropagation());
 els.explanationImagesDialog?.addEventListener("close", () => {
@@ -20928,3 +20966,12 @@ function positionUnderstandingMenu() {
 els.understandingToggle?.addEventListener("toggle", positionUnderstandingMenu);
 window.addEventListener("resize", positionUnderstandingMenu);
 window.addEventListener("scroll", positionUnderstandingMenu, true);
+
+state.llmFontScale = loadLlmFontScale();
+els.llmFontDecrease = document.querySelector('#llmFontDecrease');
+els.llmFontIncrease = document.querySelector('#llmFontIncrease');
+els.llmFontReset = document.querySelector('#llmFontReset');
+els.llmFontDecrease?.addEventListener('click', () => setLlmFontScale(state.llmFontScale - 10));
+els.llmFontIncrease?.addEventListener('click', () => setLlmFontScale(state.llmFontScale + 10));
+els.llmFontReset?.addEventListener('click', () => setLlmFontScale(100));
+renderLlmFontControls();

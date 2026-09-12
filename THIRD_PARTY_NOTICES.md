@@ -87,3 +87,7 @@ attribution, and identify modifications:
 
 - https://www.ipa.go.jp/shiken/mondai-kaiotu/index.html
 - https://www.ipa.go.jp/shiken/faq.html
+
+## Original mascot illustrations
+
+`public/intro-art/mascot-before-after-v2.webp` and `public/intro-art/quizpal-teacher.webp` were generated with OpenAI imagegen on 2026-09-12 using the author's original mascot and Quiz Pal logo references with explicit permission. The learner mascot belongs to the author, ひなひな; the teacher uses the Quiz Pal logo motif. Source images and prompts are in `assets/mascot-before-after-v2-*` and `assets/quizpal-teacher-*`. The comparison illustrates the learning concept; it is not a screenshot of an AI service. Labels are separate accessible HTML. Source images are encoded as WebP for delivery without an external runtime.

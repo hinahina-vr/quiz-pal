@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./performance.css?v=20260908-performance" />
     <link rel="stylesheet" href="./release-layout.css?v=1.0.0-release" />
       <link rel="stylesheet" href="./readable-ui.css?v=20260912" />
+<link rel="stylesheet" href="./study-panels.css" />
 </head>
   <body>
     <div class="theme-backdrop" aria-hidden="true">
@@ -93,20 +94,6 @@
           <a href="./legal.html"><i data-lucide="shield-check" aria-hidden="true"></i><span>利用条件・プライバシー</span></a>
           <a href="https://github.com/hinahina-vr/quiz-pal" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><i data-lucide="code-2" aria-hidden="true"></i><span>GitHub・ライセンス</span></a>
         </nav>
-
-        <div class="completed-course-panel">
-          <button class="completed-course-toggle" id="completedCoursesToggle" type="button" aria-expanded="false" aria-controls="completedCourseSwitch">
-            <i data-lucide="archive"></i>
-            <span>修了科目</span>
-            <small>3</small>
-            <i class="completed-course-chevron" data-lucide="chevron-down"></i>
-          </button>
-          <div class="completed-course-switch" id="completedCourseSwitch" role="tablist" aria-label="修了科目" hidden>
-            <button class="course-tab completed-course-tab" data-course="anthropocene" data-completed-course type="button">人新世</button>
-            <button class="course-tab completed-course-tab" data-course="bigdata" data-completed-course type="button">ビッグデータ</button>
-            <button class="course-tab completed-course-tab" data-course="kigurumi-mask" data-completed-course type="button">着ぐるみ</button>
-          </div>
-        </div>
 
         <div class="course-switch" role="tablist" aria-label="科目切替" data-quiz-tour-id="courses">
           <button class="course-tab" data-course="reverse-science-history" type="button">逆さ科学史</button>
@@ -330,16 +317,7 @@
               <div class="question-head">
                 <span class="question-chip" id="questionNumber">Q1</span>
                 <span class="variant-chip" id="variantChip">source</span>
-                <button
-                  class="question-source-button"
-                  id="questionSourceButton"
-                  type="button"
-                  aria-haspopup="dialog"
-                  aria-controls="questionSourceDialog"
-                  hidden
-                >
-                  <i data-lucide="book-open"></i><span>出典はこちら</span>
-                </button>
+
                 <button
                   class="question-frequency-badge hidden"
                   id="questionFrequencyBadge"
@@ -396,6 +374,16 @@
                 </div>
               </div>
               <p class="question-text" id="questionText"></p>
+              <div class="question-source-footer"><button
+                  class="question-source-button"
+                  id="questionSourceButton"
+                  type="button"
+                  aria-haspopup="dialog"
+                  aria-controls="questionSourceDialog"
+                  hidden
+                >
+                  <i data-lucide="book-open"></i><span>出典はこちら</span>
+                </button></div>
             </div>
             <div class="time-card">
               <strong id="timerValue">60</strong>
@@ -629,13 +617,13 @@
         </div>
         <div class="llm-panel-actions">
           <button id="llmImageLibraryToggle" type="button" title="解説画像" aria-label="解説画像" aria-haspopup="dialog" aria-controls="explanationImagesDialog" aria-expanded="false">
-            <i data-lucide="images"></i>
+            <i data-lucide="images"></i><span>画像</span>
           </button>
           <button id="llmCopyButton" type="button" title="表示中のLLM回答をコピー" aria-label="表示中のLLM回答をコピー" disabled>
-            <i data-lucide="copy"></i>
+            <i data-lucide="copy"></i><span>コピー</span>
           </button>
           <button id="llmSettingsToggle" type="button" title="OpenRouter設定" aria-label="OpenRouter設定" aria-expanded="false">
-            <i data-lucide="settings-2"></i>
+            <i data-lucide="settings-2"></i><span>設定</span>
           </button>
           <button id="llmPanelClose" type="button" title="閉じる" aria-label="閉じる">
             <i data-lucide="x"></i>
@@ -672,7 +660,16 @@
         <p id="llmApiKeyStorageNote">APIキーはこのタブのセッション中だけ保持され、タブを閉じた後は再入力が必要です。</p>
       </div>
 
-      <div class="llm-panel-status" id="llmPanelStatus" role="status" aria-live="polite"></div>
+      <div class="llm-reading-bar">
+        <div class="llm-panel-status" id="llmPanelStatus" role="status" aria-live="polite"></div>
+        <div class="llm-font-controls" role="group" aria-label="解説の文字サイズ">
+          <span>文字</span>
+          <button id="llmFontDecrease" type="button" title="解説の文字を小さくする" aria-label="解説の文字を小さくする">A−</button>
+          <button id="llmFontReset" type="button" title="文字サイズを100%に戻す" aria-label="文字サイズを100%に戻す"><span aria-live="polite">100%</span></button>
+          <button id="llmFontIncrease" type="button" title="解説の文字を大きくする" aria-label="解説の文字を大きくする">A＋</button>
+        </div>
+      </div>
+
       <div class="llm-explanation-body" id="llmExplanationBody" aria-live="polite"></div>
       <div class="llm-conversation-controls">
         <div class="llm-follow-up-suggestions" id="llmFollowUpSuggestions" aria-label="質問の例">
@@ -700,6 +697,7 @@
     <script src="./app.js?v=1.0.0-release"></script>
     <script src="./quiz-tour.js?v=1.0.0-guide-opt-out"></script>
     <script src="./product-intro.js?v=1.0.0-guide-opt-out"></script>
-  </body>
+  <script src="./study-panels.js"></script>
+</body>
 </html>
 

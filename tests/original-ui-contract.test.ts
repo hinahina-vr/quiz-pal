@@ -21,6 +21,7 @@ describe("Quiz Pal UI contract", () => {
   it("keeps the reviewed quiz HTML snapshot at the browser-native runtime boundary", async () => {
     const html = await read("index.html");
     const publication = JSON.parse(await read("publication.config.json"));
+    // Reviewed: remove completed sidebar panel and label tutor actions.
     const normalized = html
       .replace("quiz-tour.css?v=1.0.0-guide-opt-out", "quiz-tour.css?v=20260908-guide")
       .replace("quiz-tour.js?v=1.0.0-guide-opt-out", "quiz-tour.js?v=1.0.0-release")
@@ -28,29 +29,32 @@ describe("Quiz Pal UI contract", () => {
       .replaceAll(`https://github.com/${publication.owner}/${publication.repository}`, "__PUBLIC_REPOSITORY__")
       .replace('    <link rel="stylesheet" href="./native-math.css?v=1" />\n    <script src="./native-runtime.js?v=1"></script>', '    <script src="./vendor/lucide/lucide.min.js?v=1.34.0"></script>')
       .replace('    <script src="./data.js?v=20260709-math-ii-training"></script>', '    <script src="./vendor/markdown/marked.umd.js?v=18.0.9"></script>\n    <script src="./vendor/markdown/purify.min.js?v=3.4.13"></script>\n    <script src="./data.js?v=20260709-math-ii-training"></script>');
+    // Reviewed: source link moved into the question board.
     // Reviewed v1.0: understanding popover and grouped image/AI actions; browser regression in check-question-controls.cjs.
-    expect(hash(normalized)).toBe("0bf13d9af3616f8454c43d6908add3f5888b325f278011b9b87da383e17d9e8f");
+    expect(hash(normalized)).toBe("272ed1e5f6bff892dd6c5fb7774ad24406989fb3ae196267655efc612c4ecff4");
   });
 
   it("keeps the reviewed quiz runtime snapshot at math-runtime asset paths", async () => {
     const app = await read("public/app.js");
+    // Reviewed: preserve authored question formats; integrate tutor font controls and image-window hooks.
     const normalized = app
       .replace('./native-math.css?v=1', './vendor/katex/katex.min.css?v=0.17.0')
       .replace('./native-runtime.js?v=1', './vendor/katex/katex.min.js?v=0.17.0')
       .replace('./native-runtime.js?v=1', './vendor/katex/contrib/auto-render.min.js?v=0.17.0')
       .replace('    const raw = String(value || "").trim();\n    if (!raw) return "";\n    const url = new URL(raw, location.href);', '    const url = new URL(String(value || ""), location.href);');
+    // Reviewed: all key saves now ask storage mode and stay in settings without an automatic paid request.
     // Reviewed: local key save stays in settings so the user can choose consent; no automatic AI request in that flow. Also derive completed courses from stored subjects and select an active course on startup, and preserve/validate completion in full backups.
-    expect(hash(normalized)).toBe("12ac50e95fdc84706f8c08c17c8de5bbc641323fb09c89a606bd61a8bb94575d");
+    expect(hash(normalized)).toBe("4c63e8981b29e266ff5959909a2a94a329cd545e5aac958275d1f0e9b01b163b");
   });
 
-  it("fixes the quiz UI to five choices without a format selector", async () => {
+  it("preserves authored question formats without a format selector", async () => {
     const [html, app] = await Promise.all([read("index.html"), read("public/app.js")]);
     expect(html).not.toContain("format-switch");
     expect(html).not.toContain("format-tab");
     expect(html).not.toContain("出題形式");
     expect(html.match(/<strong id="(?:formatLabel|sideFormatLabel)">5択<\/strong>/g)).toHaveLength(2);
-    expect(app).toContain('formatLabel: "5択"');
-    expect(app).toContain("completeChoiceOptions([correct, ...selectedWrongs.slice(0, count - 1)], question, count)");
+    expect(app).toContain('formatLabel: `${question.options.length}択`');
+    expect(app).toContain('return question.format === "typing" ? "typing" : "four";');
     expect(app).not.toContain("state.formatMode");
   });
 
@@ -146,10 +150,11 @@ describe("Quiz Pal UI contract", () => {
       read("index.html"), read("src/App.tsx"), read("public/site-links.css"),
     ]);
     const releaseUrl = "./downloads/Quiz-Pal-HTML.zip";
+    expect(html).toContain(releaseUrl);
+    expect(html).toContain("このアプリを持ち帰る");
+    expect(html).toContain("インストール不要");
+    expect(studio).not.toContain("portable-promo");
     [html, studio].forEach((page) => {
-      expect(page).toContain(releaseUrl);
-      expect(page).toContain("このアプリを持ち帰る");
-      expect(page).toContain("インストール不要");
       expect(page).toContain("利用条件・プライバシー");
       expect(page).toContain("./legal.html");
     });

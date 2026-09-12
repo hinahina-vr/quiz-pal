@@ -13,24 +13,6 @@ import { applyStoredVisualTheme, VISUAL_THEME_STORAGE_KEY } from "./theme";
 const DataDialog = lazy(() => import("./features/backup/DataDialog").then((module) => ({ default: module.DataDialog })));
 const emptySnapshot: LibrarySnapshot = { subjects: [], sections: [], questions: [], attempts: [], questionStates: [], studySessions: [] };
 
-const preferredSubjectNameLines = new Map<string, readonly string[]>([
-  ["Web安全の基礎", ["Web安全", "の基礎"]],
-  ["基本情報技術者", ["基本情報", "技術者"]],
-  ["応用情報技術者", ["応用情報", "技術者"]],
-  ["第二種電気工事士", ["第二種", "電気工事士"]],
-]);
-
-function SubjectTabLabel({ name }: { name: string }) {
-  const lines = preferredSubjectNameLines.get(name);
-  if (!lines) return <>{name}</>;
-  return <>
-    <span className="course-tab-label" aria-hidden="true">
-      {lines.map((line) => <span className="course-tab-line" key={line}>{line}</span>)}
-    </span>
-    <span className="studio-sr-only">{name}</span>
-  </>;
-}
-
 export default function App() {
   const [snapshot, setSnapshot] = useState<LibrarySnapshot>(emptySnapshot);
   const [ready, setReady] = useState(false);
@@ -39,7 +21,7 @@ export default function App() {
   const [tourKey, setTourKey] = useState(0);
   const [forceTour, setForceTour] = useState(false);
   const [announcement, setAnnouncement] = useState("");
-  const [selectedSubjectId, setSelectedSubjectId] = useState("");
+  const [selectedSubjectId] = useState("");
   const [showCompletedSubjects, setShowCompletedSubjects] = useState(false);
   const reload = useCallback(async () => {
     const next = await loadSnapshot();
@@ -89,18 +71,7 @@ export default function App() {
     <a className="studio-skip-link" href="#main-content">本文へ移動</a>
     <aside className="sidebar" aria-label="教材管理">
       <a className="brand" href="./" aria-label="Quiz Pal クイズ画面へ戻る"><img className="brand-symbol" src="./favicon.svg?v=20260907-quiz-pal" width="46" height="46" alt="" aria-hidden="true" /><span><h1>Quiz Pal</h1><p>{snapshot.questions.length} QUESTIONS</p></span></a>
-      <a className="portable-promo portable-promo-compact" href="./downloads/Quiz-Pal-HTML.zip" target="_blank" rel="noopener noreferrer" referrerPolicy="no-referrer" aria-label="インストール不要のHTML共通版をダウンロードする">
-        <span className="portable-promo-icon" aria-hidden="true">↓</span>
-        <span className="portable-promo-copy"><small>WINDOWS / MAC / LINUX</small><strong>このアプリを持ち帰る</strong><em>ZIPを展開してHTMLを開く</em></span>
-        <span className="portable-promo-badge">インストール不要</span>
-      </a>
       <nav className="sidebar-site-links" aria-label="このアプリについて"><a href="./legal.html"><span aria-hidden="true">◇</span><span>利用条件・プライバシー</span></a><a href="https://github.com/hinahina-vr/quiz-pal" target="_blank" rel="noopener noreferrer" referrerPolicy="no-referrer"><span aria-hidden="true">&lt;/&gt;</span><span>GitHub・ライセンス</span></a></nav>
-      <p className="sidebar-label">教材の科目</p>
-      <div className="course-switch" data-tour-id="library">
-        {snapshot.subjects.filter(subject => !subject.completed).map((subject) => <button type="button" className={`course-tab${selectedSubjectId === subject.id ? " active" : ""}`} key={subject.id} onClick={() => setSelectedSubjectId(subject.id)} style={{ "--active": subject.color } as React.CSSProperties}><SubjectTabLabel name={subject.name} /></button>)}
-      </div>
-      <button type="button" className="completed-subject-toggle" aria-expanded={showCompletedSubjects} onClick={() => setShowCompletedSubjects(!showCompletedSubjects)}>修了科目 <span>{snapshot.subjects.filter(subject => subject.completed).length}</span></button>
-      {showCompletedSubjects && <div className="completed-subject-list">{snapshot.subjects.filter(subject => subject.completed).map(subject => <button type="button" className="course-tab" key={subject.id} onClick={() => setSelectedSubjectId(subject.id)}>{subject.name}</button>)}</div>}
       <div className="chapter-list studio-chapter-list">
         <a className="chapter-button" href="./" data-tour-id="practice"><span className="chapter-no">Q</span><span className="chapter-name">クイズへ戻る</span><span className="chapter-score">PLAY</span></a>
         <button type="button" className="chapter-button active" onClick={() => setDataOpen(true)} data-tour-id="data"><span className="chapter-no">D</span><span className="chapter-name">データ管理</span><span className="chapter-score">CSV</span></button>

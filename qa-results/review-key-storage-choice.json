@@ -1,0 +1,13 @@
+{
+  "pass": true,
+  "url": "file:///C:/Users/wdddi/Documents/Codex/2026-09-07/local-quiz-studio-astra-handoff/work/contest-public/release-v1-final/Quiz-Pal-HTML/index.html",
+  "checks": [
+    "cancel does not save",
+    "risk text before consent",
+    "profile survives browser restart",
+    "session choice removes persistence and does not survive restart",
+    "delete removes key",
+    "390px choice dialog"
+  ],
+  "liveApi": false
+}

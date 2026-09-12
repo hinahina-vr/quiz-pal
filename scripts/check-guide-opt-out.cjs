@@ -11,6 +11,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),{pathToFileURL}=r
   await page.locator('.quiz-tour-skip').click();await page.reload();await page.locator('.product-intro-close').click();await expect(page.locator('#quizGuideDoNotShow')).toBeVisible();
   await page.locator('#quizGuideDoNotShow').check();await page.keyboard.press('Tab');await expect(page.locator('.quiz-tour-skip')).toBeFocused();
   for(let i=0;i<8;i++)await page.locator('.quiz-tour-next').click();await expect(page.locator('#quizGuideDoNotShow')).toBeChecked();
+  await page.waitForTimeout(200);
   await page.screenshot({path:path.join(out,`guide-${width}.png`)});
   const box=await page.locator('.quiz-tour-card').boundingBox();expect(box.x).toBeGreaterThanOrEqual(0);expect(box.y).toBeGreaterThanOrEqual(0);expect(box.x+box.width).toBeLessThanOrEqual(width+1);expect(box.y+box.height).toBeLessThanOrEqual(height+1);
   await page.locator('.quiz-tour-next').click();await page.reload();await page.locator('.product-intro-close').click();await expect(page.locator('.quiz-tour-card')).toHaveCount(0);

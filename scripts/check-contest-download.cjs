@@ -46,12 +46,15 @@ const fs=require('node:fs/promises'),path=require('node:path'),crypto=require('n
     const correct=await page.evaluate(()=>currentViewQuestion().options.findIndex(o=>o.correct));await page.locator('#options .option-button').nth(correct).click();
     await expect(page.locator('.exam-group-button.active .chapter-score')).toHaveText('1/19正解');
     const fixture=path.join(out,'explanation-fixture.png');await page.locator('#questionText').screenshot({path:fixture});
-    await page.locator('#explanationImagesButton').click();const chooser=page.waitForEvent('filechooser');await page.locator('#llmImageAdd').click();await(await chooser).setFiles(fixture);
-    await expect(page.locator('#llmImageGallery img')).toHaveCount(1);await page.locator('#explanationImagesClose').click();
+    await page.locator('#explanationImagesButton').click();const chooser=page.waitForEvent('filechooser');await page.locator('.study-image-panel [data-action=register]').click();await(await chooser).setFiles(fixture);
+    await expect(page.locator('#llmImageGallery img')).toHaveCount(1);await page.locator('.study-image-panel [data-action=close]').click();
     await page.locator('.maintenance-entry').click();await expect(page.locator('.studio-shell')).toBeVisible();
     const skip=page.getByRole('button',{name:'スキップ',exact:true});if(await skip.isVisible())await skip.click();
     await page.locator('[data-tour-id="manual-author"]').click();await page.getByLabel('科目名',{exact:true}).fill('WebからHTML移行QA');await page.getByRole('button',{name:'保存',exact:true}).click();
-    await expect(page.locator('.course-switch')).toContainText('WebからHTML移行QA');
+    await expect(page.locator('.manual-list-pane')).toContainText('WebからHTML移行QA');
+    await expect(page.locator('.studio-shell .sidebar .portable-promo')).toHaveCount(0);
+    await expect(page.locator('.studio-shell .sidebar .course-switch')).toHaveCount(0);
+    await page.screenshot({path:path.join(out,'studio-sidebar.png')});
     await page.goto(url);await expect(page.locator('.course-switch')).toContainText('WebからHTML移行QA');
     const saveEvent=page.waitForEvent('download');await page.locator('#fullDataSaveButton').click();const save=await saveEvent;await save.saveAs(path.join(out,'web-backup.json'));
     const saved=JSON.parse(await fs.readFile(path.join(out,'web-backup.json'),'utf8'));expect(saved.summary.llmImages).toBe(1);expect(saved.studio.stores.subjects.some(s=>s.name==='WebからHTML移行QA')).toBe(true);

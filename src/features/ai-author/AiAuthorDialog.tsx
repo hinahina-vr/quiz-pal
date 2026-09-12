@@ -102,7 +102,6 @@ export function AiAuthorDialog({ initialScope, snapshot, subject, section, onClo
   const [modelOptions, setModelOptions] = useState<string[]>([]);
   const controllerRef = useRef<AbortController | null>(null);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
 
   const providers = bridge()?.providers || [];
   const profile = slot ? bridge()?.getProfile(slot) : undefined;
@@ -142,16 +141,6 @@ export function AiAuthorDialog({ initialScope, snapshot, subject, section, onClo
     setProfileStatus(next.configured ? `${next.providerLabel} / API設定済み` : `${next.providerLabel} / APIキー未設定`);
   }, []);
 
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-    if (typeof dialog.showModal === "function") dialog.showModal();
-    else dialog.setAttribute("open", "");
-    return () => {
-      if (dialog.open && typeof dialog.close === "function") dialog.close();
-      else dialog.removeAttribute("open");
-    };
-  }, []);
 
   useEffect(() => {
     if (!messages.length && !loading) return;
@@ -314,20 +303,19 @@ export function AiAuthorDialog({ initialScope, snapshot, subject, section, onClo
     if (saving) return;
     if (loading) {
       controllerRef.current?.abort();
-      return;
     }
     onClose();
   };
 
   return (
-    <dialog ref={dialogRef} className="ai-author-dialog" aria-modal="true" aria-labelledby="ai-author-title" onCancel={(event) => { event.preventDefault(); cancel(); }}>
+    <section className="ai-author-dialog ai-author-inline" aria-labelledby="ai-author-title">
+      <button className="workflow-back-button ai-author-back" type="button" onClick={cancel} disabled={saving}>← 作り方を選び直す</button>
       <div className="ai-author-shell">
         <header className="dialog-header ai-author-header">
           <div className="ai-author-brand">
             <span className="ai-author-mark" aria-hidden="true">AI</span>
             <div><small>AI AUTHORING STUDIO</small><h2 id="ai-author-title">AIと問題をつくる</h2><p>相談しながら、保存前にすべて確認できます。</p></div>
           </div>
-          <button className="close-button" type="button" onClick={cancel} disabled={saving} aria-label={loading ? "生成を中止" : "閉じる"}>×</button>
         </header>
 
         <div className="ai-author-scope-tabs" role="tablist" aria-label="作成単位">
@@ -442,7 +430,7 @@ export function AiAuthorDialog({ initialScope, snapshot, subject, section, onClo
           </section>
         </div>
       </div>
-    </dialog>
+    </section>
   );
 }
 

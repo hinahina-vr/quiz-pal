@@ -1,0 +1,186 @@
+/* Reading windows deliberately have no backdrop or page scroll lock. */
+.llm-launch-actions {display:inline-flex;align-items:center;gap:6px;flex-shrink:0;max-width:100%;}
+.llm-diagram-button {display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:7px 13px;border:1px solid #66bdc6;border-radius:9px;background:linear-gradient(135deg,#164b64,#143e49);color:#e8fffa;font:inherit;font-weight:800;cursor:pointer;}
+.llm-diagram-button svg {width:18px;height:18px;color:#93ecdf;}
+.study-image-count {padding:1px 5px;border-radius:5px;background:#a1eadb;color:#153b44;font-size:11px;white-space:nowrap;}
+.study-image-count[hidden],.study-image-gallery[hidden],.study-image-thumbnails[hidden],.study-image-navigation>[hidden] {display:none!important;}
+.llm-diagram-button:hover,.llm-diagram-button.active {background:#246576;box-shadow:0 0 0 2px #97e7dc55;}
+.study-floating-panel {position:fixed;z-index:1450;box-sizing:border-box;min-width:0;min-height:0;overflow:hidden;border:1px solid #6fa7b5;border-radius:12px;background:#0e2938;color:#eafffb;box-shadow:0 14px 48px #0007;font-family:system-ui,"Meiryo",sans-serif;}
+.study-floating-panel[hidden],.study-image-object[hidden],.study-image-controls select[hidden] {display:none!important;}
+.study-positioned {position:fixed!important;right:auto!important;bottom:auto!important;max-width:none!important;max-height:none!important;transition:none!important;}
+.study-window-header {display:flex;align-items:center;gap:8px;background:linear-gradient(110deg,#176d73,#23415f);padding:7px 9px;border-bottom:1px solid #73afbf55;min-height:40px;box-sizing:border-box;}
+.study-move-handle {cursor:grab;touch-action:none;user-select:none;}
+.study-move-handle:active {cursor:grabbing;}
+.study-window-header .study-move-handle {display:flex;gap:8px;align-items:center;flex:1;min-width:0;align-self:stretch;}
+.study-window-header strong {overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:15px;}
+.study-floating-panel button,.study-content-tabs button {font:inherit;font-size:12px;font-weight:700;line-height:1.3;min-height:30px;border:1px solid #6b96a1;border-radius:6px;background:#153847;color:#f1fffc;padding:5px 8px;cursor:pointer;}
+.study-floating-panel button:hover,.study-content-tabs button:hover {background:#276273;}
+.study-floating-panel button:focus-visible,.study-move-handle:focus-visible,.study-content-tabs button:focus-visible {outline:2px solid #72efce;outline-offset:-3px;}
+.study-floating-panel button[aria-pressed="true"],.study-content-tabs button[aria-pressed="true"] {background:#a1eadb;color:#153b44;border-color:#bef9ec;}
+.study-image-panel {display:flex;flex-direction:column;}
+.study-window-expanded>.study-window-header,.study-window-expanded>.study-image-toolbar,.study-window-expanded>.study-image-controls,.study-window-expanded>.study-image-help {box-sizing:border-box;max-width:var(--study-window-controls-width);}
+.study-image-panel>.study-window-header,.study-image-toolbar,.study-image-controls,.study-image-help {flex-shrink:0;}
+.study-image-toolbar {display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding:7px 9px;background:#0a2531;}
+.study-placement {display:flex;gap:4px;flex-wrap:wrap;}
+.study-image-controls {display:flex;flex-direction:column;align-items:stretch;gap:5px;padding:4px 9px 8px;border-bottom:1px solid #6b96a155;}
+.study-image-zoom {display:flex;align-items:center;gap:5px;max-width:100%;overflow-x:auto;}
+.study-image-zoom button,.study-image-zoom output {flex-shrink:0;white-space:nowrap;}
+.study-image-controls select {flex:none;width:100%;min-width:0;max-width:100%;height:30px;color:#effcfb;background:#153847;border:1px solid #6b96a1;border-radius:5px;font:inherit;font-size:12px;}
+.study-image-controls output {font-size:11px;min-width:34px;color:#a9d8db;}
+.study-image-gallery {display:grid;gap:6px;min-width:0;}
+.study-image-navigation {display:flex;align-items:center;gap:4px;min-width:0;}
+.study-image-navigation button {flex:0 0 30px;min-width:30px;padding:3px;font-size:20px;}
+.study-image-navigation button:disabled {opacity:.35;cursor:default;}
+.study-image-navigation select {flex:1;min-width:0;width:0;}
+.study-image-position {flex:none;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.study-image-thumbnails {display:flex;gap:6px;overflow-x:auto;overscroll-behavior-x:contain;min-width:0;padding:2px 0 4px;}
+.study-floating-panel .study-image-thumbnail {position:relative;display:grid;gap:3px;flex:0 0 86px;min-width:86px;padding:4px;text-align:left;}
+.study-image-thumbnail img {display:block;width:76px;height:48px;object-fit:contain;background:#e7eff0;border-radius:3px;}
+.study-image-thumbnail-number {position:absolute;top:5px;left:5px;min-width:17px;line-height:17px;text-align:center;border-radius:3px;background:#153847df;color:#fff;font-size:10px;}
+.study-image-thumbnail-name {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:76px;font-size:10px;line-height:14px;}
+.study-image-viewport {position:relative;flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;background-color:#e7eff0;background-image:linear-gradient(45deg,#dce8e955 25%,transparent 25%,transparent 75%,#dce8e955 75%),linear-gradient(45deg,#dce8e955 25%,transparent 25%,transparent 75%,#dce8e955 75%);background-size:20px 20px;background-position:0 0,10px 10px;}
+.study-image-canvas {display:grid;place-items:start; width:max-content;box-sizing:border-box;padding:0;}
+.study-image-object {position:relative;max-width:none!important;flex:none;}
+.study-image-object img {display:block!important;width:100%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:contain;border:0;border-radius:0;box-shadow:0 3px 18px #18405122;touch-action:none;user-select:none;cursor:grab;}
+.study-image-message {position:absolute;top:18px;left:18px;right:18px;margin:0;color:#315764;font-size:14px;line-height:1.7;pointer-events:none;}
+.study-image-message:empty {display:none;}
+.study-image-help {font-size:10px;line-height:1.5;padding:6px 28px 6px 10px;color:#aacbd1;}
+.study-window-resize {position:absolute!important;bottom:0;right:0;width:24px;min-height:24px!important;height:24px;padding:0!important;border:0!important;border-radius:6px 0 0 0!important;z-index:5;background:#236273!important;color:#c4f8ed!important;cursor:nwse-resize!important;touch-action:none;user-select:none;}
+.llm-explanation-panel>.study-window-edge-resize {position:absolute!important;z-index:6;min-width:0;min-height:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;touch-action:none;user-select:none;}
+.study-window-edge-resize:focus-visible {outline:2px solid #72efce;outline-offset:-2px;}
+.study-window-edge-resize[data-resize-edge="n"] {top:0;left:10px;right:10px;height:6px;cursor:ns-resize;}
+.study-window-edge-resize[data-resize-edge="s"] {bottom:0;left:10px;right:24px;height:6px;cursor:ns-resize;}
+.study-window-edge-resize[data-resize-edge="w"] {left:0;top:10px;bottom:10px;width:6px;cursor:ew-resize;}
+.study-window-edge-resize[data-resize-edge="e"] {right:0;top:10px;bottom:24px;width:6px;cursor:ew-resize;}
+.study-window-edge-resize[data-resize-edge="nw"],.study-window-edge-resize[data-resize-edge="ne"],.study-window-edge-resize[data-resize-edge="sw"] {width:10px;height:10px;}
+.study-window-edge-resize[data-resize-edge="nw"] {left:0;top:0;cursor:nwse-resize;}
+.study-window-edge-resize[data-resize-edge="ne"] {right:0;top:0;cursor:nesw-resize;}
+.study-window-edge-resize[data-resize-edge="sw"] {left:0;bottom:0;cursor:nesw-resize;}
+.llm-explanation-panel.loading-compact>.study-window-edge-resize {display:none!important;}
+.study-content-workspace {grid-row:6;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;}
+.study-content-workspace>.llm-explanation-body {flex:1;min-height:0;}
+.study-content-tabs {display:none;flex:none;gap:6px;padding:7px 12px;background:#102e3e;}
+.study-content-workspace.has-diagram>.study-content-tabs {display:flex;}
+.study-content-workspace.has-diagram[data-view="image"]>.llm-explanation-body,.study-content-workspace.has-diagram[data-view="text"]>.study-image-panel {display:none!important;}
+.study-image-panel.study-embedded {position:relative!important;inset:auto!important;width:100%!important;height:auto!important;flex:0 1 auto;min-height:0;border:0;border-radius:0;box-shadow:none;z-index:auto!important;}
+.study-embedded .study-image-viewport {flex:0 1 auto;width:fit-content;max-width:100%;}
+.study-image-panel:not(.study-embedded) .study-image-toolbar {flex-wrap:nowrap;overflow-x:auto;}
+.study-image-panel:not(.study-embedded) .study-placement {flex-wrap:nowrap;}
+.study-image-panel:not(.study-embedded) .study-image-toolbar button,.study-image-panel:not(.study-embedded) .study-image-controls button {flex-shrink:0;white-space:nowrap;}
+.study-embedded>.study-window-resize {display:none;}
+.llm-explanation-panel.loading-compact {width:min(480px,calc(100vw - 32px))!important;height:auto!important;max-height:min(132px,calc(100dvh - 32px))!important;align-content:start;transition:none!important;}
+.llm-explanation-panel.loading-compact>.study-content-workspace,.llm-explanation-panel.loading-compact>.study-window-resize {display:none;}
+.study-reader-panel {display:flex;flex-direction:column;}
+.study-reader-text {flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;background:#f6fafb;color:#173745;padding:20px;font-size:16px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere;user-select:text;}
+@media(max-width:600px){.llm-diagram-button {min-height:34px;padding:5px 8px;gap:4px;font-size:12px;}.study-window-header{padding:5px 8px;min-height:34px;}.study-image-toolbar{padding:5px 8px;}.study-image-help{font-size:9px;}.study-reader-text{padding:14px;}}
+@media(max-width:600px){.study-diagram-reading .llm-follow-up-suggestions{display:none}.llm-explanation-panel.study-diagram-reading .llm-conversation-controls{min-height:0;padding:5px 10px}.study-diagram-reading .llm-panel-footer{display:none}}
+
+/* On phones, reading starts with just the answer. A deliberate tap brings the
+   existing controls back; page scrolling and text selection remain native. */
+@media(max-width:600px) {
+}
+@media(max-width:600px), (max-width:980px) and (max-height:600px) and (pointer:coarse) {
+  /* Off-screen page controls must not make mobile Chrome shrink the reader. */
+  html.study-answer-fullscreen,html.study-answer-fullscreen body {overflow-x:clip;}
+  .llm-explanation-panel.study-mobile-reading {
+    top:0!important;left:0!important;right:0!important;bottom:0!important;
+    width:100%!important;height:100dvh!important;max-width:100%!important;max-height:100dvh!important;
+    border:0;border-radius:0;transition:none!important;
+  }
+  .study-mobile-reading>.study-window-resize,.study-mobile-reading>.study-window-edge-resize {display:none!important;}
+  .llm-explanation-panel.study-mobile-reading.study-controls-hidden {grid-template-rows:minmax(0,1fr);}
+  .study-mobile-reading.study-controls-hidden>:not(.study-content-workspace) {display:none!important;}
+  .study-mobile-reading.study-controls-hidden>.study-content-workspace {grid-row:1;}
+  .study-mobile-reading.study-controls-hidden .llm-explanation-body {
+    overscroll-behavior:contain;
+    padding-top:max(16px,env(safe-area-inset-top));padding-bottom:max(20px,env(safe-area-inset-bottom));
+  }
+}
+
+/* The image alone owns two-finger gestures; reading text keeps native selection. */
+.study-image-viewport {touch-action:none;}
+.study-image-panel>.study-window-header>[data-action="register"] {flex:none;white-space:nowrap;}
+.study-image-save-status {flex:none;margin:0;padding:5px 9px;font-size:12px;line-height:1.45;overflow-wrap:anywhere;background:#143b43;color:#d1f7ed;}
+.study-image-save-status[hidden] {display:none;}
+.study-image-save-status[data-kind="error"] {background:#512b38;color:#ffd9dc;}
+@media(max-width:600px), (max-width:980px) and (max-height:600px) and (pointer:coarse) {
+  .study-image-panel>.study-image-viewport {flex:0 1 auto;width:fit-content;max-width:100%;align-self:center;}
+  .study-image-panel>.study-window-header {gap:5px;}
+}
+
+@media(max-width:600px), (max-width:980px) and (max-height:600px) and (pointer:coarse) {
+  .llm-explanation-panel.study-embedded-diagram {grid-template-rows:auto minmax(0,1fr);}
+  .study-embedded-diagram>:not(.study-content-workspace):not(.llm-panel-header) {display:none!important;}
+  .study-embedded-diagram>.study-content-workspace {grid-row:2;}
+}
+@media(max-height:600px) and (pointer:coarse) {
+  .study-embedded-diagram .study-image-thumbnails {display:none;}
+}
+
+/* Enlarged fixed windows must not widen the phone's layout viewport. */
+html.study-diagram-open,html.study-diagram-open body {overflow-x:clip;}
+@media(max-width:600px), (max-width:980px) and (max-height:600px) and (pointer:coarse) {
+  .study-embedded-diagram .llm-panel-actions>button:not(#llmPanelClose) {display:none;}
+}
+@media(max-height:600px) and (pointer:coarse) {
+  .llm-explanation-panel.study-embedded-diagram .llm-panel-header {min-height:46px;padding:4px 10px;}
+  .study-embedded-diagram .llm-panel-title small,.study-embedded-diagram .study-image-help {display:none;}
+  .study-embedded-diagram .study-content-tabs {padding-block:4px;}
+  .study-embedded-diagram .study-window-header,.study-embedded-diagram .study-image-toolbar {padding-block:4px;min-height:34px;}
+}
+
+@media(max-height:600px) and (pointer:coarse) {
+  .study-diagram-reading .llm-follow-up-suggestions,.study-diagram-reading .llm-panel-footer {display:none;}
+  .llm-explanation-panel.study-diagram-reading .llm-conversation-controls {min-height:0;padding:5px 10px;}
+}
+
+.llm-reading-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-width: 0;
+  border-bottom: 1px solid rgba(150, 225, 235, 0.14);
+  background: rgba(5, 20, 29, 0.88);
+}
+
+.llm-font-controls {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 4px;
+  margin-left: auto;
+  padding: 4px 8px;
+  color: #dcf6f5;
+  font: 700 12px/1.2 system-ui, sans-serif;
+}
+
+.llm-font-controls > span { margin-right: 3px; }
+.llm-font-controls button {
+  min-width: 34px;
+  height: 32px;
+  padding: 0 6px;
+  border: 1px solid #609fa8;
+  border-radius: 5px;
+  background: #143c4a;
+  color: #efffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.llm-font-controls #llmFontReset { min-width: 52px; font-variant-numeric: tabular-nums; }
+.llm-font-controls button:hover:not(:disabled) { background: #216777; }
+.llm-font-controls button:focus-visible { outline: 2px solid #8ff3df; outline-offset: 1px; }
+.llm-font-controls button:disabled { opacity: .45; cursor: default; }
+
+
+.llm-reading-bar { grid-row: 5; grid-column: 1; }
+.llm-explanation-panel { grid-template-columns: minmax(0,1fr); }
+.study-content-workspace { grid-row: 6; grid-column: 1; }
+.llm-reading-bar .llm-panel-status { flex: 1 1 140px; }
+#llmExplanationBody .llm-markdown { font-size: calc(var(--llm-font-scale, 1) * 1rem); }
+#llmExplanationBody .llm-message-user > p { font-size: calc(var(--llm-font-scale, 1) * 1rem); }
+
+/* Keep an embedded diagram usable after resizing the tutor window. */
+.llm-explanation-panel.study-embedded-diagram { grid-template-rows: auto minmax(0,1fr); }
+.study-embedded-diagram > :not(.study-content-workspace):not(.llm-panel-header):not(.study-window-resize):not(.study-window-edge-resize) { display:none !important; }
+.study-embedded-diagram > .study-content-workspace { grid-row:2; }

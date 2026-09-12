@@ -1,0 +1,36 @@
+{
+  "scope": "Actual Windows Chrome, freshly extracted HTML; viewport emulation, not physical devices",
+  "checks": [
+    {
+      "width": 3840,
+      "height": 2160,
+      "passed": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "height": 650,
+      "passed": true
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "passed": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "passed": true
+    }
+  ],
+  "errors": []
+}

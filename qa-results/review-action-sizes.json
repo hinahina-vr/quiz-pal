@@ -1,0 +1,110 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "width": 1920,
+      "values": [
+        {
+          "id": "calculationMarkerButton",
+          "height": "44px",
+          "font": "16px",
+          "icon": "19.1875px"
+        },
+        {
+          "id": "copyQuestionButton",
+          "height": "44px",
+          "font": "16px",
+          "icon": "19.1875px"
+        },
+        {
+          "id": "explanationImagesButton",
+          "height": "44px",
+          "font": "16px",
+          "icon": "19.1875px"
+        },
+        {
+          "id": "llmTeachButton",
+          "height": "44px",
+          "font": "16px",
+          "icon": "19.1875px"
+        },
+        {
+          "id": "understandingMenuButton",
+          "height": "44px",
+          "font": "16px",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "values": [
+        {
+          "id": "calculationMarkerButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": "14.3906px"
+        },
+        {
+          "id": "copyQuestionButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": "14.3906px"
+        },
+        {
+          "id": "explanationImagesButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": "14.3906px"
+        },
+        {
+          "id": "llmTeachButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": "14.3906px"
+        },
+        {
+          "id": "understandingMenuButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "values": [
+        {
+          "id": "calculationMarkerButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": "14.3906px"
+        },
+        {
+          "id": "copyQuestionButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": "14.3906px"
+        },
+        {
+          "id": "explanationImagesButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": "14.3906px"
+        },
+        {
+          "id": "llmTeachButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": "14.3906px"
+        },
+        {
+          "id": "understandingMenuButton",
+          "height": "36px",
+          "font": "12px",
+          "icon": null
+        }
+      ]
+    }
+  ]
+}

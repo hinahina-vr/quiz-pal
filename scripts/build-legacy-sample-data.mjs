@@ -20,49 +20,10 @@ const outputText = (await transformWithOxc(`${injectedData}\n${sampleSource}`, "
 const samples = await import(`data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`);
 const { sampleSubjects, sampleSections, sampleQuestions } = samples;
 
-const plain = (value) => String(value ?? "").replaceAll("`", "");
-const ipaSourceUrl = "https://www.ipa.go.jp/shiken/mondai-kaiotu/index.html";
-const sourceUrl = (question) => question.origin === "ipa-official-past-question" ? question.sourceUrl || ipaSourceUrl : undefined;
-const legacyQuestion = (question) => {
-  if (question.type === "text") {
-    const answerText = question.acceptedAnswers[0] || "";
-    return {
-      id: question.id,
-      prompt: plain(question.promptMarkdown),
-      options: [answerText],
-      answer: 0,
-      answerText,
-      format: "typing",
-      explanation: plain(question.explanationMarkdown),
-      sourceTitle: question.license === "CC0-1.0" ? "CC0 書き下ろし例題" : question.license,
-      sourceUrl: sourceUrl(question),
-    };
-  }
-  if (question.type === "multiple_choice") {
-    const labels = question.options.map((_, index) => String.fromCharCode(65 + index));
-    const correct = question.correctOptionIds.map((id) => labels[question.options.findIndex((option) => option.id === id)]).join("・");
-    const distractors = labels.filter((label) => !correct.includes(label)).slice(0, 3);
-    return {
-      id: question.id,
-      prompt: `${plain(question.promptMarkdown)}（該当する選択肢の組合せ）`,
-      options: [correct, ...distractors.map((label) => `${correct}以外（${label}を含む）`)],
-      answer: 0,
-      explanation: plain(question.explanationMarkdown),
-      sourceTitle: question.license === "CC0-1.0" ? "CC0 書き下ろし例題" : question.license,
-      sourceUrl: sourceUrl(question),
-    };
-  }
-  const answerId = question.correctOptionIds[0];
-  return {
-    id: question.id,
-    prompt: plain(question.promptMarkdown),
-    options: question.options.map((option) => option.text),
-    answer: Math.max(0, question.options.findIndex((option) => option.id === answerId)),
-    explanation: plain(question.explanationMarkdown),
-    sourceTitle: question.license === "CC0-1.0" ? "CC0 書き下ろし例題" : question.license,
-    sourceUrl: sourceUrl(question),
-  };
-};
+// Use the same conversion for bundled examples and edited library data.
+const bridgeSource = (await readFile(path.join(root, "src/bridge/legacyDataset.ts"), "utf8")).replace(/^import type .*?;\r?\n/m, "");
+const bridgeOutput = (await transformWithOxc(bridgeSource, "legacyDataset.ts", { lang: "ts" })).code;
+const { legacyQuestion } = await import(`data:text/javascript;base64,${Buffer.from(bridgeOutput).toString("base64")}`);
 
 const courses = sampleSubjects.map((subject) => {
   const subjectSections = sampleSections.filter((section) => section.subjectId === subject.id).sort((a, b) => a.order - b.order);
@@ -109,6 +70,14 @@ ${safetySource}
     const saved = localStorage.getItem("local-quiz-studio-legacy-dataset-v1");
     const parsed = saved ? window.quizPalValidateLegacyDataset(JSON.parse(saved)) : null;
     if (Array.isArray(parsed?.manifest?.courses) && Array.isArray(parsed.courses)) {
+      // Repair only unchanged, previously broken bundled combinations. Keep user edits and progress IDs.
+      const bundledQuestions = new Map(defaultPayload.courses.flatMap(course => course.chapters.flatMap(chapter => chapter.questions)).map(question => [question.id, question]));
+      parsed.courses.forEach(course => course.chapters.forEach(chapter => {
+        chapter.questions = chapter.questions.map(question => {
+          const fixed = bundledQuestions.get(question.id);
+          return fixed && question.prompt.endsWith("（該当する選択肢の組合せ）") && question.options.some(option => option.includes("以外（")) ? { ...fixed } : question;
+        });
+      }));
       payload = parsed;
       if (Number(parsed.manifest.sampleContentVersion || 0) < 6) {
         const savedCourses = new Map(parsed.courses.map((course) => [String(course.id), course]));

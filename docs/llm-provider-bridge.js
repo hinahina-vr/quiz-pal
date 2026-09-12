@@ -1,6 +1,6 @@
 /**
  * AIサービスごとの接続方法を、学習画面から共通の手順で使うための橋渡し。
- * 接続先・モデルの設定と、APIキーを分けて管理し、ローカルHTMLでは確認画面で同意した接続先のみ次回用に保存できます。
+ * 接続先・モデルの設定と、APIキーを分けて管理し、確認画面で同意した接続先のみ次回用に保存できます。
  */
 (() => {
   "use strict";
@@ -9,9 +9,9 @@
   const EXPLAIN_PATH = "/api/llm/explain";
   const STORAGE_KEY = "local-quiz-studio-llm-providers-v1";
   const SESSION_KEYS_STORAGE_KEY = "local-quiz-studio-llm-session-keys-v1";
-  // 永続保存はローカルHTMLでの明示同意がある接続先だけ。バックアップから除外される専用キーを使います。
+  // 永続保存は明示同意がある接続先だけ。バックアップから除外される専用キーを使います。
   const PERSISTENT_KEYS_STORAGE_KEY = "local-quiz-studio-consented-api-keys-v1";
-  const canRememberApiKeys = location.protocol === "file:";
+  const canRememberApiKeys = true;
   function rememberedKeys() {
     if (!canRememberApiKeys) return {};
     try {
@@ -469,6 +469,18 @@
     return generate(profile, questionMessages(body.question, body.conversation), signal);
   }
 
+  function chooseKeyStorage() {
+    return new Promise(resolve => {
+      const dialog = document.createElement("dialog");
+      dialog.className = "llm-key-storage-dialog";
+      dialog.setAttribute("aria-labelledby", "keyStorageTitle");
+      dialog.innerHTML = `<h2 id="keyStorageTitle">APIキーの保存方法</h2><p>次回も使えるように、このブラウザのプロファイルに保存しますか？</p><p><strong>保存する場合のリスク</strong><br>APIキーはアプリでは暗号化せず、このサイトのブラウザ内に保存します。この端末やブラウザのデータにアクセスできる人、悪意ある拡張機能やサイト内の不正なスクリプトに読み取られる可能性があります。共有端末では保存しないでください。</p><p>保存しない場合は、このタブを閉じた後に再入力が必要です。どちらを選んでもセーブ用JSONには含めません。保存したキーは「キー削除」で消せます。</p><div><button type="button" data-choice="remember">プロファイルに保存する</button><button type="button" data-choice="session">保存せず毎回入力する</button><button type="button" data-choice="cancel">キャンセル</button></div>`;
+      dialog.addEventListener("click", event => { const button=event.target.closest('[data-choice]'); if(button) dialog.close(button.dataset.choice); });
+      dialog.addEventListener("close", () => { const choice=dialog.returnValue || "cancel";dialog.remove();resolve(choice); }, {once:true});
+      document.body.append(dialog);dialog.showModal();
+    });
+  }
+
   async function handleSettings(method, init) {
     const slot = activeSlot();
     if (method === "GET") return jsonResponse(settingsPayload(profileForSlot(slot)));
@@ -477,6 +489,12 @@
       const draft = readSettingsDraft();
       const apiKey = cleanText(body.apiKey, MAX_KEY_LENGTH);
       if (!apiKey) return jsonResponse({ ok: false, error: "APIキーを入力してください。" }, 400);
+      const choice = await chooseKeyStorage();
+      if (choice === "cancel") return jsonResponse({ok:false, error:"保存をキャンセルしました。"}, 409);
+      const keys = rememberedKeys();
+      if (choice === "remember") keys[slot] = {apiKey, baseUrl:draft.baseUrl, consentedAt:Date.now()};
+      else delete keys[slot];
+      writeRememberedKeys(keys);
       const profile = saveProfile(slot, { apiKey, model: draft.model, baseUrl: draft.baseUrl });
       updateSettingsUi(profile);
       return jsonResponse(settingsPayload(profile));
@@ -586,30 +604,13 @@
     const note = settings.querySelector("#llmApiKeyStorageNote");
     if (note) note.textContent = "APIキーはこのタブのセッション中だけ保持され、教材バックアップには含まれません。タブを閉じた後は再入力が必要です。共有PCでは保存しないでください。公開サイトの運営者共通キーはブラウザへ保存せず、サーバー側プロキシを使用してください。";
 
-    if (canRememberApiKeys) {
-      const label = document.createElement("label");
-      label.className = "llm-remember-key-option";
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox"; checkbox.id = "llmRememberApiKey";
-      label.append(checkbox, document.createTextNode("このPCにAPIキーを保存する"));
-      note?.after(label);
-      checkbox.addEventListener("change", () => {
-        const profile = profileForSlot(modelSelect.value);
-        try {
-          const keys = rememberedKeys();
-          const currentStore = loadStore();
-          if (checkbox.checked) {
-            checkbox.checked = false;
-            if (!profile.apiKey) { updateSettingsUi(profile, "先にAPIキーを入力して保存してください。"); return; }
-            if (!window.confirm(profile.definition.label + " のAPIキーを、このブラウザープロファイルに保存しますか？\n\nブラウザーを閉じても次回から使えます。この接続先のキーを変更した場合も保存を更新します。\nアプリでは暗号化しません。このPCやブラウザーのデータへアクセスできる人に読み取られる可能性があります。共有PCでは許可しないでください。\nキーはセーブ用JSONに含めません。チェックを外すと次回用の保存を解除でき、「キー削除」で現在のキーも削除できます。")) { updateSettingsUi(profile); return; }
-            keys[profile.slot] = {apiKey: profile.apiKey, baseUrl: profile.baseUrl, consentedAt: Date.now()};
-          } else { delete keys[profile.slot]; }
-          writeRememberedKeys(keys);
-          saveStore(currentStore);
-          updateSettingsUi(profile, keys[profile.slot] ? "このPCに保存しました。次回も同じブラウザープロファイルで使えます。" : "次回用の保存を解除しました。現在のタブでは引き続き使えます。");
-        } catch { updateSettingsUi(profile, "保存方法を変更できませんでした。ブラウザーの保存設定を確認してください。"); }
-      });
-    }
+    // Keep removal instructions visible after consent, next to the key controls.
+    const removalNote = document.createElement("p");
+    removalNote.id = "llmApiKeyRemovalNote";
+    removalNote.innerHTML = '<strong>キーを消したいとき</strong><br>「キー削除」で、この接続先のAPIキーを削除できます。教材・進捗・解説画像は消えません。'
+      + '<br>保存方法を変える場合はキーを再入力して「保存」を押し、保存方法を選び直してください。'
+      + '<br>ブラウザーのキャッシュ削除ではなく、ここから削除してください。「サイトデータ削除」は教材や画像も消す場合があります。';
+    note?.after(removalNote);
 
     const relabelOptions = () => {
       for (const definition of SLOT_DEFINITIONS) {
@@ -666,9 +667,9 @@
     const remember = document.querySelector("#llmRememberApiKey");
     if (remember) remember.checked = Boolean(rememberedKeys()[profile.slot]?.apiKey);
     const storageNote = document.querySelector("#llmApiKeyStorageNote");
-    if (storageNote) storageNote.textContent = canRememberApiKeys
-      ? "通常はこのタブだけで保持します。先にキーを保存し、下のチェックと確認画面で許可すると次回も使えます。セーブ用JSONには含めません。"
-      : "APIキーはこのタブだけで保持します。タブを閉じた後は再入力が必要です。セーブ用JSONには含めません。";
+    if (storageNote) storageNote.textContent = rememberedKeys()[profile.slot]?.apiKey
+      ? "このブラウザのプロファイルに保存しています。次回も使えます。アプリでは暗号化しません。セーブ用JSONには含めません。"
+      : "APIキーの「保存」を押すと、リスクの説明と保存方法の選択が表示されます。現在のキーはこのタブだけで保持します。セーブ用JSONには含めません。";
     if (keyInput) keyInput.placeholder = profile.apiKey ? "保存済み（変更時のみ入力）" : profile.definition.keyPlaceholder;
     if (keyLabel) keyLabel.textContent = `${profile.definition.label} APIキー`;
     if (setupGuide) setupGuide.hidden = Boolean(settingsPayload(profile).configured);
@@ -683,7 +684,10 @@
     const status = document.querySelector("#llmSettingsStatus");
     if (status) status.textContent = message || `${profile.definition.label} / ${profile.apiKey ? "APIキー設定済み" : "APIキー未設定"}`;
     const deleteButton = document.querySelector("#llmApiKeyDelete");
-    if (deleteButton) deleteButton.disabled = !profile.apiKey;
+    if (deleteButton) {
+      deleteButton.textContent = "キー削除";
+      deleteButton.disabled = !profile.apiKey;
+    }
   }
 
   function rewriteSettingsStatus() {

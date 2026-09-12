@@ -1,0 +1,59 @@
+{
+  "version": "1.0.0",
+  "scope": "freshly extracted local HTML",
+  "checks": [
+    {
+      "width": 3840,
+      "height": 2160,
+      "passed": true,
+      "checks": [
+        "unchecked repeats",
+        "opt-out persists through completion and reload",
+        "manual toolbar and intro links bypass opt-out",
+        "keyboard checkbox focus",
+        "uncheck re-enables",
+        "card fits viewport"
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 650,
+      "passed": true,
+      "checks": [
+        "unchecked repeats",
+        "opt-out persists through completion and reload",
+        "manual toolbar and intro links bypass opt-out",
+        "keyboard checkbox focus",
+        "uncheck re-enables",
+        "card fits viewport"
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "passed": true,
+      "checks": [
+        "unchecked repeats",
+        "opt-out persists through completion and reload",
+        "manual toolbar and intro links bypass opt-out",
+        "keyboard checkbox focus",
+        "uncheck re-enables",
+        "card fits viewport"
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "passed": true,
+      "checks": [
+        "unchecked repeats",
+        "opt-out persists through completion and reload",
+        "manual toolbar and intro links bypass opt-out",
+        "keyboard checkbox focus",
+        "uncheck re-enables",
+        "card fits viewport"
+      ]
+    }
+  ],
+  "errors": []
+}

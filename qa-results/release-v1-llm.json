@@ -1,0 +1,18 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "scope": "Local Chrome; synthetic answer text; actual image file upload, placement, zoom and font persistence; no live AI request"
+}

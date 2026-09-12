@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": [
+    "1920x1080: inline AI, navigation, input, back and manual editor",
+    "1024x650: inline AI, navigation, input, back and manual editor",
+    "820x1180: inline AI, navigation, input, back and manual editor",
+    "390x844: inline AI, navigation, input, back and manual editor"
+  ],
+  "scope": "Local Chrome viewport emulation; no live AI request"
+}

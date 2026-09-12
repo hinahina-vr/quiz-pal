@@ -25,16 +25,20 @@ const legacySource = (question: Question): Pick<LegacyQuestion, "sourceTitle" | 
   ...(question.origin === "ipa-official-past-question" ? { sourceUrl: question.sourceUrl || ipaSourceUrl } : {}),
 });
 
-function legacyQuestion(question: Question): LegacyQuestion {
+export function legacyQuestion(question: Question): LegacyQuestion {
   if (question.type === "text") {
     const answerText = question.acceptedAnswers[0] || "";
     return { id: question.id, prompt: plain(question.promptMarkdown), options: [answerText], answer: 0, answerText, format: "typing", explanation: plain(question.explanationMarkdown), ...legacySource(question) };
   }
   if (question.type === "multiple_choice") {
-    const labels = question.options.map((_, index) => String.fromCharCode(65 + index));
-    const correct = question.correctOptionIds.map((id) => labels[question.options.findIndex((option) => option.id === id)]).filter(Boolean).join("・");
-    const distractors = labels.filter((label) => !correct.includes(label)).slice(0, 3);
-    return { id: question.id, prompt: `${plain(question.promptMarkdown)}（該当する選択肢の組合せ）`, options: [correct, ...distractors.map((label) => `${correct}以外（${label}を含む）`)], answer: 0, explanation: plain(question.explanationMarkdown), ...legacySource(question) };
+    // Keep every statement visible; combinations refer to fixed kana, not shuffled answer labels.
+    const labels = ["ア", "イ", "ウ", "エ", "オ", "カ"];
+    const correctMask = question.options.reduce((mask, option, index) => question.correctOptionIds.includes(option.id) ? mask | (1 << index) : mask, 0);
+    const masks = [correctMask];
+    for (let index = 0; index < question.options.length && masks.length < 5; index++) masks.push(correctMask ^ (1 << index));
+    const combination = (mask: number) => question.options.map((_, index) => mask & (1 << index) ? labels[index] : "").filter(Boolean).join("・") || "該当なし";
+    const statements = question.options.map((option, index) => `${labels[index]}：${plain(option.text)}`).join("\n");
+    return { id: question.id, prompt: `${plain(question.promptMarkdown)}\n\n${statements}\n\n該当するものをすべて含む組合せを選んでください。`, options: masks.map(combination), answer: 0, explanation: plain(question.explanationMarkdown), ...legacySource(question) };
   }
   const answerId = question.correctOptionIds[0];
   return { id: question.id, prompt: plain(question.promptMarkdown), options: question.options.map((option) => option.text), answer: Math.max(0, question.options.findIndex((option) => option.id === answerId)), explanation: plain(question.explanationMarkdown), ...legacySource(question) };

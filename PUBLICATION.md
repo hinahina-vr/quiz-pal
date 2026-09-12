@@ -1,17 +1,12 @@
-# Quiz Pal v1.0.0 公開情報
+# Quiz Pal v1.0.0
 
-- ソース：[hinahina-vr/quiz-pal](https://github.com/hinahina-vr/quiz-pal)
-- Web：[Quiz Pal](https://hinahina-vr.github.io/quiz-pal/)
-- 配信元：mainブランチのdocsディレクトリ
-- 初回リリースタグ：`v1.0.0`
-- 確認日：2026年9月12日
+2026年9月12日、作者の確認・承認を受けた初回正式版。
 
-配布ZIPはWeb版の紹介・サイドバー・利用条件から取得できます。ソースと配布物の対応は `PUBLICATION_MANIFEST.json` と `npm run check:contest` で検証します。[動作検証](QA.md)
+- Web: https://hinahina-vr.github.io/quiz-pal/
+- ソース: https://github.com/hinahina-vr/quiz-pal
+- リリース: https://github.com/hinahina-vr/quiz-pal/releases/tag/v1.0.0
+- 公開元: main / docs
+- ZIP SHA-256: `a01ce60f755ddddb3ef4b27b89a2260ee670821e4aeaaacd7f1a962bf92e966a`
 
-## 公開先での確認
-
-GitHub Pagesで配信中の109ファイルと最終配布物が一致しました。[照合結果](qa-results/public-identity.json)
-
-実Chromeで、紹介の×から操作ガイドへ進む操作、Web版からのZIPダウンロード、画像・教材・進捗の公開Web→新規展開HTML→新しい公開Web環境への保存復元を確認しました。実行時例外は0件です。[操作ガイド](qa-results/public-close-guide.json)・[ダウンロード](qa-results/public-download.json)・[保存復元](qa-results/public-roundtrip.json)
-
-最終ZIP SHA-256：`4c275d85ea102420cf64ac5c997924ee88be4b343cee2cc6e5965c9349c6fa64`
+検証結果と未確認範囲はQA.mdを参照。既存タグは提出前の仮確定版であり、今回の明示承認により最新内容に再確定する。旧参照は公開前にローカルGit bundleに保全。
+応募フォーム送信と実機スマートフォン確認は作者が実施。

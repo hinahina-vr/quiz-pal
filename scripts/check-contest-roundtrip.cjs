@@ -17,7 +17,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),{pathToFileURL}=r
     await page.reload();await expect(page.locator('.course-switch')).toContainText('WebからHTML移行QA');
     await page.locator('button[data-course="sample-fe"]').click();await expect(page.locator('.exam-group-button').first().locator('.chapter-score')).toHaveText('1/19正解');
     await page.locator('#explanationImagesButton').click();await expect(page.locator('#llmImageGallery img')).toHaveCount(1);
-    expect(await page.locator('#llmImageGallery img').getAttribute('src')).toBe(expectedImage);await page.locator('#explanationImagesClose').click();
+    expect(await page.locator('#llmImageGallery img').getAttribute('src')).toBe(expectedImage);await page.locator('.study-image-panel [data-action=close]').click();
     return {context,page};
   }
   try{
