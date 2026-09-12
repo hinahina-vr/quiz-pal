@@ -1,0 +1,189 @@
+.portable-promo {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  min-height: 72px;
+  margin: 0 0 10px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--game-cyan, #42e8ff) 72%, white);
+  border-radius: 9px;
+  padding: 9px 10px;
+  background:
+    radial-gradient(circle at 98% 8%, color-mix(in srgb, var(--game-pink, #ff4fa3) 22%, transparent), transparent 38%),
+    linear-gradient(115deg, color-mix(in srgb, var(--game-cyan, #42e8ff) 18%, transparent), color-mix(in srgb, var(--game-violet, #9a63ff) 14%, transparent)),
+    rgba(5, 23, 38, 0.9);
+  color: #fff8e8;
+  text-decoration: none;
+  box-shadow:
+    inset 3px 0 color-mix(in srgb, var(--game-cyan, #42e8ff) 82%, white),
+    inset 0 1px rgba(255, 255, 255, 0.14),
+    0 7px 18px rgba(0, 0, 0, 0.2);
+  transition: border-color 140ms ease, filter 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+}
+
+.portable-promo:hover {
+  border-color: #fff1a8;
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 3px 0 #fff1a8,
+    inset 0 1px rgba(255, 255, 255, 0.2),
+    0 9px 23px color-mix(in srgb, var(--game-cyan, #42e8ff) 18%, transparent);
+}
+
+.portable-promo:focus-visible,
+.sidebar-site-links a:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--game-cyan, #42e8ff) 76%, white);
+  outline-offset: 2px;
+}
+
+.portable-promo-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 44px;
+  border: 1px solid rgba(255, 241, 168, 0.72);
+  border-radius: 8px;
+  background: linear-gradient(145deg, #62edf2, #2aa5d4 52%, #746ae9);
+  color: #061d2b;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 1.28rem;
+  font-weight: 950;
+  box-shadow: 0 0 15px rgba(87, 227, 239, 0.24);
+}
+
+.portable-promo-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.5;
+}
+
+.portable-promo-copy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+  padding-top: 12px;
+}
+
+.portable-promo-copy small {
+  color: #9fefff;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.57rem;
+  font-weight: 950;
+  letter-spacing: 0.11em;
+}
+
+.portable-promo-copy strong {
+  color: #fff8e8;
+  font-size: 1rem;
+  line-height: 1.16;
+}
+
+.portable-promo-copy em {
+  overflow: hidden;
+  color: #d6edf0;
+  font-size: 0.64rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.portable-promo-badge {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  border: 1px solid rgba(255, 231, 132, 0.46);
+  border-radius: 999px;
+  padding: 2px 6px;
+  background: rgba(6, 22, 35, 0.62);
+  color: #ffe485;
+  font-size: 0.52rem;
+  font-weight: 950;
+  line-height: 1.25;
+}
+
+.portable-promo-compact {
+  min-height: 68px;
+}
+
+.sidebar-site-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin: -4px 0 12px;
+}
+
+.sidebar-site-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+  min-height: 30px;
+  border: 1px solid rgba(157, 229, 239, 0.22);
+  border-radius: 6px;
+  background: rgba(5, 20, 32, 0.46);
+  color: rgba(231, 246, 247, 0.8);
+  font-size: 0.57rem;
+  font-weight: 850;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.sidebar-site-links a:hover {
+  border-color: rgba(255, 231, 132, 0.56);
+  color: #fff8e8;
+  background: rgba(24, 87, 99, 0.42);
+}
+
+.sidebar-site-links svg {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+}
+
+.studio-shell .sidebar-site-links {
+  margin-top: 0;
+}
+
+@media (min-width: 981px) and (max-height: 860px) {
+  .portable-promo {
+    min-height: 62px;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 8px;
+    padding: 7px 8px;
+  }
+
+  .portable-promo-icon {
+    width: 35px;
+    height: 38px;
+  }
+
+  .portable-promo-copy {
+    padding-top: 10px;
+  }
+
+  .portable-promo-copy strong {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .portable-promo {
+    min-height: 66px;
+  }
+
+  .portable-promo-copy strong {
+    font-size: 0.94rem;
+  }
+
+  .sidebar-site-links a {
+    min-height: 34px;
+    font-size: 0.62rem;
+  }
+}

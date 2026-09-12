@@ -1,0 +1,58 @@
+{
+  "browser": "152.0.7977.83",
+  "checks": [
+    {
+      "name": "Actual offline HTML JSON save",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "sanitizer": [
+    {
+      "input": "<img src=x onerror=\"window.__auditXss=1\">",
+      "output": "<p>&lt;img src=x onerror=\"window.__auditXss=1\"&gt;</p>",
+      "executed": false,
+      "dangerous": false
+    },
+    {
+      "input": "<svg onload=\"window.__auditXss=1\"></svg>",
+      "output": "<p>&lt;svg onload=\"window.__auditXss=1\"&gt;&lt;/svg&gt;</p>",
+      "executed": false,
+      "dangerous": false
+    },
+    {
+      "input": "[click](javascript:window.__auditXss=1)",
+      "output": "<p>click</p>",
+      "executed": false,
+      "dangerous": false
+    },
+    {
+      "input": "[click](data:text/html,test)",
+      "output": "<p>click</p>",
+      "executed": false,
+      "dangerous": false
+    },
+    {
+      "input": "<a href=\"javascript:window.__auditXss=1\">click</a>",
+      "output": "<p>&lt;a href=\"javascript:window.__auditXss=1\"&gt;click&lt;/a&gt;</p>",
+      "executed": false,
+      "dangerous": false
+    },
+    {
+      "input": "<iframe srcdoc=\"<script>parent.__auditXss=1</script>\"></iframe>",
+      "output": "<p>&lt;iframe srcdoc=\"&lt;script&gt;parent.__auditXss=1&lt;/script&gt;\"&gt;&lt;/iframe&gt;</p>",
+      "executed": false,
+      "dangerous": false
+    }
+  ],
+  "corruptedStatus": "読込失敗: チェックサムが一致しません。ファイルが壊れている可能性があります。",
+  "secretStatus": "読込失敗: バックアップに許可されていない設定が含まれています。",
+  "poisonStatus": "教材・履歴・設定を一括保存（APIキー除外）",
+  "storedXss": {
+    "executed": null,
+    "question": "8 + 4 × 2 の答えはどれですか。",
+    "payloadRetained": false
+  },
+  "startupSafe": true,
+  "passed": true
+}

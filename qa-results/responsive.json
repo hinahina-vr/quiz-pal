@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "url": "file:///C:/Users/wdddi/Documents/Codex/2026-09-07/local-quiz-studio-astra-handoff/work/contest-public/release-1.0-guide-fresh/Quiz-Pal-HTML/index.html",
+  "results": [
+    {
+      "width": 320,
+      "height": 568,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "passed": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "passed": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "passed": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "passed": true
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "height": 650,
+      "passed": true
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "passed": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "passed": true
+    },
+    {
+      "width": 3840,
+      "height": 2160,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "scope": "Real Chrome viewport/touch emulation; no physical iPad/iPhone"
+}

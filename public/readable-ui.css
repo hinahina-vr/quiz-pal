@@ -1,0 +1,14 @@
+/* Shared readable typography; bundled fonts also work offline. */
+:root { --quiz-readable-font: "Quiz Pal Rounded", "BIZ UDPGothic", "Meiryo", sans-serif; font-family: var(--quiz-readable-font); }
+body { font-weight: 500; }
+button, input, textarea, select { font-family: inherit; }
+.product-intro, .quiz-tour-card, .llm-explanation-panel, #explanationImagesDialog { font-family: var(--quiz-readable-font); font-weight: 500; }
+.llm-explanation-panel .llm-markdown, .llm-explanation-panel .llm-message, .llm-follow-up-form textarea { font-family: var(--quiz-readable-font); font-size: 16px; line-height: 1.85; }
+.llm-follow-up-suggestions button { font-size: 13px; font-weight: 700; }
+.quiz-tour-title { font-family: var(--quiz-readable-font); font-weight: 700; }
+.quiz-tour-body { font-size: 16px; line-height: 1.85; }
+.brand h1, .legal-brand strong, .product-intro .brand-name { font-family: var(--quiz-readable-font); font-weight: 700; }
+@media (max-width: 640px) {
+  .llm-explanation-panel .llm-markdown, .llm-explanation-panel .llm-message, .llm-follow-up-form textarea { font-size: 15px; }
+  .quiz-tour-body { font-size: 14px; }
+}

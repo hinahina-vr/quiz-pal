@@ -1,0 +1,170 @@
+/* Compact quiz controls and the standalone explanation-image library. */
+.quiz-panel .question-board,
+.quiz-panel .question-head { min-width: 0; }
+.topbar .status-band {
+  grid-template-columns: repeat(6, minmax(66px, 1fr));
+  grid-auto-flow: row;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+.topbar .status-band > .status-cell {
+  grid-column: auto;
+  grid-row: 1;
+  align-self: stretch;
+  min-width: 0;
+  padding-inline: 4px;
+  white-space: nowrap;
+}
+.topbar .status-band .stat-label {
+  font-size: clamp(0.52rem, 0.9vw, 0.66rem);
+  white-space: nowrap;
+}
+.topbar .status-band > .progress-cell {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+.question-head .understanding-toggle {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5px;
+  width: 100%;
+  max-width: 100%;
+  flex: 1 0 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+.question-head .understanding-choice-button {
+  flex: 1 0 max-content;
+  min-width: max-content;
+  min-height: 38px;
+  padding: 5px 8px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+.question-head #llmTeachButton {
+  min-width: 48px;
+  width: auto;
+  min-height: 36px;
+  padding: 4px 12px;
+}
+.question-head #llmTeachButton > svg { display: block; width: 18px; height: 18px; flex: 0 0 18px; }
+.question-head #llmTeachButton > span {
+  display: inline;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+.explanation-images-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 36px;
+  padding: 4px 10px;
+  border: 1px solid #66cfc7;
+  border-radius: 8px;
+  background: #123e4b;
+  color: #e8fffc;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.explanation-images-button > svg { width: 17px; height: 17px; }
+.explanation-images-button:hover,
+.explanation-images-button:focus-visible { background: #1a5964; }
+.explanation-images-dialog {
+  box-sizing: border-box;
+  width: min(960px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  padding: 18px;
+  overflow: auto;
+  border: 1px solid #74c4c5;
+  border-radius: 14px;
+  background: #102c3b;
+  color: #edffff;
+  box-shadow: 0 20px 70px #0008;
+}
+.explanation-images-dialog::backdrop { background: #061a29bb; }
+.explanation-images-dialog:not([open]) { display: none; }
+.explanation-images-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.explanation-images-heading h2 { margin: 0; font-size: 1.3rem; }
+.explanation-images-heading p { margin: 5px 0 0; color: #badade; font-size: 0.8rem; }
+.explanation-images-close {
+  flex: 0 0 auto;
+  padding: 7px 12px;
+  border: 1px solid #7ab8c0;
+  border-radius: 7px;
+  color: #fff;
+  background: #244b5c;
+  cursor: pointer;
+}
+.explanation-images-dialog .llm-image-library {
+  display: block;
+  height: auto;
+  max-height: none;
+  padding: 12px;
+  border-radius: 9px;
+}
+.explanation-images-dialog .llm-image-library-header { margin-bottom: 10px; }
+.explanation-images-dialog .llm-image-library-header > span { flex-wrap: wrap; }
+.explanation-images-dialog .llm-image-library-body { display: block; height: auto; }
+.explanation-images-dialog .llm-image-add {
+  width: 100%;
+  min-height: 68px;
+  margin-bottom: 14px;
+}
+.explanation-images-dialog .llm-image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 12px;
+  overflow: visible;
+}
+.explanation-images-dialog .llm-image-card { grid-template-rows: 190px auto; }
+.explanation-images-dialog .llm-image-card > img { min-height: 0; }
+.explanation-images-dialog .llm-image-card.expanded { grid-column: 1 / -1; grid-template-rows: auto auto; }
+.explanation-images-dialog .llm-image-card.expanded > img { height: auto; max-height: 65dvh; cursor: zoom-out; }
+.explanation-images-dialog .llm-image-card-details { padding: 10px 48px 10px 10px; }
+.explanation-images-dialog .llm-image-card-details strong { font-size: 0.8rem; }
+.explanation-images-dialog .llm-image-card-details small { font-size: 0.65rem; }
+.explanation-images-dialog .llm-image-delete { width: 34px; height: 34px; bottom: 8px; }
+.explanation-images-dialog .llm-image-empty { min-height: 150px; }
+@media (max-width: 480px) {
+  .explanation-images-dialog { padding: 12px; }
+  .explanation-images-dialog .llm-image-library { padding: 8px; }
+}
+
+.llm-settings .llm-remember-key-option, .llm-remember-key-option { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #639697; border-radius: 8px; color: #e9f7f3; background: #123645; font-size: 14px; line-height: 1.6; }
+.llm-remember-key-option input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; margin: 0; accent-color: #6fdcc3; }
+
+/* Keep related actions together and reveal understanding choices on demand. */
+.quiz-panel .question-head { padding-right: 0; }
+.quiz-panel .question-board::after { display: none; }
+.question-action-row { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; min-width: 0; }
+.question-action-row > button { flex: 0 0 auto; }
+.question-head .understanding-menu-button { order: 3; flex: 0 1 auto; max-width: 100%; min-height: 38px; padding: 7px 12px; border: 1px solid #80b9bf; border-radius: 8px; background: #143c4d; color: #f1fffc; font: 700 14px/1.4 var(--quiz-readable-font, sans-serif); cursor: pointer; }
+.question-head .understanding-menu-button:focus-visible { outline: 3px solid #ffe67b; outline-offset: 2px; background: #f5e8ad; color: #163447; }
+.question-head .understanding-toggle[popover] { position: fixed; inset: auto; margin: 0; width: min(260px, calc(100vw - 16px)); max-width: calc(100vw - 16px); max-height: calc(100dvh - 16px); box-sizing: border-box; padding: 8px; overflow: auto; border: 1px solid #80b9bf; border-radius: 10px; background: #102f40; box-shadow: 0 8px 28px #0007; }
+.question-head .understanding-toggle[popover]:not(:popover-open) { display: none; }
+.question-head .understanding-toggle[popover]:popover-open { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+.question-head .understanding-choice-button { min-width: 0; min-height: 42px; width: 100%; white-space: normal; font-size: 14px; line-height: 1.4; }
+.question-head .understanding-choice-button:focus-visible { outline: 3px solid #ffe67b; outline-offset: -3px; color: #fff; opacity: 1; }
+
+.question-head #llmTeachButton { display: inline-flex; align-items: center; justify-content: center; gap: 5px; white-space: nowrap; }
+.question-head #llmTeachButton > span { font-size: 14px; }

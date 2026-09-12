@@ -1,0 +1,21 @@
+/* Exam-set progress, adapted from exam-prep-quiz 126b1c6. */
+.chapter-button.exam-group-button .chapter-score small {
+  margin-left: 3px;
+  font-size: 0.68em;
+  letter-spacing: 0;
+}
+.chapter-button.exam-group-button {
+  --exam-progress-color: #7ee8ff;
+}
+.chapter-button.exam-group-button .chapter-score {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  min-width: 64px;
+  color: var(--exam-progress-color);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px rgba(126, 232, 255, 0.25);
+}
+.chapter-button.exam-group-button.active .chapter-score {
+  --exam-progress-color: #fff1a8;
+}

@@ -1,0 +1,18 @@
+{
+  "family": "M PLUS Rounded 1c",
+  "license": "SIL Open Font License 1.1",
+  "copyright": "Copyright 2016 The Rounded M+ Project Authors.",
+  "source": "https://github.com/google/fonts/tree/main/ofl/mplusrounded1c",
+  "files": [
+    {
+      "name": "MPLUSRounded1c-Medium.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/mplusrounded1c/MPLUSRounded1c-Medium.ttf",
+      "sha256": "adfde1b6bae58719c4e0144612a94232e72fc5ca655c4722165fe88d06521a70"
+    },
+    {
+      "name": "MPLUSRounded1c-Bold.ttf",
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/mplusrounded1c/MPLUSRounded1c-Bold.ttf",
+      "sha256": "c358630584e8e2d8fbd6121d0f4693255ffef6d1e6d4f3441fd6e5a963a11f9e"
+    }
+  ]
+}

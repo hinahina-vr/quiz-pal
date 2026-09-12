@@ -1,0 +1,1854 @@
+{
+  "schemaVersion": 1,
+  "preparedAt": "2026-09-12T09:51:39.666Z",
+  "status": "local-preparation-only",
+  "plannedRepositoryUrl": "https://github.com/hinahina-vr/quiz-pal",
+  "plannedSiteUrl": "https://hinahina-vr.github.io/quiz-pal/",
+  "repositoryNameConfirmed": true,
+  "sourceFiles": [
+    {
+      "path": "src/App.tsx",
+      "size": 10164,
+      "sha256": "2b5ead744b7ccf8b7df08408342a9de2ea20e868a34dfad0d333ad2f5edf606e"
+    },
+    {
+      "path": "src/bridge/legacyDataset.ts",
+      "size": 4093,
+      "sha256": "47154d3c1db70d9e9fc2d6a6393e2d0a0af4f5cda16ac3d9e25e0f43f71b61d4"
+    },
+    {
+      "path": "src/db/database.ts",
+      "size": 8212,
+      "sha256": "c2092cbd782d5c7e5e003bf9e05ee7fd8626838da81abef28c27ba9cced1d92c"
+    },
+    {
+      "path": "src/domain/schema.ts",
+      "size": 2323,
+      "sha256": "c1f533a780ef388a85d420d64adca709d594ebb3bc6691ec0011be66f51bcb72"
+    },
+    {
+      "path": "src/domain/types.ts",
+      "size": 3398,
+      "sha256": "0463b0051c0b2a888cef35070302581edf776f5bb7dac7a98dad92d1c619ec3f"
+    },
+    {
+      "path": "src/features/ai-author/aiAuthor.ts",
+      "size": 13214,
+      "sha256": "a91e9643c8756346d88cce73902a6f9f5a61302b3d093f261540a9f047efce24"
+    },
+    {
+      "path": "src/features/ai-author/AiAuthorDialog.tsx",
+      "size": 25485,
+      "sha256": "392cf762fd725eaca6613452db0b31538c84cbf453c691b424e49f815dce9055"
+    },
+    {
+      "path": "src/features/backup/backup.ts",
+      "size": 8325,
+      "sha256": "42c9fb937c9b774f48c2d73ece4703fe755b31d76db5fdcbbfcb199aeafd05f0"
+    },
+    {
+      "path": "src/features/backup/DataDialog.tsx",
+      "size": 10798,
+      "sha256": "c9915618b9e04bc0d6692cb65d0e0b81dd64fccb22274067f35cd7e806ec8b57"
+    },
+    {
+      "path": "src/features/csv-import/csv.ts",
+      "size": 16451,
+      "sha256": "13e4a892dff67cf1ed359de78a07156ded445ee383d913822d3149156a90eaf5"
+    },
+    {
+      "path": "src/features/library/LibraryView.tsx",
+      "size": 28977,
+      "sha256": "120138d415c0c596fb2683327e61e5c4420d082c39b8c413adf18ed2d4e1dc04"
+    },
+    {
+      "path": "src/features/onboarding/Onboarding.tsx",
+      "size": 8277,
+      "sha256": "d31bc22f8784ec38005139051011a669725a709511e057c943501f69b7aec438"
+    },
+    {
+      "path": "src/features/onboarding/positionTourCard.ts",
+      "size": 2228,
+      "sha256": "e583c3a8bf96d5fb08b5de0b08c456895ed321a530cbd234ed50af82301314ff"
+    },
+    {
+      "path": "src/features/practice/PracticeView.tsx",
+      "size": 12984,
+      "sha256": "bab707e6e07b951a1000492e3e0edaa9112c5599d3baa6394b104e21ab32ba76"
+    },
+    {
+      "path": "src/main.tsx",
+      "size": 169,
+      "sha256": "b7337af0bafb081962f3334d1d9dea264bcb39e84b14c9b68c1b3e2dcbacb7e6"
+    },
+    {
+      "path": "src/native-db.ts",
+      "size": 10628,
+      "sha256": "6ba18feb54ac628524d90e7ab3c8aa09a631edd5df84373cb58de995c9b01209"
+    },
+    {
+      "path": "src/native-ui/core.ts",
+      "size": 15277,
+      "sha256": "b2bd1d1565958cdac4786b3d4e25d4bdef0a3f9ada5495764bc953f1afad6de4"
+    },
+    {
+      "path": "src/native-ui/jsx-dev-runtime.ts",
+      "size": 55,
+      "sha256": "13704503f08669c7ab3730d69c90699d0f32dbbfb03630df30cb4955442137b0"
+    },
+    {
+      "path": "src/native-ui/jsx-runtime.ts",
+      "size": 650,
+      "sha256": "1152710ee744b1a496183589ee429feaee3e67a6b174a2acd8ea11a90b3adc0e"
+    },
+    {
+      "path": "src/native-ui/types.d.ts",
+      "size": 163,
+      "sha256": "c92f2114326681c761367200d5eb7a99ffa189a397f62c228127d8faa191b371"
+    },
+    {
+      "path": "src/native-validation.ts",
+      "size": 9213,
+      "sha256": "686ccab6c3a1f976164e30140a6b4f41ac2f73e54a81245bb35158c948c2daf6"
+    },
+    {
+      "path": "src/samples/ipaOfficialQuestions.ts",
+      "size": 40680,
+      "sha256": "a3227688daa6cfdda9a38c28ef01945dee63a3631c7436ff97cd291ce6a6f254"
+    },
+    {
+      "path": "src/samples/ipaPracticeSets.ts",
+      "size": 92141,
+      "sha256": "110bc1056bdfbccac1955ab9562e19b58739d3283067de4add7cd28950ef6339"
+    },
+    {
+      "path": "src/samples/sampleData.ts",
+      "size": 19851,
+      "sha256": "4fd0d90dc5bdb29e406c980a623d7fb8e68f3fa786dd1464d1a5a6de290fa42b"
+    },
+    {
+      "path": "src/security/markdown.tsx",
+      "size": 2361,
+      "sha256": "b38450245bb4e572050decad7f46e263226f1b5db814bdb4ad031b723b9f3fd1"
+    },
+    {
+      "path": "src/theme.ts",
+      "size": 955,
+      "sha256": "f8216e5d50f1fd6ef02da0cdb6b138ef9db93971d01388beea30e73bd9d79a03"
+    },
+    {
+      "path": "src/vite-env.d.ts",
+      "size": 1591,
+      "sha256": "d8881d54cd39b384fc79404addadda695303e488954a00c89126af52140d01b5"
+    },
+    {
+      "path": "public/_headers",
+      "size": 525,
+      "sha256": "e678a8916b06e2e4eb979c1f787891f79fdd060e7bc9d8851b3449f16772e994"
+    },
+    {
+      "path": "public/app.js",
+      "size": 839213,
+      "sha256": "dad86fbd2b2e74dc09625a1def656ad363e71770557d459d770ffd2691934c3e"
+    },
+    {
+      "path": "public/assets/academy-stage.png",
+      "size": 2255773,
+      "sha256": "a5b5a47931e69b3966d5d5e8a75dd5dae361f7feaa1902334331062fe75df52f"
+    },
+    {
+      "path": "public/assets/event-horizon-mobile.webp",
+      "size": 37496,
+      "sha256": "859bc1a42236051df598f75e75452a7eeacf25e9771706d2e8934ba236306a29"
+    },
+    {
+      "path": "public/assets/event-horizon.png",
+      "size": 2029990,
+      "sha256": "4a5d005846ce26cef46c94a7d54d38b20a8e8f5ed2610b4b8f264e666421f2b1"
+    },
+    {
+      "path": "public/assets/fonts/KaiseiOpti-Bold-common.woff2",
+      "size": 380596,
+      "sha256": "0fc61bffdfd26481fe798a5a78dd3a10fd63f30f63c9150622715948dec862ed"
+    },
+    {
+      "path": "public/assets/fonts/KaiseiOpti-Bold-extended.woff2",
+      "size": 1691620,
+      "sha256": "962430caf13ef601765ee24e7dfed324aef2cf90b143465562caacc10860c237"
+    },
+    {
+      "path": "public/assets/fonts/KaiseiOpti-Bold.ttf",
+      "size": 4287516,
+      "sha256": "48e0a6e35903eeaea2b9559ac62cbe83dac701b2c9355c7cff8927722c965acc"
+    },
+    {
+      "path": "public/assets/fonts/KaiseiOpti-Medium-common.woff2",
+      "size": 378332,
+      "sha256": "153840594dfdb09dc14f271be003b6435663299cf822ceedc3374a42f9f1360d"
+    },
+    {
+      "path": "public/assets/fonts/KaiseiOpti-Medium-extended.woff2",
+      "size": 1619432,
+      "sha256": "52dde59e87782ab57a1cd8b9746260f755b738bad7aca7ad1ea93f1e87718c4e"
+    },
+    {
+      "path": "public/assets/fonts/KaiseiOpti-Medium.ttf",
+      "size": 4297952,
+      "sha256": "5fb67055d4d3e60625b6ee10c93fa87e348b7d99f2bfd2632bdf4e43c96d54da"
+    },
+    {
+      "path": "public/assets/fonts/KaiseiOpti-Regular-common.woff2",
+      "size": 393568,
+      "sha256": "2499fa14eb3da08e885a27f36437cc90b834513f396ac7099a2c1726f53d21f6"
+    },
+    {
+      "path": "public/assets/fonts/KaiseiOpti-Regular-extended.woff2",
+      "size": 1796988,
+      "sha256": "925ef57a178d182603ba43f1e3d2784f328af1dadd04113f0abe6e588dab0d45"
+    },
+    {
+      "path": "public/assets/fonts/KaiseiOpti-Regular.ttf",
+      "size": 4503024,
+      "sha256": "990cfb1fb00f311c8975c2c5f4778b2fe5462fd5eabf0884828a323dad3f18c0"
+    },
+    {
+      "path": "public/assets/fonts/OFL-Rounded.txt",
+      "size": 4203,
+      "sha256": "d166eabaaaf6486a186201f209fb521abb71218b0930f588414228f5c7b23f0b"
+    },
+    {
+      "path": "public/assets/fonts/OFL.txt",
+      "size": 4475,
+      "sha256": "2270d983e0e7f440ecf899711485d211119a23a1ac9a5ccbcd7a481e98e48fa1"
+    },
+    {
+      "path": "public/assets/fonts/QuizPalRounded-Bold-common.woff2",
+      "size": 216068,
+      "sha256": "8b197f6fb2351835e5306e2fbded7a82d04613263ab3d0697ecf7ffbaa7e3daa"
+    },
+    {
+      "path": "public/assets/fonts/QuizPalRounded-Bold-extended.woff2",
+      "size": 906760,
+      "sha256": "cf0dc55d41d218569c58d7f18b58aa592de490d06f14c669a329064dbcfc359c"
+    },
+    {
+      "path": "public/assets/fonts/QuizPalRounded-Medium-common.woff2",
+      "size": 203384,
+      "sha256": "b13a65febb6a440f2943cec59133f796474e3279b4a71b41ad9f70e710ba0736"
+    },
+    {
+      "path": "public/assets/fonts/QuizPalRounded-Medium-extended.woff2",
+      "size": 840900,
+      "sha256": "f51dabde9688739c42ae9154beef5e2c143b37a3657d6c605a5cd4be6187eaf0"
+    },
+    {
+      "path": "public/assets/magic-academy-stage-mobile.webp",
+      "size": 54856,
+      "sha256": "a38d8ae63be7b53fb43c0ea0de0e5efffa75ae07fa60d1b403748e197e32df34"
+    },
+    {
+      "path": "public/assets/magic-academy-stage.png",
+      "size": 2328626,
+      "sha256": "d5059d943d3b164bf3648b6b841af390b1fbc20de2e722124ce3f569049f8891"
+    },
+    {
+      "path": "public/assets/magic-academy-stage.webp",
+      "size": 1753968,
+      "sha256": "1b0e921fee487c8910fe03397f9dc1471be82891fbb2e0dc9be2056943c22fe7"
+    },
+    {
+      "path": "public/assets/mediterranean-sea-mobile.webp",
+      "size": 60462,
+      "sha256": "4e513f5fc04c1328fe1ab28f5d6119176b814042a02bfbd5d5e9e78afed7c9a5"
+    },
+    {
+      "path": "public/assets/mediterranean-sea.png",
+      "size": 2570788,
+      "sha256": "d1946f0903d281b9b44679fbe3d27e6e8972cf2a8319b2c916d135c0e8908cf3"
+    },
+    {
+      "path": "public/assets/themes/christmas-mobile.png",
+      "size": 2742077,
+      "sha256": "ac1e8b2f88bc7b194de47abaaa8850479c4c73c7069ab64221dc0a5e3c3a919b"
+    },
+    {
+      "path": "public/assets/themes/christmas.png",
+      "size": 2800331,
+      "sha256": "320379c24648cde2060f710e050bc3562dc897c4d40713173781b8a2a09daab5"
+    },
+    {
+      "path": "public/assets/themes/event-horizon-mobile.webp",
+      "size": 37496,
+      "sha256": "859bc1a42236051df598f75e75452a7eeacf25e9771706d2e8934ba236306a29"
+    },
+    {
+      "path": "public/assets/themes/event-horizon.png",
+      "size": 2029990,
+      "sha256": "4a5d005846ce26cef46c94a7d54d38b20a8e8f5ed2610b4b8f264e666421f2b1"
+    },
+    {
+      "path": "public/assets/themes/halloween-mobile.png",
+      "size": 2055814,
+      "sha256": "f991e635a23264ffa46fdb78822a4e22bbdc586785ec62e1833b2d6a568bdcdf"
+    },
+    {
+      "path": "public/assets/themes/halloween.png",
+      "size": 2012131,
+      "sha256": "52ab16edd685e6edc7e34c1322051ae7d5fcef175849895d2a48d7ee69b6f5ad"
+    },
+    {
+      "path": "public/assets/themes/hanami-mobile.png",
+      "size": 2663510,
+      "sha256": "d1e6d48bbb78144a19db270adde95008c1d82fa3019b0ce8ae94711a5eac607d"
+    },
+    {
+      "path": "public/assets/themes/hanami.png",
+      "size": 2873365,
+      "sha256": "8c75f28846fb93e76aa7427781191a0322b50d726925889c5c908eb06e58dd78"
+    },
+    {
+      "path": "public/assets/themes/hokkaido-mobile.png",
+      "size": 2947157,
+      "sha256": "d84adaaa65b27bf789c3ffc19b129c6f9d08ba996fedd86bc5b7beb4c9fe75a0"
+    },
+    {
+      "path": "public/assets/themes/hokkaido.png",
+      "size": 2931528,
+      "sha256": "72c290eac3c077cec929c489401ab67211e9348e0e6a1b78a7fdca1f5b135dfd"
+    },
+    {
+      "path": "public/assets/themes/mediterranean-sea-mobile.webp",
+      "size": 60462,
+      "sha256": "4e513f5fc04c1328fe1ab28f5d6119176b814042a02bfbd5d5e9e78afed7c9a5"
+    },
+    {
+      "path": "public/assets/themes/mediterranean-sea-preview.webp",
+      "size": 446856,
+      "sha256": "ee68b93450825b96f6b2d08b65292e55014d129ae94569830f70b025820824da"
+    },
+    {
+      "path": "public/assets/themes/mediterranean-sea.png",
+      "size": 2570788,
+      "sha256": "d1946f0903d281b9b44679fbe3d27e6e8972cf2a8319b2c916d135c0e8908cf3"
+    },
+    {
+      "path": "public/assets/themes/mediterranean-sea.webp",
+      "size": 2111680,
+      "sha256": "01f618b19cd636cfd38c91372bbecbd5eacae4c5499f81e727909044661a66b3"
+    },
+    {
+      "path": "public/assets/themes/new-year-mobile.png",
+      "size": 2247471,
+      "sha256": "8a0a547a765d2f02854c0719444c75c03300277757b60af28ae730cce3eba784"
+    },
+    {
+      "path": "public/assets/themes/new-year.png",
+      "size": 2451132,
+      "sha256": "12a52d167afe76962e36219dc1ecddbf55cc21e125ec9636f7d45fc4deaeb123"
+    },
+    {
+      "path": "public/assets/themes/okinawa-mobile.png",
+      "size": 2583696,
+      "sha256": "6f842aa2cca7f1033a09f16033e79e32c36be890d7ffdc54851df05fa8dddb26"
+    },
+    {
+      "path": "public/assets/themes/okinawa.png",
+      "size": 2880647,
+      "sha256": "2e91e89da02ed94b155481142b07e299029068ddd9f96f08cfe6f393eea29a62"
+    },
+    {
+      "path": "public/assets/weather/weather-clear.png",
+      "size": 85269,
+      "sha256": "a436755cf6b65bed815d720b3286f55cc08f603b8f5b85716d4292c3f2c7cfe9"
+    },
+    {
+      "path": "public/assets/weather/weather-cloudy.png",
+      "size": 79413,
+      "sha256": "4461b45feeab8d573bcd8bb1687544690632ab2aae8aabe9d182952b196fad46"
+    },
+    {
+      "path": "public/assets/weather/weather-drizzle.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "public/assets/weather/weather-fog.png",
+      "size": 79088,
+      "sha256": "073d6adc6722bfb33d2603943d09058d3f3c555a7d1fa971aceb88898d8dd8f3"
+    },
+    {
+      "path": "public/assets/weather/weather-partly.png",
+      "size": 83073,
+      "sha256": "4da681d54c8df3fc10de118c20e6a8b7e440bad468dbc2c04c18dd1d5fc577eb"
+    },
+    {
+      "path": "public/assets/weather/weather-rain-emblem-card.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "public/assets/weather/weather-rain.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "public/assets/weather/weather-snow.png",
+      "size": 89869,
+      "sha256": "2647d484ecefc62a9d4fce84a28e0f4033e383129fbbd7f7132860bab091bfa9"
+    },
+    {
+      "path": "public/assets/weather/weather-storm.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "public/brand.css",
+      "size": 1070,
+      "sha256": "4bd75c86d34d54ecb7c045f3670b23cb8cc44ae608d14cb3b6282179fad00d5d"
+    },
+    {
+      "path": "public/data/courses/sample-ap.js",
+      "size": 49008,
+      "sha256": "0a300772a5c039179943dc2d267f828673dbfa265e85211308ef6029dcceb31b"
+    },
+    {
+      "path": "public/data/courses/sample-electrician-2.js",
+      "size": 2679,
+      "sha256": "2bb625d4be68ba87b3d7053ed27b018c54683b382443dee517995c8516f40e78"
+    },
+    {
+      "path": "public/data/courses/sample-fe.js",
+      "size": 93402,
+      "sha256": "d472572208baf2c5f7ff9485114f2689cfbd3fdab52c54d6eb80a8699fcac36f"
+    },
+    {
+      "path": "public/data/courses/sample-it-passport.js",
+      "size": 51625,
+      "sha256": "7c20ada13c60719bf4d625be814c7cb60493e9c65ecb20edf70dec30154e1867"
+    },
+    {
+      "path": "public/data/courses/sample-math.js",
+      "size": 2832,
+      "sha256": "e384011ea9c27daff882605293dfb2566a571d031e771e8d5133c30608b709ba"
+    },
+    {
+      "path": "public/data/courses/sample-web-safety.js",
+      "size": 3855,
+      "sha256": "b443be992ade52f374dbdaa72ab68375cb8a92ffb3a7fe157ae524191caa5c07"
+    },
+    {
+      "path": "public/data.js",
+      "size": 224682,
+      "sha256": "9af30c4af115c2fcd73153b4a7e56e8eeccc3dcda98f7171a96f4ee93048727e"
+    },
+    {
+      "path": "public/exam-progress.css",
+      "size": 625,
+      "sha256": "2ae211ad94f28620fc9e232801aa614ce263c93875177c9508c08fa503ff4a2b"
+    },
+    {
+      "path": "public/favicon.svg",
+      "size": 552,
+      "sha256": "ac7f07e368a0dd949fda136961e8f4fad46454f8c5ac8dc7cac338d337da7826"
+    },
+    {
+      "path": "public/fonts.css",
+      "size": 91329,
+      "sha256": "af902a92bab53c832a1997364211f38a08410991a3a3725b7d21b7b4ddffd277"
+    },
+    {
+      "path": "public/graphing-calculator.js",
+      "size": 55503,
+      "sha256": "978fde9cd4dca87ddf49fb3398ee021f2be2455c8ad5e1e0e73b91f679bb8a4d"
+    },
+    {
+      "path": "public/guide-captures/ai-conversation-preview.webp",
+      "size": 86392,
+      "sha256": "10525f161bcb670c221e815f71aebed1396ec6d0976aab68b11fb3e60e74a464"
+    },
+    {
+      "path": "public/guide-captures/ai-conversation.png",
+      "size": 230825,
+      "sha256": "6bf074abbdcfca74edfda33770b71e5dc0bdf6f825cb678a0a9a48333e085f1a"
+    },
+    {
+      "path": "public/guide-captures/ai-first-answer-preview.webp",
+      "size": 75510,
+      "sha256": "383665d0d0f669b954164f335936e86d7fb7c892896d66faf8370d2332bb98e6"
+    },
+    {
+      "path": "public/guide-captures/ai-first-answer.png",
+      "size": 148508,
+      "sha256": "6397d1356a7ea08be72d512adfdc910bf5e0b4912556a609c05b887e2fa3b075"
+    },
+    {
+      "path": "public/guide-captures/ai-follow-up-preview.webp",
+      "size": 75604,
+      "sha256": "5d1912b6d7ed38c33e2d3b48c2209904fe3ab1fd18bc7496d8e9e9d5c20e693e"
+    },
+    {
+      "path": "public/guide-captures/ai-follow-up.png",
+      "size": 184108,
+      "sha256": "b765a61bda83a9463875f7320cae8c269895ec0b98fc3724f3b10b4f5c90b517"
+    },
+    {
+      "path": "public/guide-captures/binary-study-note.png",
+      "size": 666568,
+      "sha256": "4bffb8b7fa8d6109e394e91f0d4a675eaaf915961cf86575088820c2ceebca2d"
+    },
+    {
+      "path": "public/guide-captures/image-library-preview.webp",
+      "size": 90576,
+      "sha256": "052cc2c972ac996732a1a119e78ef0870a4245345af566250adaa7d90af43206"
+    },
+    {
+      "path": "public/guide-captures/image-library.png",
+      "size": 493752,
+      "sha256": "06547d3f5646ea1f591ac39d1675f9c8eac9d8097a1b0bd05632067ac3970c55"
+    },
+    {
+      "path": "public/guide-captures/README.md",
+      "size": 1006,
+      "sha256": "2e098d97072fa6df474ab2b8a9ff9b97c0a5b2280bcce1c8e993d0eaff636d2f"
+    },
+    {
+      "path": "public/intro-art/partners-flat.png",
+      "size": 1362667,
+      "sha256": "bc42aaad229923112e6bbbf300b7f090276b20b2074f1c81b5eed48dc68dbe2a"
+    },
+    {
+      "path": "public/intro-art/partners-flat.webp",
+      "size": 48700,
+      "sha256": "b9e622dbabb5985d4d42b407b600d59d29b6622f02ad72fdaa4667184c5369b0"
+    },
+    {
+      "path": "public/intro-art/portable-flat.png",
+      "size": 1321079,
+      "sha256": "ad49c3bb9a3881b46cb256dcf020e1c1401a5dcc9459080c0c26fe98be6ad4e8"
+    },
+    {
+      "path": "public/intro-art/portable-flat.webp",
+      "size": 53036,
+      "sha256": "b13134bafe20b57dd78e274da164aa2520428703812dd74edc3b2eab8b35c625"
+    },
+    {
+      "path": "public/intro-art/tutor-flat.png",
+      "size": 1429326,
+      "sha256": "8f620b50479adbf57e3122f9117cde46e4faeb09f2996b1a5a1dd78d46b2aa84"
+    },
+    {
+      "path": "public/intro-art/tutor-flat.webp",
+      "size": 60140,
+      "sha256": "c5af7708ae7479496aba7ac587db677fc690e22befea281cd7976bc33e8a19f0"
+    },
+    {
+      "path": "public/legacy-data-safety.js",
+      "size": 3527,
+      "sha256": "d025d2e72f6e42440859d84ed459ec19bc2ea1f7470bcd75384bff4ed8e531bb"
+    },
+    {
+      "path": "public/legal.css",
+      "size": 11852,
+      "sha256": "4338f6d2cd37b1c7c7077fb4e7efddc262517aeb356c194c52778c48b9359fcd"
+    },
+    {
+      "path": "public/legal.html",
+      "size": 14337,
+      "sha256": "968d06734639bc67440707ad35fc600a21e387944fb39161e1cf80703d1ab667"
+    },
+    {
+      "path": "public/llm-provider-bridge.js",
+      "size": 39333,
+      "sha256": "bbe46b9a73be4a8327841201871a474365bf8933b5499e7b8d923d1bfcb1c03f"
+    },
+    {
+      "path": "public/native-math.css",
+      "size": 285,
+      "sha256": "a01f50f11d34dd6fc6ef3ce2b4d11dc375a52fdb8a8f9296c3549b7af83efabc"
+    },
+    {
+      "path": "public/native-runtime.js",
+      "size": 14501,
+      "sha256": "bc761fc2127e57a7025528dce2f7df95f10bb55012d4577f8b2159dddb98d219"
+    },
+    {
+      "path": "public/native-stage.js",
+      "size": 6760,
+      "sha256": "8e02e7cdef50d6aa524831b805730dccf5d0663bf538e4c6d18481ab77265f6e"
+    },
+    {
+      "path": "public/performance.css",
+      "size": 716,
+      "sha256": "76471c85de2f6ca7965890352613bef3d94d8fcc0b96677de44e669772a11384"
+    },
+    {
+      "path": "public/product-intro.css",
+      "size": 53731,
+      "sha256": "f065ad1e6584a3189c39ecba459fb7b38c234209ed41bf26811f7daab8331298"
+    },
+    {
+      "path": "public/product-intro.js",
+      "size": 29114,
+      "sha256": "3d1fb58d3ab652b3a655759f6ff2f5e317f2a855ddf64d194901de056cdedb1c"
+    },
+    {
+      "path": "public/quiz-bootstrap.js",
+      "size": 1866,
+      "sha256": "35e5851e85bcda81c9233620bd5c1a04931f12f7a6d10939aad28e371d89f2be"
+    },
+    {
+      "path": "public/quiz-controls.css",
+      "size": 6736,
+      "sha256": "47b7f94174d682194658c317ad9443e86581d26a3a168b790eddb8319dea5174"
+    },
+    {
+      "path": "public/quiz-tour.css",
+      "size": 7108,
+      "sha256": "bd9f8100efc8f827dad2bce5e77a919d931088a0d6846cbf6e8c70e6496970dc"
+    },
+    {
+      "path": "public/quiz-tour.js",
+      "size": 14435,
+      "sha256": "a47dc8b8571dc492c824b6c675b8023c5dfb9fe6964a4040cff8d555c8807af7"
+    },
+    {
+      "path": "public/readable-ui.css",
+      "size": 1136,
+      "sha256": "99c6d75a3051e17784a60121bb4c12e5e3c347b886b5f2a9ca8533da45da0355"
+    },
+    {
+      "path": "public/release-layout.css",
+      "size": 5292,
+      "sha256": "c231812942999274dc9d980ac01a539818ee2e322962cfc7d2319b1932e4caef"
+    },
+    {
+      "path": "public/site-links.css",
+      "size": 4161,
+      "sha256": "cb67266e7567773e57d4013b0cfacdf60db5e71d0d5be72b576fa64a3d6bfba7"
+    },
+    {
+      "path": "public/stage-bootstrap.js",
+      "size": 95,
+      "sha256": "f88822de5c618f20653f4d33575bdfc12c7e5ca0175b7be50c1d7039a1a46b2b"
+    },
+    {
+      "path": "public/stage3d.js",
+      "size": 100,
+      "sha256": "e5bc3b1ce1d084e14bb1c11203b6c45dc73abc86efc472a5affbbfbb309ff257"
+    },
+    {
+      "path": "public/studio.css",
+      "size": 71222,
+      "sha256": "db0ad669c43cfa7f56f092d66bbce7b1e352f7353fbf8555c0250c8486d521fc"
+    },
+    {
+      "path": "public/styles.css",
+      "size": 733956,
+      "sha256": "9df2839dd17b0bbc8790fbd92b9d01addb08c8d2944c3607aa03d414c1764f55"
+    },
+    {
+      "path": "public/theme-bootstrap.js",
+      "size": 513,
+      "sha256": "463be6306c9aba79c19a44d927e0b39f296de25e4eab020c09ad1b2bf09bf7c7"
+    },
+    {
+      "path": "portable/html/boot.js",
+      "size": 8588,
+      "sha256": "164dc0a16323f26e812d85c54a6015b3216ab2416140d34d0f05690cb9a27e83"
+    },
+    {
+      "path": "portable/html/index.html",
+      "size": 1202,
+      "sha256": "3b85a1061900e026453f07ad6f3acff6d14e4e6651456fd69d531840dbf8e08d"
+    },
+    {
+      "path": "portable/html/README.html",
+      "size": 4480,
+      "sha256": "072cdfc5b45fb47c24a467352216f45e0f60d93eac0a2e5bdeb4b4123c1cce33"
+    },
+    {
+      "path": "index.html",
+      "size": 44197,
+      "sha256": "0740535b6929bb1b9cd2d4a133f16c222730f79acfa2720f72166687cfed5c5e"
+    },
+    {
+      "path": "studio.html",
+      "size": 1592,
+      "sha256": "eda5ffe9aa74a1aafdefc92fec99b224cc09ef03cd1f43b5485128fc9af53d2d"
+    },
+    {
+      "path": "vite.config.ts",
+      "size": 947,
+      "sha256": "83c8b05706340636c0089580ec954eecdd2ee58c9473cb19b818b2b6fefc6c40"
+    },
+    {
+      "path": "tsconfig.json",
+      "size": 126,
+      "sha256": "ad28d132ee48d6e23917cf5827cace785d0fc01a44ca68b0dda51cc8c3fd3f52"
+    },
+    {
+      "path": "tsconfig.app.json",
+      "size": 801,
+      "sha256": "71029fb30e8efd58f319714aa632c3c555b6f16965473f0e8a9016a5e8023304"
+    },
+    {
+      "path": "tsconfig.node.json",
+      "size": 429,
+      "sha256": "c7627e57032829ebebc7ef7252151281981f8a679385d2cb5a97376ed6d52924"
+    },
+    {
+      "path": "package.json",
+      "size": 882,
+      "sha256": "aa3dcb05bf6fadaa1450e1681eafe55f887beedecfc9939fc0653dd6269c9e90"
+    },
+    {
+      "path": "package-lock.json",
+      "size": 80437,
+      "sha256": "528e14fb4eaf070b4ffa60b7e04aa9b7948612a3dbe93cb8cf6a20ea7796d6b3"
+    },
+    {
+      "path": "publication.config.json",
+      "size": 190,
+      "sha256": "f06d99cca5f8207fc2e01d0f4224f91d26bb819f8b9c5f522d4514e75d352e80"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1089,
+      "sha256": "1ceb9201799ab82de38bc088a7f2020d06af4511e964a171bbbbe63d08888f7f"
+    },
+    {
+      "path": "LICENSE-CONTENT",
+      "size": 980,
+      "sha256": "296360e862ed3c8e960d4fbb802c6638d3121df2ce13ea9574cb9ec94a3075fb"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "size": 4891,
+      "sha256": "d1312bdc94ae44500d870ff15f83fe39f4eb3d1396358cf40cddedf6d280b618"
+    },
+    {
+      "path": "scripts/build-legacy-sample-data.mjs",
+      "size": 11638,
+      "sha256": "58c7afc90d39c70ddc7090a3ac6a36c6715df4fbc65e4522e054f91cf715cdd8"
+    },
+    {
+      "path": "scripts/build-portable-html.mjs",
+      "size": 6984,
+      "sha256": "3198633b440920f92243242c35c95ac3a33e931e86ed44bd9d65e632c6915cb0"
+    },
+    {
+      "path": "scripts/prepare-contest.mjs",
+      "size": 4089,
+      "sha256": "a57b8c0242a4bcdf06ffc565e4cbc7c1928b53ca876d81367ae8a91696de041e"
+    }
+  ],
+  "siteFiles": [
+    {
+      "path": "_headers",
+      "size": 525,
+      "sha256": "e678a8916b06e2e4eb979c1f787891f79fdd060e7bc9d8851b3449f16772e994"
+    },
+    {
+      "path": ".nojekyll",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app.js",
+      "size": 839213,
+      "sha256": "dad86fbd2b2e74dc09625a1def656ad363e71770557d459d770ffd2691934c3e"
+    },
+    {
+      "path": "assets/academy-stage.png",
+      "size": 2255773,
+      "sha256": "a5b5a47931e69b3966d5d5e8a75dd5dae361f7feaa1902334331062fe75df52f"
+    },
+    {
+      "path": "assets/event-horizon-mobile.webp",
+      "size": 37496,
+      "sha256": "859bc1a42236051df598f75e75452a7eeacf25e9771706d2e8934ba236306a29"
+    },
+    {
+      "path": "assets/event-horizon.png",
+      "size": 2029990,
+      "sha256": "4a5d005846ce26cef46c94a7d54d38b20a8e8f5ed2610b4b8f264e666421f2b1"
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Bold-common.woff2",
+      "size": 380596,
+      "sha256": "0fc61bffdfd26481fe798a5a78dd3a10fd63f30f63c9150622715948dec862ed"
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Bold-extended.woff2",
+      "size": 1691620,
+      "sha256": "962430caf13ef601765ee24e7dfed324aef2cf90b143465562caacc10860c237"
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Medium-common.woff2",
+      "size": 378332,
+      "sha256": "153840594dfdb09dc14f271be003b6435663299cf822ceedc3374a42f9f1360d"
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Medium-extended.woff2",
+      "size": 1619432,
+      "sha256": "52dde59e87782ab57a1cd8b9746260f755b738bad7aca7ad1ea93f1e87718c4e"
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Regular-common.woff2",
+      "size": 393568,
+      "sha256": "2499fa14eb3da08e885a27f36437cc90b834513f396ac7099a2c1726f53d21f6"
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Regular-extended.woff2",
+      "size": 1796988,
+      "sha256": "925ef57a178d182603ba43f1e3d2784f328af1dadd04113f0abe6e588dab0d45"
+    },
+    {
+      "path": "assets/fonts/OFL-Rounded.txt",
+      "size": 4203,
+      "sha256": "d166eabaaaf6486a186201f209fb521abb71218b0930f588414228f5c7b23f0b"
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "size": 4475,
+      "sha256": "2270d983e0e7f440ecf899711485d211119a23a1ac9a5ccbcd7a481e98e48fa1"
+    },
+    {
+      "path": "assets/fonts/QuizPalRounded-Bold-common.woff2",
+      "size": 216068,
+      "sha256": "8b197f6fb2351835e5306e2fbded7a82d04613263ab3d0697ecf7ffbaa7e3daa"
+    },
+    {
+      "path": "assets/fonts/QuizPalRounded-Bold-extended.woff2",
+      "size": 906760,
+      "sha256": "cf0dc55d41d218569c58d7f18b58aa592de490d06f14c669a329064dbcfc359c"
+    },
+    {
+      "path": "assets/fonts/QuizPalRounded-Medium-common.woff2",
+      "size": 203384,
+      "sha256": "b13a65febb6a440f2943cec59133f796474e3279b4a71b41ad9f70e710ba0736"
+    },
+    {
+      "path": "assets/fonts/QuizPalRounded-Medium-extended.woff2",
+      "size": 840900,
+      "sha256": "f51dabde9688739c42ae9154beef5e2c143b37a3657d6c605a5cd4be6187eaf0"
+    },
+    {
+      "path": "assets/magic-academy-stage-mobile.webp",
+      "size": 54856,
+      "sha256": "a38d8ae63be7b53fb43c0ea0de0e5efffa75ae07fa60d1b403748e197e32df34"
+    },
+    {
+      "path": "assets/magic-academy-stage.png",
+      "size": 2328626,
+      "sha256": "d5059d943d3b164bf3648b6b841af390b1fbc20de2e722124ce3f569049f8891"
+    },
+    {
+      "path": "assets/magic-academy-stage.webp",
+      "size": 1753968,
+      "sha256": "1b0e921fee487c8910fe03397f9dc1471be82891fbb2e0dc9be2056943c22fe7"
+    },
+    {
+      "path": "assets/mediterranean-sea-mobile.webp",
+      "size": 60462,
+      "sha256": "4e513f5fc04c1328fe1ab28f5d6119176b814042a02bfbd5d5e9e78afed7c9a5"
+    },
+    {
+      "path": "assets/mediterranean-sea.png",
+      "size": 2570788,
+      "sha256": "d1946f0903d281b9b44679fbe3d27e6e8972cf2a8319b2c916d135c0e8908cf3"
+    },
+    {
+      "path": "assets/themes/christmas-mobile.png",
+      "size": 2742077,
+      "sha256": "ac1e8b2f88bc7b194de47abaaa8850479c4c73c7069ab64221dc0a5e3c3a919b"
+    },
+    {
+      "path": "assets/themes/christmas.png",
+      "size": 2800331,
+      "sha256": "320379c24648cde2060f710e050bc3562dc897c4d40713173781b8a2a09daab5"
+    },
+    {
+      "path": "assets/themes/event-horizon-mobile.webp",
+      "size": 37496,
+      "sha256": "859bc1a42236051df598f75e75452a7eeacf25e9771706d2e8934ba236306a29"
+    },
+    {
+      "path": "assets/themes/event-horizon.png",
+      "size": 2029990,
+      "sha256": "4a5d005846ce26cef46c94a7d54d38b20a8e8f5ed2610b4b8f264e666421f2b1"
+    },
+    {
+      "path": "assets/themes/halloween-mobile.png",
+      "size": 2055814,
+      "sha256": "f991e635a23264ffa46fdb78822a4e22bbdc586785ec62e1833b2d6a568bdcdf"
+    },
+    {
+      "path": "assets/themes/halloween.png",
+      "size": 2012131,
+      "sha256": "52ab16edd685e6edc7e34c1322051ae7d5fcef175849895d2a48d7ee69b6f5ad"
+    },
+    {
+      "path": "assets/themes/hanami-mobile.png",
+      "size": 2663510,
+      "sha256": "d1e6d48bbb78144a19db270adde95008c1d82fa3019b0ce8ae94711a5eac607d"
+    },
+    {
+      "path": "assets/themes/hanami.png",
+      "size": 2873365,
+      "sha256": "8c75f28846fb93e76aa7427781191a0322b50d726925889c5c908eb06e58dd78"
+    },
+    {
+      "path": "assets/themes/hokkaido-mobile.png",
+      "size": 2947157,
+      "sha256": "d84adaaa65b27bf789c3ffc19b129c6f9d08ba996fedd86bc5b7beb4c9fe75a0"
+    },
+    {
+      "path": "assets/themes/hokkaido.png",
+      "size": 2931528,
+      "sha256": "72c290eac3c077cec929c489401ab67211e9348e0e6a1b78a7fdca1f5b135dfd"
+    },
+    {
+      "path": "assets/themes/mediterranean-sea-mobile.webp",
+      "size": 60462,
+      "sha256": "4e513f5fc04c1328fe1ab28f5d6119176b814042a02bfbd5d5e9e78afed7c9a5"
+    },
+    {
+      "path": "assets/themes/mediterranean-sea-preview.webp",
+      "size": 446856,
+      "sha256": "ee68b93450825b96f6b2d08b65292e55014d129ae94569830f70b025820824da"
+    },
+    {
+      "path": "assets/themes/mediterranean-sea.png",
+      "size": 2570788,
+      "sha256": "d1946f0903d281b9b44679fbe3d27e6e8972cf2a8319b2c916d135c0e8908cf3"
+    },
+    {
+      "path": "assets/themes/mediterranean-sea.webp",
+      "size": 2111680,
+      "sha256": "01f618b19cd636cfd38c91372bbecbd5eacae4c5499f81e727909044661a66b3"
+    },
+    {
+      "path": "assets/themes/new-year-mobile.png",
+      "size": 2247471,
+      "sha256": "8a0a547a765d2f02854c0719444c75c03300277757b60af28ae730cce3eba784"
+    },
+    {
+      "path": "assets/themes/new-year.png",
+      "size": 2451132,
+      "sha256": "12a52d167afe76962e36219dc1ecddbf55cc21e125ec9636f7d45fc4deaeb123"
+    },
+    {
+      "path": "assets/themes/okinawa-mobile.png",
+      "size": 2583696,
+      "sha256": "6f842aa2cca7f1033a09f16033e79e32c36be890d7ffdc54851df05fa8dddb26"
+    },
+    {
+      "path": "assets/themes/okinawa.png",
+      "size": 2880647,
+      "sha256": "2e91e89da02ed94b155481142b07e299029068ddd9f96f08cfe6f393eea29a62"
+    },
+    {
+      "path": "assets/weather/weather-clear.png",
+      "size": 85269,
+      "sha256": "a436755cf6b65bed815d720b3286f55cc08f603b8f5b85716d4292c3f2c7cfe9"
+    },
+    {
+      "path": "assets/weather/weather-cloudy.png",
+      "size": 79413,
+      "sha256": "4461b45feeab8d573bcd8bb1687544690632ab2aae8aabe9d182952b196fad46"
+    },
+    {
+      "path": "assets/weather/weather-drizzle.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "assets/weather/weather-fog.png",
+      "size": 79088,
+      "sha256": "073d6adc6722bfb33d2603943d09058d3f3c555a7d1fa971aceb88898d8dd8f3"
+    },
+    {
+      "path": "assets/weather/weather-partly.png",
+      "size": 83073,
+      "sha256": "4da681d54c8df3fc10de118c20e6a8b7e440bad468dbc2c04c18dd1d5fc577eb"
+    },
+    {
+      "path": "assets/weather/weather-rain-emblem-card.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "assets/weather/weather-rain.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "assets/weather/weather-snow.png",
+      "size": 89869,
+      "sha256": "2647d484ecefc62a9d4fce84a28e0f4033e383129fbbd7f7132860bab091bfa9"
+    },
+    {
+      "path": "assets/weather/weather-storm.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "brand.css",
+      "size": 1070,
+      "sha256": "4bd75c86d34d54ecb7c045f3670b23cb8cc44ae608d14cb3b6282179fad00d5d"
+    },
+    {
+      "path": "data/courses/sample-ap.js",
+      "size": 49008,
+      "sha256": "0a300772a5c039179943dc2d267f828673dbfa265e85211308ef6029dcceb31b"
+    },
+    {
+      "path": "data/courses/sample-electrician-2.js",
+      "size": 2679,
+      "sha256": "2bb625d4be68ba87b3d7053ed27b018c54683b382443dee517995c8516f40e78"
+    },
+    {
+      "path": "data/courses/sample-fe.js",
+      "size": 93402,
+      "sha256": "d472572208baf2c5f7ff9485114f2689cfbd3fdab52c54d6eb80a8699fcac36f"
+    },
+    {
+      "path": "data/courses/sample-it-passport.js",
+      "size": 51625,
+      "sha256": "7c20ada13c60719bf4d625be814c7cb60493e9c65ecb20edf70dec30154e1867"
+    },
+    {
+      "path": "data/courses/sample-math.js",
+      "size": 2832,
+      "sha256": "e384011ea9c27daff882605293dfb2566a571d031e771e8d5133c30608b709ba"
+    },
+    {
+      "path": "data/courses/sample-web-safety.js",
+      "size": 3855,
+      "sha256": "b443be992ade52f374dbdaa72ab68375cb8a92ffb3a7fe157ae524191caa5c07"
+    },
+    {
+      "path": "data.js",
+      "size": 224609,
+      "sha256": "57c935cdfca386e779b96f99bb944a5f64e331a7d1e7c3b42e2f01c907994c2b"
+    },
+    {
+      "path": "downloads/Quiz-Pal-HTML.zip",
+      "size": 65853885,
+      "sha256": "4c275d85ea102420cf64ac5c997924ee88be4b343cee2cc6e5965c9349c6fa64"
+    },
+    {
+      "path": "exam-progress.css",
+      "size": 625,
+      "sha256": "2ae211ad94f28620fc9e232801aa614ce263c93875177c9508c08fa503ff4a2b"
+    },
+    {
+      "path": "favicon.svg",
+      "size": 552,
+      "sha256": "ac7f07e368a0dd949fda136961e8f4fad46454f8c5ac8dc7cac338d337da7826"
+    },
+    {
+      "path": "fonts.css",
+      "size": 91329,
+      "sha256": "af902a92bab53c832a1997364211f38a08410991a3a3725b7d21b7b4ddffd277"
+    },
+    {
+      "path": "graphing-calculator.js",
+      "size": 55503,
+      "sha256": "978fde9cd4dca87ddf49fb3398ee021f2be2455c8ad5e1e0e73b91f679bb8a4d"
+    },
+    {
+      "path": "guide-captures/ai-conversation-preview.webp",
+      "size": 86392,
+      "sha256": "10525f161bcb670c221e815f71aebed1396ec6d0976aab68b11fb3e60e74a464"
+    },
+    {
+      "path": "guide-captures/ai-conversation.png",
+      "size": 230825,
+      "sha256": "6bf074abbdcfca74edfda33770b71e5dc0bdf6f825cb678a0a9a48333e085f1a"
+    },
+    {
+      "path": "guide-captures/ai-first-answer-preview.webp",
+      "size": 75510,
+      "sha256": "383665d0d0f669b954164f335936e86d7fb7c892896d66faf8370d2332bb98e6"
+    },
+    {
+      "path": "guide-captures/ai-first-answer.png",
+      "size": 148508,
+      "sha256": "6397d1356a7ea08be72d512adfdc910bf5e0b4912556a609c05b887e2fa3b075"
+    },
+    {
+      "path": "guide-captures/ai-follow-up-preview.webp",
+      "size": 75604,
+      "sha256": "5d1912b6d7ed38c33e2d3b48c2209904fe3ab1fd18bc7496d8e9e9d5c20e693e"
+    },
+    {
+      "path": "guide-captures/ai-follow-up.png",
+      "size": 184108,
+      "sha256": "b765a61bda83a9463875f7320cae8c269895ec0b98fc3724f3b10b4f5c90b517"
+    },
+    {
+      "path": "guide-captures/binary-study-note.png",
+      "size": 666568,
+      "sha256": "4bffb8b7fa8d6109e394e91f0d4a675eaaf915961cf86575088820c2ceebca2d"
+    },
+    {
+      "path": "guide-captures/image-library-preview.webp",
+      "size": 90576,
+      "sha256": "052cc2c972ac996732a1a119e78ef0870a4245345af566250adaa7d90af43206"
+    },
+    {
+      "path": "guide-captures/image-library.png",
+      "size": 493752,
+      "sha256": "06547d3f5646ea1f591ac39d1675f9c8eac9d8097a1b0bd05632067ac3970c55"
+    },
+    {
+      "path": "guide-captures/README.md",
+      "size": 1006,
+      "sha256": "2e098d97072fa6df474ab2b8a9ff9b97c0a5b2280bcce1c8e993d0eaff636d2f"
+    },
+    {
+      "path": "html-boot.js",
+      "size": 8588,
+      "sha256": "164dc0a16323f26e812d85c54a6015b3216ab2416140d34d0f05690cb9a27e83"
+    },
+    {
+      "path": "html-pages.js",
+      "size": 69288,
+      "sha256": "958dc8e78ad6915100b865c01bb748e4f4d7a698804e30bf0e1578b017ea68ac"
+    },
+    {
+      "path": "html-stage.js",
+      "size": 6814,
+      "sha256": "858271aa8a3512c8ce210f4c9dd82390f78a7690e8b3b22176250b8a09e4cb5b"
+    },
+    {
+      "path": "index.html",
+      "size": 1202,
+      "sha256": "3b85a1061900e026453f07ad6f3acff6d14e4e6651456fd69d531840dbf8e08d"
+    },
+    {
+      "path": "intro-art/partners-flat.png",
+      "size": 1362667,
+      "sha256": "bc42aaad229923112e6bbbf300b7f090276b20b2074f1c81b5eed48dc68dbe2a"
+    },
+    {
+      "path": "intro-art/partners-flat.webp",
+      "size": 48700,
+      "sha256": "b9e622dbabb5985d4d42b407b600d59d29b6622f02ad72fdaa4667184c5369b0"
+    },
+    {
+      "path": "intro-art/portable-flat.png",
+      "size": 1321079,
+      "sha256": "ad49c3bb9a3881b46cb256dcf020e1c1401a5dcc9459080c0c26fe98be6ad4e8"
+    },
+    {
+      "path": "intro-art/portable-flat.webp",
+      "size": 53036,
+      "sha256": "b13134bafe20b57dd78e274da164aa2520428703812dd74edc3b2eab8b35c625"
+    },
+    {
+      "path": "intro-art/tutor-flat.png",
+      "size": 1429326,
+      "sha256": "8f620b50479adbf57e3122f9117cde46e4faeb09f2996b1a5a1dd78d46b2aa84"
+    },
+    {
+      "path": "intro-art/tutor-flat.webp",
+      "size": 60140,
+      "sha256": "c5af7708ae7479496aba7ac587db677fc690e22befea281cd7976bc33e8a19f0"
+    },
+    {
+      "path": "legacy-data-safety.js",
+      "size": 3527,
+      "sha256": "d025d2e72f6e42440859d84ed459ec19bc2ea1f7470bcd75384bff4ed8e531bb"
+    },
+    {
+      "path": "legal.css",
+      "size": 11852,
+      "sha256": "4338f6d2cd37b1c7c7077fb4e7efddc262517aeb356c194c52778c48b9359fcd"
+    },
+    {
+      "path": "legal.html",
+      "size": 175,
+      "sha256": "d12c16bb88ec5edc6c88ab7d3ffee53301f11ad2effb84c84d7f74a823fa3e78"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1089,
+      "sha256": "1ceb9201799ab82de38bc088a7f2020d06af4511e964a171bbbbe63d08888f7f"
+    },
+    {
+      "path": "LICENSE-CONTENT",
+      "size": 980,
+      "sha256": "296360e862ed3c8e960d4fbb802c6638d3121df2ce13ea9574cb9ec94a3075fb"
+    },
+    {
+      "path": "llm-provider-bridge.js",
+      "size": 39333,
+      "sha256": "bbe46b9a73be4a8327841201871a474365bf8933b5499e7b8d923d1bfcb1c03f"
+    },
+    {
+      "path": "native-math.css",
+      "size": 285,
+      "sha256": "a01f50f11d34dd6fc6ef3ce2b4d11dc375a52fdb8a8f9296c3549b7af83efabc"
+    },
+    {
+      "path": "native-runtime.js",
+      "size": 14501,
+      "sha256": "bc761fc2127e57a7025528dce2f7df95f10bb55012d4577f8b2159dddb98d219"
+    },
+    {
+      "path": "native-stage.js",
+      "size": 6760,
+      "sha256": "8e02e7cdef50d6aa524831b805730dccf5d0663bf538e4c6d18481ab77265f6e"
+    },
+    {
+      "path": "performance.css",
+      "size": 716,
+      "sha256": "76471c85de2f6ca7965890352613bef3d94d8fcc0b96677de44e669772a11384"
+    },
+    {
+      "path": "product-intro.css",
+      "size": 53731,
+      "sha256": "f065ad1e6584a3189c39ecba459fb7b38c234209ed41bf26811f7daab8331298"
+    },
+    {
+      "path": "product-intro.js",
+      "size": 29114,
+      "sha256": "3d1fb58d3ab652b3a655759f6ff2f5e317f2a855ddf64d194901de056cdedb1c"
+    },
+    {
+      "path": "quiz-bootstrap.js",
+      "size": 1866,
+      "sha256": "35e5851e85bcda81c9233620bd5c1a04931f12f7a6d10939aad28e371d89f2be"
+    },
+    {
+      "path": "quiz-controls.css",
+      "size": 6736,
+      "sha256": "47b7f94174d682194658c317ad9443e86581d26a3a168b790eddb8319dea5174"
+    },
+    {
+      "path": "quiz-tour.css",
+      "size": 7108,
+      "sha256": "bd9f8100efc8f827dad2bce5e77a919d931088a0d6846cbf6e8c70e6496970dc"
+    },
+    {
+      "path": "quiz-tour.js",
+      "size": 14435,
+      "sha256": "a47dc8b8571dc492c824b6c675b8023c5dfb9fe6964a4040cff8d555c8807af7"
+    },
+    {
+      "path": "readable-ui.css",
+      "size": 1136,
+      "sha256": "99c6d75a3051e17784a60121bb4c12e5e3c347b886b5f2a9ca8533da45da0355"
+    },
+    {
+      "path": "README.html",
+      "size": 4480,
+      "sha256": "072cdfc5b45fb47c24a467352216f45e0f60d93eac0a2e5bdeb4b4123c1cce33"
+    },
+    {
+      "path": "release-layout.css",
+      "size": 5292,
+      "sha256": "c231812942999274dc9d980ac01a539818ee2e322962cfc7d2319b1932e4caef"
+    },
+    {
+      "path": "site-links.css",
+      "size": 4161,
+      "sha256": "cb67266e7567773e57d4013b0cfacdf60db5e71d0d5be72b576fa64a3d6bfba7"
+    },
+    {
+      "path": "stage-bootstrap.js",
+      "size": 95,
+      "sha256": "f88822de5c618f20653f4d33575bdfc12c7e5ca0175b7be50c1d7039a1a46b2b"
+    },
+    {
+      "path": "stage3d.js",
+      "size": 100,
+      "sha256": "e5bc3b1ce1d084e14bb1c11203b6c45dc73abc86efc472a5affbbfbb309ff257"
+    },
+    {
+      "path": "studio.bundle.js",
+      "size": 234883,
+      "sha256": "24c69acfa4dd48c425d18332d1a7f2ef8cae5f32447da1fd0b91e6aa54d65ec9"
+    },
+    {
+      "path": "studio.css",
+      "size": 71222,
+      "sha256": "db0ad669c43cfa7f56f092d66bbce7b1e352f7353fbf8555c0250c8486d521fc"
+    },
+    {
+      "path": "studio.html",
+      "size": 177,
+      "sha256": "0df00be1acb2571c7cd2285467878f05338a7908cd2c03169001014a7b680920"
+    },
+    {
+      "path": "styles.css",
+      "size": 733956,
+      "sha256": "9df2839dd17b0bbc8790fbd92b9d01addb08c8d2944c3607aa03d414c1764f55"
+    },
+    {
+      "path": "theme-bootstrap.js",
+      "size": 513,
+      "sha256": "463be6306c9aba79c19a44d927e0b39f296de25e4eab020c09ad1b2bf09bf7c7"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "size": 4891,
+      "sha256": "d1312bdc94ae44500d870ff15f83fe39f4eb3d1396358cf40cddedf6d280b618"
+    }
+  ],
+  "download": {
+    "path": "downloads/Quiz-Pal-HTML.zip",
+    "size": 65853885,
+    "sha256": "4c275d85ea102420cf64ac5c997924ee88be4b343cee2cc6e5965c9349c6fa64"
+  },
+  "portableFiles": [
+    {
+      "path": "Quiz-Pal-HTML/_headers",
+      "size": 525,
+      "sha256": "e678a8916b06e2e4eb979c1f787891f79fdd060e7bc9d8851b3449f16772e994"
+    },
+    {
+      "path": "Quiz-Pal-HTML/app.js",
+      "size": 839213,
+      "sha256": "dad86fbd2b2e74dc09625a1def656ad363e71770557d459d770ffd2691934c3e"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/academy-stage.png",
+      "size": 2255773,
+      "sha256": "a5b5a47931e69b3966d5d5e8a75dd5dae361f7feaa1902334331062fe75df52f"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/event-horizon-mobile.webp",
+      "size": 37496,
+      "sha256": "859bc1a42236051df598f75e75452a7eeacf25e9771706d2e8934ba236306a29"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/event-horizon.png",
+      "size": 2029990,
+      "sha256": "4a5d005846ce26cef46c94a7d54d38b20a8e8f5ed2610b4b8f264e666421f2b1"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/KaiseiOpti-Bold-common.woff2",
+      "size": 380596,
+      "sha256": "0fc61bffdfd26481fe798a5a78dd3a10fd63f30f63c9150622715948dec862ed"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/KaiseiOpti-Bold-extended.woff2",
+      "size": 1691620,
+      "sha256": "962430caf13ef601765ee24e7dfed324aef2cf90b143465562caacc10860c237"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/KaiseiOpti-Medium-common.woff2",
+      "size": 378332,
+      "sha256": "153840594dfdb09dc14f271be003b6435663299cf822ceedc3374a42f9f1360d"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/KaiseiOpti-Medium-extended.woff2",
+      "size": 1619432,
+      "sha256": "52dde59e87782ab57a1cd8b9746260f755b738bad7aca7ad1ea93f1e87718c4e"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/KaiseiOpti-Regular-common.woff2",
+      "size": 393568,
+      "sha256": "2499fa14eb3da08e885a27f36437cc90b834513f396ac7099a2c1726f53d21f6"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/KaiseiOpti-Regular-extended.woff2",
+      "size": 1796988,
+      "sha256": "925ef57a178d182603ba43f1e3d2784f328af1dadd04113f0abe6e588dab0d45"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/OFL-Rounded.txt",
+      "size": 4203,
+      "sha256": "d166eabaaaf6486a186201f209fb521abb71218b0930f588414228f5c7b23f0b"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/OFL.txt",
+      "size": 4475,
+      "sha256": "2270d983e0e7f440ecf899711485d211119a23a1ac9a5ccbcd7a481e98e48fa1"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/QuizPalRounded-Bold-common.woff2",
+      "size": 216068,
+      "sha256": "8b197f6fb2351835e5306e2fbded7a82d04613263ab3d0697ecf7ffbaa7e3daa"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/QuizPalRounded-Bold-extended.woff2",
+      "size": 906760,
+      "sha256": "cf0dc55d41d218569c58d7f18b58aa592de490d06f14c669a329064dbcfc359c"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/QuizPalRounded-Medium-common.woff2",
+      "size": 203384,
+      "sha256": "b13a65febb6a440f2943cec59133f796474e3279b4a71b41ad9f70e710ba0736"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/fonts/QuizPalRounded-Medium-extended.woff2",
+      "size": 840900,
+      "sha256": "f51dabde9688739c42ae9154beef5e2c143b37a3657d6c605a5cd4be6187eaf0"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/magic-academy-stage-mobile.webp",
+      "size": 54856,
+      "sha256": "a38d8ae63be7b53fb43c0ea0de0e5efffa75ae07fa60d1b403748e197e32df34"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/magic-academy-stage.png",
+      "size": 2328626,
+      "sha256": "d5059d943d3b164bf3648b6b841af390b1fbc20de2e722124ce3f569049f8891"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/magic-academy-stage.webp",
+      "size": 1753968,
+      "sha256": "1b0e921fee487c8910fe03397f9dc1471be82891fbb2e0dc9be2056943c22fe7"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/mediterranean-sea-mobile.webp",
+      "size": 60462,
+      "sha256": "4e513f5fc04c1328fe1ab28f5d6119176b814042a02bfbd5d5e9e78afed7c9a5"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/mediterranean-sea.png",
+      "size": 2570788,
+      "sha256": "d1946f0903d281b9b44679fbe3d27e6e8972cf2a8319b2c916d135c0e8908cf3"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/christmas-mobile.png",
+      "size": 2742077,
+      "sha256": "ac1e8b2f88bc7b194de47abaaa8850479c4c73c7069ab64221dc0a5e3c3a919b"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/christmas.png",
+      "size": 2800331,
+      "sha256": "320379c24648cde2060f710e050bc3562dc897c4d40713173781b8a2a09daab5"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/event-horizon-mobile.webp",
+      "size": 37496,
+      "sha256": "859bc1a42236051df598f75e75452a7eeacf25e9771706d2e8934ba236306a29"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/event-horizon.png",
+      "size": 2029990,
+      "sha256": "4a5d005846ce26cef46c94a7d54d38b20a8e8f5ed2610b4b8f264e666421f2b1"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/halloween-mobile.png",
+      "size": 2055814,
+      "sha256": "f991e635a23264ffa46fdb78822a4e22bbdc586785ec62e1833b2d6a568bdcdf"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/halloween.png",
+      "size": 2012131,
+      "sha256": "52ab16edd685e6edc7e34c1322051ae7d5fcef175849895d2a48d7ee69b6f5ad"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/hanami-mobile.png",
+      "size": 2663510,
+      "sha256": "d1e6d48bbb78144a19db270adde95008c1d82fa3019b0ce8ae94711a5eac607d"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/hanami.png",
+      "size": 2873365,
+      "sha256": "8c75f28846fb93e76aa7427781191a0322b50d726925889c5c908eb06e58dd78"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/hokkaido-mobile.png",
+      "size": 2947157,
+      "sha256": "d84adaaa65b27bf789c3ffc19b129c6f9d08ba996fedd86bc5b7beb4c9fe75a0"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/hokkaido.png",
+      "size": 2931528,
+      "sha256": "72c290eac3c077cec929c489401ab67211e9348e0e6a1b78a7fdca1f5b135dfd"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/mediterranean-sea-mobile.webp",
+      "size": 60462,
+      "sha256": "4e513f5fc04c1328fe1ab28f5d6119176b814042a02bfbd5d5e9e78afed7c9a5"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/mediterranean-sea-preview.webp",
+      "size": 446856,
+      "sha256": "ee68b93450825b96f6b2d08b65292e55014d129ae94569830f70b025820824da"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/mediterranean-sea.png",
+      "size": 2570788,
+      "sha256": "d1946f0903d281b9b44679fbe3d27e6e8972cf2a8319b2c916d135c0e8908cf3"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/mediterranean-sea.webp",
+      "size": 2111680,
+      "sha256": "01f618b19cd636cfd38c91372bbecbd5eacae4c5499f81e727909044661a66b3"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/new-year-mobile.png",
+      "size": 2247471,
+      "sha256": "8a0a547a765d2f02854c0719444c75c03300277757b60af28ae730cce3eba784"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/new-year.png",
+      "size": 2451132,
+      "sha256": "12a52d167afe76962e36219dc1ecddbf55cc21e125ec9636f7d45fc4deaeb123"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/okinawa-mobile.png",
+      "size": 2583696,
+      "sha256": "6f842aa2cca7f1033a09f16033e79e32c36be890d7ffdc54851df05fa8dddb26"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/themes/okinawa.png",
+      "size": 2880647,
+      "sha256": "2e91e89da02ed94b155481142b07e299029068ddd9f96f08cfe6f393eea29a62"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/weather/weather-clear.png",
+      "size": 85269,
+      "sha256": "a436755cf6b65bed815d720b3286f55cc08f603b8f5b85716d4292c3f2c7cfe9"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/weather/weather-cloudy.png",
+      "size": 79413,
+      "sha256": "4461b45feeab8d573bcd8bb1687544690632ab2aae8aabe9d182952b196fad46"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/weather/weather-drizzle.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/weather/weather-fog.png",
+      "size": 79088,
+      "sha256": "073d6adc6722bfb33d2603943d09058d3f3c555a7d1fa971aceb88898d8dd8f3"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/weather/weather-partly.png",
+      "size": 83073,
+      "sha256": "4da681d54c8df3fc10de118c20e6a8b7e440bad468dbc2c04c18dd1d5fc577eb"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/weather/weather-rain-emblem-card.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/weather/weather-rain.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/weather/weather-snow.png",
+      "size": 89869,
+      "sha256": "2647d484ecefc62a9d4fce84a28e0f4033e383129fbbd7f7132860bab091bfa9"
+    },
+    {
+      "path": "Quiz-Pal-HTML/assets/weather/weather-storm.png",
+      "size": 328098,
+      "sha256": "81b84eda3e82af7135f5a7a27f0de7c39ba89ea86ae1a2d2fd369344371a9065"
+    },
+    {
+      "path": "Quiz-Pal-HTML/brand.css",
+      "size": 1070,
+      "sha256": "4bd75c86d34d54ecb7c045f3670b23cb8cc44ae608d14cb3b6282179fad00d5d"
+    },
+    {
+      "path": "Quiz-Pal-HTML/data/courses/sample-ap.js",
+      "size": 49008,
+      "sha256": "0a300772a5c039179943dc2d267f828673dbfa265e85211308ef6029dcceb31b"
+    },
+    {
+      "path": "Quiz-Pal-HTML/data/courses/sample-electrician-2.js",
+      "size": 2679,
+      "sha256": "2bb625d4be68ba87b3d7053ed27b018c54683b382443dee517995c8516f40e78"
+    },
+    {
+      "path": "Quiz-Pal-HTML/data/courses/sample-fe.js",
+      "size": 93402,
+      "sha256": "d472572208baf2c5f7ff9485114f2689cfbd3fdab52c54d6eb80a8699fcac36f"
+    },
+    {
+      "path": "Quiz-Pal-HTML/data/courses/sample-it-passport.js",
+      "size": 51625,
+      "sha256": "7c20ada13c60719bf4d625be814c7cb60493e9c65ecb20edf70dec30154e1867"
+    },
+    {
+      "path": "Quiz-Pal-HTML/data/courses/sample-math.js",
+      "size": 2832,
+      "sha256": "e384011ea9c27daff882605293dfb2566a571d031e771e8d5133c30608b709ba"
+    },
+    {
+      "path": "Quiz-Pal-HTML/data/courses/sample-web-safety.js",
+      "size": 3855,
+      "sha256": "b443be992ade52f374dbdaa72ab68375cb8a92ffb3a7fe157ae524191caa5c07"
+    },
+    {
+      "path": "Quiz-Pal-HTML/data.js",
+      "size": 224609,
+      "sha256": "57c935cdfca386e779b96f99bb944a5f64e331a7d1e7c3b42e2f01c907994c2b"
+    },
+    {
+      "path": "Quiz-Pal-HTML/exam-progress.css",
+      "size": 625,
+      "sha256": "2ae211ad94f28620fc9e232801aa614ce263c93875177c9508c08fa503ff4a2b"
+    },
+    {
+      "path": "Quiz-Pal-HTML/favicon.svg",
+      "size": 552,
+      "sha256": "ac7f07e368a0dd949fda136961e8f4fad46454f8c5ac8dc7cac338d337da7826"
+    },
+    {
+      "path": "Quiz-Pal-HTML/fonts.css",
+      "size": 91329,
+      "sha256": "af902a92bab53c832a1997364211f38a08410991a3a3725b7d21b7b4ddffd277"
+    },
+    {
+      "path": "Quiz-Pal-HTML/graphing-calculator.js",
+      "size": 55503,
+      "sha256": "978fde9cd4dca87ddf49fb3398ee021f2be2455c8ad5e1e0e73b91f679bb8a4d"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/ai-conversation-preview.webp",
+      "size": 86392,
+      "sha256": "10525f161bcb670c221e815f71aebed1396ec6d0976aab68b11fb3e60e74a464"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/ai-conversation.png",
+      "size": 230825,
+      "sha256": "6bf074abbdcfca74edfda33770b71e5dc0bdf6f825cb678a0a9a48333e085f1a"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/ai-first-answer-preview.webp",
+      "size": 75510,
+      "sha256": "383665d0d0f669b954164f335936e86d7fb7c892896d66faf8370d2332bb98e6"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/ai-first-answer.png",
+      "size": 148508,
+      "sha256": "6397d1356a7ea08be72d512adfdc910bf5e0b4912556a609c05b887e2fa3b075"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/ai-follow-up-preview.webp",
+      "size": 75604,
+      "sha256": "5d1912b6d7ed38c33e2d3b48c2209904fe3ab1fd18bc7496d8e9e9d5c20e693e"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/ai-follow-up.png",
+      "size": 184108,
+      "sha256": "b765a61bda83a9463875f7320cae8c269895ec0b98fc3724f3b10b4f5c90b517"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/binary-study-note.png",
+      "size": 666568,
+      "sha256": "4bffb8b7fa8d6109e394e91f0d4a675eaaf915961cf86575088820c2ceebca2d"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/image-library-preview.webp",
+      "size": 90576,
+      "sha256": "052cc2c972ac996732a1a119e78ef0870a4245345af566250adaa7d90af43206"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/image-library.png",
+      "size": 493752,
+      "sha256": "06547d3f5646ea1f591ac39d1675f9c8eac9d8097a1b0bd05632067ac3970c55"
+    },
+    {
+      "path": "Quiz-Pal-HTML/guide-captures/README.md",
+      "size": 1006,
+      "sha256": "2e098d97072fa6df474ab2b8a9ff9b97c0a5b2280bcce1c8e993d0eaff636d2f"
+    },
+    {
+      "path": "Quiz-Pal-HTML/html-boot.js",
+      "size": 8588,
+      "sha256": "164dc0a16323f26e812d85c54a6015b3216ab2416140d34d0f05690cb9a27e83"
+    },
+    {
+      "path": "Quiz-Pal-HTML/html-pages.js",
+      "size": 69288,
+      "sha256": "958dc8e78ad6915100b865c01bb748e4f4d7a698804e30bf0e1578b017ea68ac"
+    },
+    {
+      "path": "Quiz-Pal-HTML/html-stage.js",
+      "size": 6814,
+      "sha256": "858271aa8a3512c8ce210f4c9dd82390f78a7690e8b3b22176250b8a09e4cb5b"
+    },
+    {
+      "path": "Quiz-Pal-HTML/index.html",
+      "size": 1202,
+      "sha256": "3b85a1061900e026453f07ad6f3acff6d14e4e6651456fd69d531840dbf8e08d"
+    },
+    {
+      "path": "Quiz-Pal-HTML/intro-art/partners-flat.png",
+      "size": 1362667,
+      "sha256": "bc42aaad229923112e6bbbf300b7f090276b20b2074f1c81b5eed48dc68dbe2a"
+    },
+    {
+      "path": "Quiz-Pal-HTML/intro-art/partners-flat.webp",
+      "size": 48700,
+      "sha256": "b9e622dbabb5985d4d42b407b600d59d29b6622f02ad72fdaa4667184c5369b0"
+    },
+    {
+      "path": "Quiz-Pal-HTML/intro-art/portable-flat.png",
+      "size": 1321079,
+      "sha256": "ad49c3bb9a3881b46cb256dcf020e1c1401a5dcc9459080c0c26fe98be6ad4e8"
+    },
+    {
+      "path": "Quiz-Pal-HTML/intro-art/portable-flat.webp",
+      "size": 53036,
+      "sha256": "b13134bafe20b57dd78e274da164aa2520428703812dd74edc3b2eab8b35c625"
+    },
+    {
+      "path": "Quiz-Pal-HTML/intro-art/tutor-flat.png",
+      "size": 1429326,
+      "sha256": "8f620b50479adbf57e3122f9117cde46e4faeb09f2996b1a5a1dd78d46b2aa84"
+    },
+    {
+      "path": "Quiz-Pal-HTML/intro-art/tutor-flat.webp",
+      "size": 60140,
+      "sha256": "c5af7708ae7479496aba7ac587db677fc690e22befea281cd7976bc33e8a19f0"
+    },
+    {
+      "path": "Quiz-Pal-HTML/legacy-data-safety.js",
+      "size": 3527,
+      "sha256": "d025d2e72f6e42440859d84ed459ec19bc2ea1f7470bcd75384bff4ed8e531bb"
+    },
+    {
+      "path": "Quiz-Pal-HTML/legal.css",
+      "size": 11852,
+      "sha256": "4338f6d2cd37b1c7c7077fb4e7efddc262517aeb356c194c52778c48b9359fcd"
+    },
+    {
+      "path": "Quiz-Pal-HTML/legal.html",
+      "size": 175,
+      "sha256": "d12c16bb88ec5edc6c88ab7d3ffee53301f11ad2effb84c84d7f74a823fa3e78"
+    },
+    {
+      "path": "Quiz-Pal-HTML/LICENSE",
+      "size": 1089,
+      "sha256": "1ceb9201799ab82de38bc088a7f2020d06af4511e964a171bbbbe63d08888f7f"
+    },
+    {
+      "path": "Quiz-Pal-HTML/LICENSE-CONTENT",
+      "size": 980,
+      "sha256": "296360e862ed3c8e960d4fbb802c6638d3121df2ce13ea9574cb9ec94a3075fb"
+    },
+    {
+      "path": "Quiz-Pal-HTML/llm-provider-bridge.js",
+      "size": 39333,
+      "sha256": "bbe46b9a73be4a8327841201871a474365bf8933b5499e7b8d923d1bfcb1c03f"
+    },
+    {
+      "path": "Quiz-Pal-HTML/native-math.css",
+      "size": 285,
+      "sha256": "a01f50f11d34dd6fc6ef3ce2b4d11dc375a52fdb8a8f9296c3549b7af83efabc"
+    },
+    {
+      "path": "Quiz-Pal-HTML/native-runtime.js",
+      "size": 14501,
+      "sha256": "bc761fc2127e57a7025528dce2f7df95f10bb55012d4577f8b2159dddb98d219"
+    },
+    {
+      "path": "Quiz-Pal-HTML/native-stage.js",
+      "size": 6760,
+      "sha256": "8e02e7cdef50d6aa524831b805730dccf5d0663bf538e4c6d18481ab77265f6e"
+    },
+    {
+      "path": "Quiz-Pal-HTML/performance.css",
+      "size": 716,
+      "sha256": "76471c85de2f6ca7965890352613bef3d94d8fcc0b96677de44e669772a11384"
+    },
+    {
+      "path": "Quiz-Pal-HTML/product-intro.css",
+      "size": 53731,
+      "sha256": "f065ad1e6584a3189c39ecba459fb7b38c234209ed41bf26811f7daab8331298"
+    },
+    {
+      "path": "Quiz-Pal-HTML/product-intro.js",
+      "size": 29114,
+      "sha256": "3d1fb58d3ab652b3a655759f6ff2f5e317f2a855ddf64d194901de056cdedb1c"
+    },
+    {
+      "path": "Quiz-Pal-HTML/quiz-bootstrap.js",
+      "size": 1866,
+      "sha256": "35e5851e85bcda81c9233620bd5c1a04931f12f7a6d10939aad28e371d89f2be"
+    },
+    {
+      "path": "Quiz-Pal-HTML/quiz-controls.css",
+      "size": 6736,
+      "sha256": "47b7f94174d682194658c317ad9443e86581d26a3a168b790eddb8319dea5174"
+    },
+    {
+      "path": "Quiz-Pal-HTML/quiz-tour.css",
+      "size": 7108,
+      "sha256": "bd9f8100efc8f827dad2bce5e77a919d931088a0d6846cbf6e8c70e6496970dc"
+    },
+    {
+      "path": "Quiz-Pal-HTML/quiz-tour.js",
+      "size": 14435,
+      "sha256": "a47dc8b8571dc492c824b6c675b8023c5dfb9fe6964a4040cff8d555c8807af7"
+    },
+    {
+      "path": "Quiz-Pal-HTML/readable-ui.css",
+      "size": 1136,
+      "sha256": "99c6d75a3051e17784a60121bb4c12e5e3c347b886b5f2a9ca8533da45da0355"
+    },
+    {
+      "path": "Quiz-Pal-HTML/README.html",
+      "size": 4480,
+      "sha256": "072cdfc5b45fb47c24a467352216f45e0f60d93eac0a2e5bdeb4b4123c1cce33"
+    },
+    {
+      "path": "Quiz-Pal-HTML/release-layout.css",
+      "size": 5292,
+      "sha256": "c231812942999274dc9d980ac01a539818ee2e322962cfc7d2319b1932e4caef"
+    },
+    {
+      "path": "Quiz-Pal-HTML/site-links.css",
+      "size": 4161,
+      "sha256": "cb67266e7567773e57d4013b0cfacdf60db5e71d0d5be72b576fa64a3d6bfba7"
+    },
+    {
+      "path": "Quiz-Pal-HTML/stage-bootstrap.js",
+      "size": 95,
+      "sha256": "f88822de5c618f20653f4d33575bdfc12c7e5ca0175b7be50c1d7039a1a46b2b"
+    },
+    {
+      "path": "Quiz-Pal-HTML/stage3d.js",
+      "size": 100,
+      "sha256": "e5bc3b1ce1d084e14bb1c11203b6c45dc73abc86efc472a5affbbfbb309ff257"
+    },
+    {
+      "path": "Quiz-Pal-HTML/studio.bundle.js",
+      "size": 234883,
+      "sha256": "24c69acfa4dd48c425d18332d1a7f2ef8cae5f32447da1fd0b91e6aa54d65ec9"
+    },
+    {
+      "path": "Quiz-Pal-HTML/studio.css",
+      "size": 71222,
+      "sha256": "db0ad669c43cfa7f56f092d66bbce7b1e352f7353fbf8555c0250c8486d521fc"
+    },
+    {
+      "path": "Quiz-Pal-HTML/studio.html",
+      "size": 177,
+      "sha256": "0df00be1acb2571c7cd2285467878f05338a7908cd2c03169001014a7b680920"
+    },
+    {
+      "path": "Quiz-Pal-HTML/styles.css",
+      "size": 733956,
+      "sha256": "9df2839dd17b0bbc8790fbd92b9d01addb08c8d2944c3607aa03d414c1764f55"
+    },
+    {
+      "path": "Quiz-Pal-HTML/theme-bootstrap.js",
+      "size": 513,
+      "sha256": "463be6306c9aba79c19a44d927e0b39f296de25e4eab020c09ad1b2bf09bf7c7"
+    },
+    {
+      "path": "Quiz-Pal-HTML/THIRD_PARTY_NOTICES.md",
+      "size": 4891,
+      "sha256": "d1312bdc94ae44500d870ff15f83fe39f4eb3d1396358cf40cddedf6d280b618"
+    }
+  ]
+}

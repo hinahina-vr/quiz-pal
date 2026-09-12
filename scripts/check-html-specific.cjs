@@ -1,0 +1,44 @@
+const {chromium,expect}=require(process.env.PLAYWRIGHT_TEST_MODULE||'playwright/test');
+const fs=require('node:fs/promises'),path=require('node:path');const {pathToFileURL}=require('node:url');
+const out=path.resolve(process.env.QA_OUTPUT||'work/qa-html-specific');
+const url=pathToFileURL(path.resolve(process.env.QA_HTML)).href;
+const executablePath=process.env.QA_CHROME||'C:/Program Files/Google/Chrome/Application/chrome.exe';
+(async()=>{
+ await fs.mkdir(out,{recursive:true});const browser=await chromium.launch({executablePath,headless:true});const results=[];const mark=s=>{results.push(s);console.log('PASS',s)};
+ try{
+  const context=await browser.newContext({viewport:{width:1440,height:900},acceptDownloads:true});await context.setOffline(true);
+  const page=await context.newPage();const errors=[],failed=[],external=[];
+  page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});page.on('requestfailed',r=>failed.push(r.url()));page.on('request',r=>{if(/^https?:/.test(r.url()))external.push(r.url())});page.on('dialog',d=>d.accept());
+  await page.goto(url);await expect(page.locator('.product-intro')).toBeVisible();await page.locator('[data-step="2"]').click();
+  await expect(page.locator('.product-intro')).toContainText('Windows・Mac・Linux');await expect(page.locator('.product-intro')).toContainText('index.html をブラウザで開く');
+  const popupEvent=page.waitForEvent('popup');await page.locator('.product-intro-download').click();const help=await popupEvent;await help.waitForLoadState();await expect(help.locator('h1')).toContainText('HTMLを開くだけ');expect(help.url()).toMatch(/^file:/);await help.screenshot({path:path.join(out,'html-readme.png')});await help.close();
+  await page.screenshot({path:path.join(out,'html-portable-intro.png')});await page.locator('#productIntroDoNotShow').check();await page.locator('[data-action=close]').click();
+  await expect(page.locator('.portable-promo-copy')).toContainText('HTML版を使っています');
+  mark('HTML edition explains all three operating systems and opens bundled instructions offline');
+  await page.locator('.maintenance-entry').click();await expect(page.locator('html')).toHaveAttribute('data-html-ready','studio');await expect(page.locator('.studio-shell')).toBeVisible();
+  await page.getByRole('button',{name:'スキップ',exact:true}).click();
+  await page.goBack();await expect(page.locator('html')).toHaveAttribute('data-html-ready','quiz');await expect(page.locator('#options .option-button')).toHaveCount(5);
+  await page.goForward();await expect(page.locator('html')).toHaveAttribute('data-html-ready','studio');await expect(page.locator('.studio-shell')).toBeVisible();
+  mark('Browser back and forward switch quiz and Studio through the same HTML entry');
+  await page.locator('.sidebar-site-links a').first().click();await expect(page.locator('html')).toHaveAttribute('data-html-ready','legal');await page.locator('.legal-toc a[href="#local-data"]').click();await expect(page).toHaveURL(/#\/legal:local-data$/);
+  await page.reload();await expect(page.locator('html')).toHaveAttribute('data-html-ready','legal');await expect(page.locator('#local-data')).toBeInViewport();await page.screenshot({path:path.join(out,'html-legal.png')});
+  mark('Legal in-page anchors preserve the current view and scroll target after reload');
+  await page.goto(new URL('./studio.html',url).href);await expect(page.locator('html')).toHaveAttribute('data-html-ready','studio');expect(page.url()).toBe(url+'#/studio');
+  await page.getByRole('link',{name:'クイズへ戻る',exact:false}).first().click();await expect(page.locator('html')).toHaveAttribute('data-html-ready','quiz');
+  mark('Extra studio entry redirects to index.html instead of splitting saved data');
+  await page.locator('#fullDataLoadInput').setInputFiles(path.resolve(process.env.QA_BACKUP));await expect(page.locator('#fullDataStatus')).toContainText('ロード完了');await page.waitForTimeout(1000);await expect(page.locator('html')).toHaveAttribute('data-html-ready','quiz');
+  await expect(page.locator('.product-intro')).toBeVisible();await page.locator('#productIntroDoNotShow').check();await page.locator('[data-action=close]').click();
+  await expect(page.locator('.course-switch')).toContainText('QA 保存復元テスト');await page.locator('button[data-course="sample-fe"]').click();await expect(page.locator('.exam-group-button').first().locator('.chapter-score')).toHaveText('1/19正解');
+  await page.locator('#llmTeachButton').click();await page.locator('#llmImageLibraryToggle').click();await expect(page.locator('#llmImageGallery img')).toHaveCount(1);await page.locator('#explanationImagesClose').click();await page.locator('#llmPanelClose').click();
+  await page.screenshot({path:path.join(out,'windows-backup-restored-in-html.png')});
+  const savedEvent=page.waitForEvent('download');await page.locator('#fullDataSaveButton').click();const saved=await savedEvent;await saved.saveAs(path.join(out,'html-migrated-backup.json'));expect(await saved.failure()).toBeNull();
+  const savedData=JSON.parse(await fs.readFile(path.join(out,'html-migrated-backup.json'),'utf8'));expect(savedData.summary.llmImages).toBe(1);expect(savedData.studio.stores.subjects.some(s=>s.name==='QA 保存復元テスト')).toBe(true);
+  mark('Existing Windows backup restores study progress, edited subjects and images in HTML and exports again');
+  await page.evaluate(()=>document.fonts.ready);expect(await page.evaluate(()=>[...document.fonts].filter(f=>f.status==='error').length)).toBe(0);
+  expect(errors).toEqual([]);expect(failed).toEqual([]);expect(external).toEqual([]);
+  mark('All local workflows run with network offline and no failed resources or browser exceptions');
+  await context.close();
+  const next=await browser.newContext({acceptDownloads:true});await next.setOffline(true);const restored=await next.newPage();restored.on('dialog',d=>d.accept());await restored.goto(url);await expect(restored.locator('.product-intro')).toBeVisible();await restored.locator('[data-action=close]').click();await restored.locator('#fullDataLoadInput').setInputFiles(path.join(out,'html-migrated-backup.json'));await expect(restored.locator('#fullDataStatus')).toContainText('ロード完了');await restored.waitForTimeout(1000);await expect(restored.locator('.course-switch')).toContainText('QA 保存復元テスト');await next.close();mark('HTML backup imports into a fresh browser profile');
+  await fs.writeFile(path.join(out,'results.json'),JSON.stringify({browser:browser.version(),protocol:'file:',passed:true,results,errors,failed,external},null,2));
+ }finally{await browser.close()}
+})().catch(e=>{console.error(e);process.exitCode=1});

@@ -1,0 +1,15 @@
+/* Shared Quiz Pal wordmark and icon. Keep the existing application layout. */
+.brand-symbol { display: block; width: 44px; height: 44px; flex: 0 0 44px; object-fit: contain; }
+.brand .brand-symbol { width: 46px; height: 46px; flex-basis: 46px; }
+.brand h1, .legal-brand strong, .product-intro .brand-name { font-family: "Segoe UI", "Yu Gothic UI", sans-serif; font-weight: 800; letter-spacing: -.045em; }
+.brand h1 { font-size: 24px; line-height: 1.12; }
+.product-intro .product-intro-wordmark { gap: 11px; }
+.product-intro .brand-name { display: block; font-size: 23px; line-height: 1.15; color: #3f3046; }
+.product-intro .brand-name em { color: #177a71; font-style: normal; }
+.product-intro .product-intro-wordmark small { margin-top: 4px; color: #716774; font-size: 10px; letter-spacing: .025em; }
+.legal-brand strong { font-size: 23px; }
+@media (max-width: 760px) {
+  .product-intro .brand-symbol { width: 38px; height: 38px; flex-basis: 38px; }
+  .product-intro .brand-name { font-size: 21px; }
+  .product-intro .product-intro-wordmark small { font-size: 9px; }
+}

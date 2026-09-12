@@ -1,0 +1,14 @@
+.native-math {
+  font-family: "Times New Roman", "Yu Mincho", serif;
+  font-style: normal;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+}
+
+.native-math-display {
+  display: block;
+  margin: 0.65em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+}

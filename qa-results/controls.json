@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "version": "1.0.0",
+  "checks": [
+    "AI stays beside images; all five choices visible, Escape closes at 600px",
+    "AI stays beside images; all five choices visible, Escape closes at 320px",
+    "AI stays beside images; all five choices visible, Escape closes at 390px",
+    "AI stays beside images; all five choices visible, Escape closes at 768px",
+    "AI stays beside images; all five choices visible, Escape closes at 1280px",
+    "AI stays beside images; all five choices visible, Escape closes at 1920px",
+    "All five status choices update the trigger and persist across reload",
+    "Selecting current status resets it; outside click dismisses",
+    "Decorative badge removed; image and AI dialogs open"
+  ],
+  "errors": []
+}

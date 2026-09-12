@@ -1,0 +1,10 @@
+# Preserve hashes when cloning the prepared source and generated site on another OS.
+# Disabling EOL conversion does not disable normal text diffs.
+* -text
+# Original quiz UI snapshots also rely on exact source bytes.
+/index.html -text
+/public/styles.css -text
+/public/app.js -text
+/public/stage3d.js -text
+/stage3d.js -text
+/public/graphing-calculator.js -text

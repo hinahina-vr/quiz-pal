@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="問題を解く・作る・直すを端末内データで完結できる、ローカルファーストのクイズ学習アプリです。" />
+    <title>Quiz Pal</title>
+    <script src="./quiz-bootstrap.js?v=20260826-security"></script>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260907-quiz-pal" />
+    <link rel="stylesheet" href="./styles.css?v=1.0.0-release" />
+    <link rel="stylesheet" href="./exam-progress.css?v=20260907" />
+    <link rel="stylesheet" href="./site-links.css?v=20260904-portable-legal" />
+    <link rel="stylesheet" href="./quiz-tour.css?v=1.0.0-guide-opt-out" />
+    <link rel="stylesheet" href="./product-intro.css?v=20260908-guide" />
+    <link rel="stylesheet" href="./native-math.css?v=1" />
+    <script src="./native-runtime.js?v=1"></script>
+    <link rel="stylesheet" href="./brand.css?v=20260907-quiz-pal" />
+    <link rel="stylesheet" href="./quiz-controls.css?v=1.0.0-release" />
+    <link rel="stylesheet" href="./fonts.css?v=20260908-performance" />
+    <link rel="stylesheet" href="./performance.css?v=20260908-performance" />
+    <link rel="stylesheet" href="./release-layout.css?v=1.0.0-release" />
+      <link rel="stylesheet" href="./readable-ui.css?v=20260912" />
+</head>
+  <body>
+    <div class="theme-backdrop" aria-hidden="true">
+      <div class="theme-backdrop-image"></div>
+      <div class="theme-backdrop-atmosphere"></div>
+      <div class="theme-backdrop-particles"></div>
+    </div>
+    <canvas class="stage-canvas" id="stageCanvas" aria-hidden="true"></canvas>
+    <canvas class="effects-canvas" id="effectsCanvas" aria-hidden="true"></canvas>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="チャプター一覧">
+        <div class="brand">
+          <img class="brand-symbol" src="./favicon.svg?v=20260907-quiz-pal" width="46" height="46" alt="" aria-hidden="true" />
+          <div>
+            <h1>Quiz Pal</h1>
+            <p id="datasetMeta">データ読み込み中</p>
+          </div>
+        </div>
+
+        <section class="sidebar-data-transfer" aria-label="全データのセーブとロード" data-quiz-tour-id="data">
+          <div class="sidebar-data-buttons">
+            <button class="sidebar-data-button save" id="fullDataSaveButton" type="button" title="教材・学習履歴・設定をまとめて書き出す">
+              <span class="sidebar-data-button-icon" aria-hidden="true"><i data-lucide="download"></i></span>
+              <span class="sidebar-data-button-copy">
+                <small>EXPORT</small>
+                <strong>セーブ</strong>
+                <em>全データを書出</em>
+              </span>
+            </button>
+            <button class="sidebar-data-button load" id="fullDataLoadButton" type="button" title="バックアップから全データを復元する">
+              <span class="sidebar-data-button-icon" aria-hidden="true"><i data-lucide="upload"></i></span>
+              <span class="sidebar-data-button-copy">
+                <small>IMPORT</small>
+                <strong>ロード</strong>
+                <em>全データを復元</em>
+              </span>
+            </button>
+          </div>
+          <input class="visually-hidden" id="fullDataLoadInput" type="file" accept="application/json,.json" tabindex="-1" aria-hidden="true" />
+          <p class="sidebar-data-status" id="fullDataStatus" role="status" aria-live="polite">教材・履歴・設定を一括保存（APIキー除外）</p>
+        </section>
+
+        <a class="maintenance-entry" href="./studio.html" aria-label="問題をつくる・なおす" title="問題メンテナンス画面を開く" data-quiz-tour-id="studio">
+          <span class="maintenance-entry-icon" aria-hidden="true"><i data-lucide="wrench"></i></span>
+          <span class="maintenance-entry-copy">
+            <small>QUESTION STUDIO</small>
+            <strong>問題をつくる・なおす</strong>
+            <em>追加・編集・AI作成・CSV</em>
+          </span>
+          <i class="maintenance-entry-arrow" data-lucide="chevron-right" aria-hidden="true"></i>
+        </a>
+
+        <a
+          class="portable-promo"
+          href="./downloads/Quiz-Pal-HTML.zip"
+          target="_blank"
+          rel="noopener noreferrer"
+          referrerpolicy="no-referrer"
+          aria-label="インストール不要のHTML共通版をダウンロードする"
+        >
+          <span class="portable-promo-icon" aria-hidden="true"><i data-lucide="package-open"></i></span>
+          <span class="portable-promo-copy">
+            <small>WINDOWS / MAC / LINUX</small>
+            <strong>このアプリを持ち帰る</strong>
+            <em>ZIPを展開してHTMLを開く</em>
+          </span>
+          <span class="portable-promo-badge">インストール不要</span>
+        </a>
+
+        <nav class="sidebar-site-links" aria-label="このアプリについて">
+          <a href="./legal.html"><i data-lucide="shield-check" aria-hidden="true"></i><span>利用条件・プライバシー</span></a>
+          <a href="https://github.com/hinahina-vr/quiz-pal" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"><i data-lucide="code-2" aria-hidden="true"></i><span>GitHub・ライセンス</span></a>
+        </nav>
+
+        <div class="completed-course-panel">
+          <button class="completed-course-toggle" id="completedCoursesToggle" type="button" aria-expanded="false" aria-controls="completedCourseSwitch">
+            <i data-lucide="archive"></i>
+            <span>修了科目</span>
+            <small>3</small>
+            <i class="completed-course-chevron" data-lucide="chevron-down"></i>
+          </button>
+          <div class="completed-course-switch" id="completedCourseSwitch" role="tablist" aria-label="修了科目" hidden>
+            <button class="course-tab completed-course-tab" data-course="anthropocene" data-completed-course type="button">人新世</button>
+            <button class="course-tab completed-course-tab" data-course="bigdata" data-completed-course type="button">ビッグデータ</button>
+            <button class="course-tab completed-course-tab" data-course="kigurumi-mask" data-completed-course type="button">着ぐるみ</button>
+          </div>
+        </div>
+
+        <div class="course-switch" role="tablist" aria-label="科目切替" data-quiz-tour-id="courses">
+          <button class="course-tab" data-course="reverse-science-history" type="button">逆さ科学史</button>
+          <button class="course-tab" data-course="daily-physics" type="button">日常物理</button>
+          <button class="course-tab" data-course="psychology" type="button">心理学</button>
+          <button class="course-tab" data-course="co-creation-earth" type="button">共創地球</button>
+          <button class="course-tab" data-course="high-school-math" type="button">高校数学</button>
+          <button class="course-tab" data-course="math-ii-training" type="button">数学II</button>
+          <button class="course-tab" data-course="analysis-intro" type="button">解析学超入門</button>
+          <button class="course-tab" data-course="analysis-1" type="button">解析学1</button>
+          <button class="course-tab" data-course="advanced-am1" type="button">高度午前I</button>
+          <button class="course-tab active" data-course="pe-first-info" type="button">技術士一次</button>
+          <button class="course-tab" data-course="kougai-manager" type="button" title="公害防止管理者" aria-label="公害防止管理者">公害防止</button>
+          <button class="course-tab" data-course="periodic-table" type="button">周期表</button>
+        </div>
+
+        <div class="chapter-list" id="chapterList" data-quiz-tour-id="chapters"></div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="chapter-heading">
+            <p class="eyebrow" id="courseName">人新世の人類学</p>
+            <h2 id="chapterTitle">第1回</h2>
+          </div>
+          <div class="header-cards" aria-label="出題ステータス">
+            <div class="rank-card">
+              <span>CLASS</span>
+              <strong id="rankLabel">入門</strong>
+            </div>
+            <div class="format-card">
+              <span>STYLE</span>
+              <strong id="formatLabel">5択</strong>
+            </div>
+          </div>
+          <div class="toolbar" aria-label="クイズ操作" data-quiz-tour-id="tools">
+            <button class="icon-button" id="quizIntroButton" type="button" title="アプリ紹介" aria-label="アプリ紹介"><i data-lucide="book-open"></i><span>紹介</span></button>
+            <button class="icon-button" id="quizGuideButton" type="button" title="使い方ガイド" aria-label="使い方ガイド" data-quiz-tour-id="guide">
+              <i data-lucide="circle-help"></i><span>ガイド</span>
+            </button>
+            <button class="icon-button" id="shuffleButton" type="button" title="問題の順番をランダムに並べ替える">
+              <i data-lucide="shuffle"></i><span>問題順</span>
+            </button>
+            <button class="icon-button active" id="optionShuffleButton" type="button" title="選択肢シャッフル オン" aria-pressed="true">
+              <i data-lucide="arrow-up-down"></i><span>選択肢</span>
+            </button>
+            <button class="icon-button" id="frequencySortButton" type="button" title="累計出題回数の多い順" aria-pressed="false" hidden>
+              <i data-lucide="arrow-down-wide-narrow"></i><span>頻出順</span>
+            </button>
+            <button class="icon-button" id="followUpButton" type="button" title="間違えた問題">
+              <i data-lucide="list-checks"></i><span>Miss</span>
+            </button>
+            <button class="icon-button" id="unansweredButton" type="button" title="未回答の問題">
+              <i data-lucide="list-todo"></i><span>未答</span>
+            </button>
+            <div class="section-search" id="sectionSearch">
+              <button class="icon-button section-search-toggle" id="sectionSearchToggle" type="button" title="このセクションを検索" aria-label="このセクションを検索" aria-expanded="false" aria-controls="sectionSearchPanel" data-tooltip="このセクションを検索">
+                <i data-lucide="search"></i><span class="visually-hidden">検索</span>
+              </button>
+              <div class="section-search-popover" id="sectionSearchPanel" role="dialog" aria-label="このセクションを検索">
+                <div class="section-search-field">
+                  <i data-lucide="search"></i>
+                  <input id="sectionSearchInput" type="search" autocomplete="off" placeholder="このセクションを検索" aria-label="このセクションを検索" />
+                  <span class="section-search-count" id="sectionSearchCount">0問</span>
+                  <button class="section-search-clear" id="sectionSearchClear" type="button" title="検索解除" aria-label="検索解除" hidden>
+                    <i data-lucide="x"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button class="icon-button" id="calculationModeButton" type="button" title="このセクションの計算問題だけ">
+              <i data-lucide="calculator"></i><span>計算</span>
+            </button>
+            <button class="icon-button" id="nonCalculationModeButton" type="button" title="このセクションの非計算問題だけ">
+              <i data-lucide="ban"></i><span>非計算</span>
+            </button>
+            <button class="icon-button" id="autoAdvanceButton" type="button" title="自動送り停止中" hidden>
+              <i data-lucide="fast-forward"></i><span>連続</span>
+            </button>
+            <button class="icon-button" id="sectionLoopButton" type="button" title="セクション内ループ オフ" aria-pressed="false">
+              <i data-lucide="repeat-2"></i><span>ループ</span>
+            </button>
+            <button class="icon-button active" id="timerToggleButton" type="button" title="制限時間オン/オフ" aria-pressed="true">
+              <i data-lucide="clock"></i><span>時間</span>
+            </button>
+            <div class="theme-picker" id="themePicker">
+              <button class="icon-button theme-picker-toggle" id="themePickerToggle" type="button" title="画面テーマ" aria-label="画面テーマを選ぶ" aria-expanded="false" aria-haspopup="dialog" aria-controls="themePickerPopover">
+                <i data-lucide="palette"></i><span id="themePickerLabel">テーマ</span>
+              </button>
+              <div class="theme-picker-popover hidden" id="themePickerPopover" role="dialog" aria-label="画面テーマ" hidden>
+                <div class="theme-picker-heading">
+                  <span>SCENE SELECT</span>
+                  <strong>世界観を選ぶ</strong>
+                </div>
+                <button class="theme-choice" data-theme-choice="fantasy" type="button">
+                  <span class="theme-choice-preview theme-choice-preview-fantasy" aria-hidden="true"></span>
+                  <span class="theme-choice-copy"><strong>剣と魔法</strong><small>中世ファンタジーRPG</small></span>
+                  <i data-lucide="check"></i>
+                </button>
+                <button class="theme-choice" data-theme-choice="mediterranean" type="button">
+                  <span class="theme-choice-preview theme-choice-preview-mediterranean" aria-hidden="true"></span>
+                  <span class="theme-choice-copy"><strong>地中海</strong><small>陽光の海底神殿</small></span>
+                  <i data-lucide="check"></i>
+                </button>
+                <button class="theme-choice" data-theme-choice="okinawa" type="button">
+                  <span class="theme-choice-preview theme-choice-preview-okinawa" aria-hidden="true"></span>
+                  <span class="theme-choice-copy"><strong>沖縄モード</strong><small>珊瑚礁と南国の海</small></span>
+                  <i data-lucide="check"></i>
+                </button>
+                <button class="theme-choice" data-theme-choice="hokkaido" type="button">
+                  <span class="theme-choice-preview theme-choice-preview-hokkaido" aria-hidden="true"></span>
+                  <span class="theme-choice-copy"><strong>北海道モード</strong><small>雪原と澄んだ冬空</small></span>
+                  <i data-lucide="check"></i>
+                </button>
+                <button class="theme-choice" data-theme-choice="halloween" type="button">
+                  <span class="theme-choice-preview theme-choice-preview-halloween" aria-hidden="true"></span>
+                  <span class="theme-choice-copy"><strong>ハロウィンモード</strong><small>紫の夜と灯る南瓜</small></span>
+                  <i data-lucide="check"></i>
+                </button>
+                <button class="theme-choice" data-theme-choice="new-year" type="button">
+                  <span class="theme-choice-preview theme-choice-preview-new-year" aria-hidden="true"></span>
+                  <span class="theme-choice-copy"><strong>お正月モード</strong><small>初日の出と金屏風</small></span>
+                  <i data-lucide="check"></i>
+                </button>
+                <button class="theme-choice" data-theme-choice="christmas" type="button">
+                  <span class="theme-choice-preview theme-choice-preview-christmas" aria-hidden="true"></span>
+                  <span class="theme-choice-copy"><strong>クリスマスモード</strong><small>雪夜と森のイルミネーション</small></span>
+                  <i data-lucide="check"></i>
+                </button>
+                <button class="theme-choice" data-theme-choice="hanami" type="button">
+                  <span class="theme-choice-preview theme-choice-preview-hanami" aria-hidden="true"></span>
+                  <span class="theme-choice-copy"><strong>お花見モード</strong><small>春霞と満開の桜</small></span>
+                  <i data-lucide="check"></i>
+                </button>
+                <button class="theme-choice" data-theme-choice="event-horizon" type="button">
+                  <span class="theme-choice-preview theme-choice-preview-horizon" aria-hidden="true"></span>
+                  <span class="theme-choice-copy"><strong>事象の地平面</strong><small>ブラックホール観測域</small></span>
+                  <i data-lucide="check"></i>
+                </button>
+                <div class="theme-motion-control">
+                  <span class="theme-motion-copy">
+                    <i data-lucide="sparkles"></i>
+                    <span><strong>背景アニメーション</strong><small>水面・粒子・3D演出</small></span>
+                  </span>
+                  <button class="theme-motion-switch" id="themeMotionToggle" type="button" role="switch" aria-checked="true" aria-label="背景アニメーション">
+                    <span aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button class="icon-button immersive-mode-button" id="immersiveModeButton" type="button" title="没入モード" aria-label="没入モードを開始" aria-pressed="false">
+              <i data-lucide="scan"></i><span>没入</span>
+            </button>
+            <div class="history-menu-wrap">
+              <button class="icon-button danger-button" id="historyMenuButton" type="button" title="履歴削除" aria-expanded="false" aria-haspopup="menu">
+                <i data-lucide="trash-2"></i><span>履歴</span>
+              </button>
+              <div class="history-menu hidden" id="historyMenu" role="menu">
+                <button class="history-menu-item" id="resetQuestionButton" type="button" role="menuitem">
+                  <i data-lucide="file-x-2"></i><span>問題削除</span>
+                </button>
+                <button class="history-menu-item" id="resetChapterButton" type="button" role="menuitem">
+                  <i data-lucide="layers-2"></i><span>単元削除</span>
+                </button>
+                <button class="history-menu-item" id="resetCourseButton" type="button" role="menuitem">
+                  <i data-lucide="book-x"></i><span>科目削除</span>
+                </button>
+                <button class="history-menu-item danger-menu-item" id="resetAllButton" type="button" role="menuitem">
+                  <i data-lucide="trash-2"></i><span>全削除</span>
+                </button>
+                <div class="history-inline-confirm hidden" id="historyInlineConfirm" role="status" aria-live="polite">
+                  <div class="history-inline-title" id="historyInlineTitle">履歴削除</div>
+                  <div class="history-inline-message" id="historyInlineMessage"></div>
+                  <div class="history-inline-actions">
+                    <button class="ghost-button compact-button" id="historyInlineCancel" type="button">取消</button>
+                    <button class="primary-button compact-button danger-confirm-button" id="historyInlineOk" type="button">削除</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section class="status-band" aria-label="進捗">
+            <div class="status-cell score-cell">
+              <span class="stat-label">TOTAL SCORE</span>
+              <strong id="accuracy">0%</strong>
+            </div>
+            <div class="status-cell">
+              <span class="stat-label">CLEAR</span>
+              <strong id="answeredCount">0 / 20</strong>
+            </div>
+            <div class="status-cell combo-cell" id="comboCell" data-combo="0">
+              <span class="stat-label">COMBO</span>
+              <strong><span id="comboCount">0</span><small> CHAIN</small></strong>
+            </div>
+            <div class="status-cell retry-cell">
+              <span class="stat-label">RETRY</span>
+              <strong id="followUpCount">0</strong>
+            </div>
+            <div class="status-cell">
+              <span class="stat-label">PLAY</span>
+              <strong id="attemptCount">0</strong>
+            </div>
+            <div class="status-cell">
+              <span class="stat-label">STAGE</span>
+              <strong id="currentIndex">1 / 20</strong>
+            </div>
+            <div class="progress-cell">
+              <span class="progress-label">QUEST PROGRESS</span>
+              <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+            </div>
+          </section>
+        </header>
+
+        <section class="periodic-stage hidden" id="periodicStage" aria-label="元素周期表"></section>
+
+
+        <div class="playfield">
+          <section class="quiz-panel" aria-live="polite" data-quiz-tour-id="quiz">
+            <div class="question-board">
+              <div class="question-head">
+                <span class="question-chip" id="questionNumber">Q1</span>
+                <span class="variant-chip" id="variantChip">source</span>
+                <button
+                  class="question-source-button"
+                  id="questionSourceButton"
+                  type="button"
+                  aria-haspopup="dialog"
+                  aria-controls="questionSourceDialog"
+                  hidden
+                >
+                  <i data-lucide="book-open"></i><span>出典はこちら</span>
+                </button>
+                <button
+                  class="question-frequency-badge hidden"
+                  id="questionFrequencyBadge"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="questionFrequencyDetails"
+                ></button>
+                <button class="understanding-menu-button" id="understandingMenuButton" type="button" popovertarget="understandingToggle" aria-haspopup="true">理解度を選ぶ ▾</button>
+                <div class="understanding-toggle" id="understandingToggle" popover role="group" aria-label="理解度">
+                  <button class="understanding-choice-button understanding-lost" type="button" data-understanding-level="lost" aria-pressed="false">なんもわからん</button>
+                  <button class="understanding-choice-button understanding-confused" type="button" data-understanding-level="confused" aria-pressed="false">なるほどわからん</button>
+                  <button class="understanding-choice-button understanding-partial" type="button" data-understanding-level="partial" aria-pressed="false">雰囲気で理解した</button>
+                  <button class="understanding-choice-button understanding-complete" type="button" data-understanding-level="complete" aria-pressed="false">完全に理解した</button>
+                  <button class="understanding-choice-button understanding-worthless" type="button" data-understanding-level="worthless" aria-pressed="false">やる価値なし</button>
+                </div>
+                <div class="question-action-row">
+                <button class="calculation-marker-button" id="calculationMarkerButton" type="button" aria-pressed="false" title="計算問題としてマーク">
+                  <i data-lucide="calculator"></i><span>計算</span>
+                </button>
+                <button class="question-copy-button" id="copyQuestionButton" type="button" title="問題文と選択肢をコピー">
+                  <i data-lucide="copy"></i><span>Copy</span>
+                </button>
+                <button class="explanation-images-button" id="explanationImagesButton" type="button" aria-haspopup="dialog" aria-controls="explanationImagesDialog" aria-expanded="false" data-quiz-tour-id="images"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8" cy="9" r="1.5"/><path d="m4 18 5-5 3 3 4-6 4 8"/></svg><span>解説画像</span></button>
+                <button class="llm-teach-button" id="llmTeachButton" type="button" title="AIに解説してもらう" aria-label="AIにきく" data-quiz-tour-id="llm">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 1-8 8H5l-3 3V11a9 9 0 0 1 18 0Z"/><path d="M7 11h.01M11 11h.01M15 11h.01"/></svg><span>AIにきく</span>
+                </button>
+                </div>
+              </div>
+              <div
+                class="question-frequency-details hidden"
+                id="questionFrequencyDetails"
+                role="region"
+                aria-label="同一問題の出題履歴"
+              ></div>
+              <div class="chapter-resources hidden" id="chapterResources" aria-label="教材リンク"></div>
+              <div class="review-session-hud hidden" id="reviewSessionHud" aria-label="復習セッション進捗"></div>
+              <div class="clue-box hidden" id="clueBox"></div>
+              <div class="quiz-actions">
+                <button class="ghost-button" id="prevButton" type="button">
+                  <i data-lucide="chevron-left"></i><span>前へ</span>
+                </button>
+                <div class="pager" id="pager"></div>
+                <button class="primary-button" id="nextButton" type="button">
+                  <span>次へ</span><i data-lucide="chevron-right"></i>
+                </button>
+                <div
+                  class="answer-history-strip hidden"
+                  id="answerHistoryStrip"
+                  role="group"
+                  aria-label="この問題の回答履歴"
+                >
+                  <span class="answer-history-label">回答履歴</span>
+                  <div class="answer-history-marks" id="answerHistoryMarks" role="list"></div>
+                </div>
+              </div>
+              <p class="question-text" id="questionText"></p>
+            </div>
+            <div class="time-card">
+              <strong id="timerValue">60</strong>
+              <div class="timer-track" aria-hidden="true"><span id="timerBar"></span></div>
+            </div>
+            <div class="quiz-resize-handle" id="questionAnswerResizeHandle" role="separator" aria-label="問題文と選択肢の表示サイズ" aria-orientation="horizontal"></div>
+            <div class="answer-dock">
+              <div class="options" id="options"></div>
+              <div class="typing-panel hidden" id="typingPanel">
+                <input id="typingInput" type="text" autocomplete="off" />
+                <button class="primary-button" id="typingSubmit" type="button">
+                  <span>OK</span><i data-lucide="send"></i>
+                </button>
+                <span class="typing-hint" id="typingHint"></span>
+              </div>
+            </div>
+            <div class="option-graph-panel hidden" id="optionGraphPanel" aria-label="選択肢のグラフ"></div>
+            <div class="feedback hidden" id="feedback">
+              <div class="feedback-title" id="feedbackTitle"></div>
+              <div class="feedback-actions">
+                <button class="ghost-button compact-button" id="retryButton" type="button">
+                  <i data-lucide="refresh-cw"></i><span>もう一度解く</span>
+                </button>
+                <span class="attempt-summary" id="attemptSummary"></span>
+              </div>
+              <div class="feedback-body" id="feedbackBody"></div>
+              <div class="attempt-history" id="attemptHistory"></div>
+            </div>
+          </section>
+
+          <aside class="right-rail" aria-label="プレイ状況">
+            <div class="score-boss">
+              <strong id="sideScoreValue">0.00<small>点</small></strong>
+              <div class="score-track large" aria-hidden="true"><span id="sideScoreBar"></span></div>
+            </div>
+            <div class="study-time-card" aria-label="時計とストップウォッチ">
+              <div class="study-clock">
+                <div class="analog-clock" id="studyClockFace" aria-label="現在時刻">
+                  <span class="clock-number r12">XII</span>
+                  <span class="clock-number r1">I</span>
+                  <span class="clock-number r2">II</span>
+                  <span class="clock-number r3">III</span>
+                  <span class="clock-number r4">IV</span>
+                  <span class="clock-number r5">V</span>
+                  <span class="clock-number r6">VI</span>
+                  <span class="clock-number r7">VII</span>
+                  <span class="clock-number r8">VIII</span>
+                  <span class="clock-number r9">IX</span>
+                  <span class="clock-number r10">X</span>
+                  <span class="clock-number r11">XI</span>
+                  <span class="clock-hand hour-hand" id="studyClockHour"></span>
+                  <span class="clock-hand minute-hand" id="studyClockMinute"></span>
+                  <span class="clock-hand second-hand" id="studyClockSecond"></span>
+                  <span class="clock-center"></span>
+                </div>
+                <small id="studyClockDate">--</small>
+              </div>
+              <div class="study-stopwatch">
+                <span class="study-time-label">STOPWATCH</span>
+                <strong id="studyStopwatchValue">00:00:00</strong>
+                <div class="study-stopwatch-actions">
+                  <button class="study-time-button" id="studyStopwatchStart" type="button" title="ストップウォッチ開始">
+                    <i data-lucide="play"></i><span id="studyStopwatchStartLabel">開始</span>
+                  </button>
+                  <button class="study-time-button ghost" id="studyStopwatchReset" type="button" title="ストップウォッチリセット">
+                    <i data-lucide="rotate-ccw"></i>
+                  </button>
+                </div>
+                <div class="pomodoro-panel" aria-label="ポモドーロタイマー">
+                  <div class="pomodoro-head">
+                    <span class="study-time-label">POMODORO</span>
+                    <div class="pomodoro-status">
+                      <span class="pomodoro-set-label" id="pomodoroSetLabel">セット 1/4</span>
+                      <strong id="pomodoroPhaseLabel">OFF</strong>
+                    </div>
+                  </div>
+                  <label class="pomodoro-preset">
+                    <span class="study-time-label">MODE</span>
+                    <select id="pomodoroPreset" aria-label="ポモドーロ設定"></select>
+                  </label>
+                  <div class="pomodoro-track" aria-hidden="true"><span id="pomodoroBar"></span></div>
+                  <div class="pomodoro-actions">
+                    <button class="study-time-button" id="pomodoroToggle" type="button" title="ポモドーロをON">
+                      <i data-lucide="timer"></i><span id="pomodoroToggleLabel">ポモ</span>
+                    </button>
+                    <button class="study-time-button ghost" id="pomodoroSkip" type="button" title="次のフェーズ">
+                      <i data-lucide="skip-forward"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="side-stats">
+              <div>
+                <span>ROUND</span>
+                <strong id="sideRound">第1回</strong>
+              </div>
+              <div>
+                <span>STYLE</span>
+                <strong id="sideFormatLabel">5択</strong>
+              </div>
+              <div>
+                <span>CLASS</span>
+                <strong id="sideRankLabel">入門</strong>
+              </div>
+              <div>
+                <span>MISS</span>
+                <strong id="sideFollowUpCount">0</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <div class="study-activity-check hidden" id="studyActivityCheck" role="alertdialog" aria-live="assertive" aria-label="勉強継続確認">
+      <div>
+        <span class="study-activity-label">STUDY CHECK</span>
+        <strong>まだ勉強中？</strong>
+        <p id="studyActivityMessage">3分間画面操作がありません。まだ勉強中なら押して継続。</p>
+      </div>
+      <div class="study-activity-side">
+        <span id="studyActivityCountdown">30秒</span>
+        <button class="study-activity-confirm" id="studyActivityConfirm" type="button">続ける</button>
+      </div>
+    </div>
+
+    <div class="pomodoro-notice hidden" id="pomodoroNotice" role="status" aria-live="assertive" aria-atomic="true">
+      <div class="pomodoro-notice-card" id="pomodoroNoticeCard" role="button" tabindex="0" aria-label="ポモドーロ通知を閉じる">
+        <span class="pomodoro-notice-label">POMODORO</span>
+        <strong id="pomodoroNoticeTitle">集中開始</strong>
+        <p id="pomodoroNoticeBody">次のフェーズに入りました</p>
+      </div>
+    </div>
+
+    <div class="image-preview hidden" id="imagePreview" role="dialog" aria-modal="true" aria-label="画像拡大表示">
+      <button class="image-preview-backdrop" id="imagePreviewBackdrop" type="button" aria-label="画像拡大表示を閉じる"></button>
+      <div class="image-preview-dialog">
+        <button class="image-preview-close" id="imagePreviewClose" type="button" aria-label="閉じる">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="image-preview-scroll">
+          <img id="imagePreviewImage" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <dialog class="question-source-dialog" id="questionSourceDialog" aria-labelledby="questionSourceDialogTitle">
+      <div class="question-source-dialog-card">
+        <header>
+          <div>
+            <small>SOURCE &amp; TERMS</small>
+            <strong id="questionSourceDialogTitle">出典・利用条件</strong>
+          </div>
+          <button class="question-source-close" id="questionSourceClose" type="button" aria-label="閉じる">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+        <div class="question-source-dialog-body">
+          <p class="question-source-title" id="questionSourceTitle"></p>
+          <p class="question-source-usage" id="questionSourceUsage"></p>
+          <a
+            class="question-source-external"
+            id="questionSourceExternal"
+            href="https://www.ipa.go.jp/shiken/mondai-kaiotu/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            referrerpolicy="no-referrer"
+          >
+            <span>IPA公式ページで確認する</span><i data-lucide="external-link"></i>
+          </a>
+        </div>
+      </div>
+    </dialog>
+
+    <div class="immersive-frame" id="immersiveFrame" aria-hidden="true">
+      <span class="immersive-corner immersive-corner-tl"></span>
+      <span class="immersive-corner immersive-corner-tr"></span>
+      <span class="immersive-corner immersive-corner-bl"></span>
+      <span class="immersive-corner immersive-corner-br"></span>
+    </div>
+
+    <section class="immersive-hud" id="immersiveHud" aria-label="没入モード操作" hidden>
+      <div class="immersive-scene-status">
+        <span class="immersive-pulse" aria-hidden="true"></span>
+        <span><small>IMMERSIVE SESSION</small><strong id="immersiveSceneName">地中海</strong></span>
+      </div>
+      <div class="immersive-hud-actions">
+        <button class="immersive-sound-switch" id="immersiveSoundToggle" type="button" role="switch" aria-checked="true" aria-label="環境音">
+          <i data-lucide="volume-2"></i><span>環境音</span><b aria-hidden="true"><i></i></b>
+        </button>
+        <label class="immersive-volume" for="immersiveVolumeInput">
+          <i data-lucide="audio-lines"></i>
+          <input id="immersiveVolumeInput" type="range" min="0" max="100" step="1" value="46" aria-label="環境音の音量" />
+        </label>
+        <button class="immersive-exit-button" id="immersiveExitButton" type="button" title="没入モードを終了">
+          <i data-lucide="minimize"></i><span>終了</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="immersive-scene-intro" id="immersiveSceneIntro" aria-hidden="true">
+      <span id="immersiveSceneKicker">DIVE INTO BLUE</span>
+      <strong id="immersiveSceneTitle">地中海</strong>
+      <small id="immersiveSceneSubtitle">陽光の海底神殿</small>
+    </div>
+
+    <dialog class="explanation-images-dialog" id="explanationImagesDialog" aria-labelledby="explanationImagesTitle">
+      <header class="explanation-images-heading">
+        <div><h2 id="explanationImagesTitle">解説画像</h2><p>保存した画像をここで確認できます。画像を押すと拡大します。</p></div>
+        <button class="explanation-images-close" id="explanationImagesClose" type="button">閉じる</button>
+      </header>
+      <section class="llm-image-library" id="llmImageLibrary" aria-label="保存した解説画像">
+        <header class="llm-image-library-header">
+          <span><i data-lucide="hard-drive"></i><strong>保存した画像</strong><small id="llmImageStatus">このブラウザだけに保存</small></span>
+        </header>
+        <div class="llm-image-library-body">
+          <button class="llm-image-add" id="llmImageAdd" type="button" title="画像を選択、貼り付け、またはドロップ">
+            <i data-lucide="image-plus"></i><span><strong>画像を追加</strong><small>選択・貼り付け・ドロップ / セーブ・ロード対応</small></span>
+          </button>
+          <input id="llmImageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/avif" multiple hidden />
+          <div class="llm-image-gallery" id="llmImageGallery" aria-live="polite"></div>
+        </div>
+      </section>
+    </dialog>
+    <section class="llm-explanation-panel hidden" id="llmExplanationPanel" role="dialog" aria-label="LLMによる問題解説" hidden>
+      <header class="llm-panel-header">
+        <div class="llm-panel-title">
+          <i data-lucide="brain-circuit"></i>
+          <span><small>OPENROUTER TUTOR</small><strong>教えて LLM</strong></span>
+        </div>
+        <div class="llm-panel-actions">
+          <button id="llmImageLibraryToggle" type="button" title="解説画像" aria-label="解説画像" aria-haspopup="dialog" aria-controls="explanationImagesDialog" aria-expanded="false">
+            <i data-lucide="images"></i>
+          </button>
+          <button id="llmCopyButton" type="button" title="表示中のLLM回答をコピー" aria-label="表示中のLLM回答をコピー" disabled>
+            <i data-lucide="copy"></i>
+          </button>
+          <button id="llmSettingsToggle" type="button" title="OpenRouter設定" aria-label="OpenRouter設定" aria-expanded="false">
+            <i data-lucide="settings-2"></i>
+          </button>
+          <button id="llmPanelClose" type="button" title="閉じる" aria-label="閉じる">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </header>
+      <div class="llm-panel-toolbar">
+        <label for="llmModelSelect">モデル</label>
+        <select id="llmModelSelect" aria-label="解説に使うモデル"></select>
+        <button class="llm-regenerate-button" id="llmRegenerateButton" type="button">
+          <i data-lucide="refresh-cw"></i><span>再生成</span>
+        </button>
+      </div>
+      <div class="llm-settings hidden" id="llmSettings">
+        <div class="llm-settings-status" id="llmSettingsStatus">設定を確認中</div>
+        <section class="llm-setup-guide" id="llmSetupGuide" aria-labelledby="llmSetupGuideTitle" tabindex="-1" hidden>
+          <div class="llm-setup-guide-heading">
+            <span aria-hidden="true"><i data-lucide="key-round"></i></span>
+            <div><small>FIRST SETUP</small><strong id="llmSetupGuideTitle">APIキーを設定すると使えます</strong></div>
+          </div>
+          <ol>
+            <li><b>1</b><span><strong>接続先を選ぶ</strong><small>上の「接続先」から、利用するAIサービスを選びます。</small></span></li>
+            <li><b>2</b><span><strong>APIキーを用意する</strong><small>選んだサービスの公式画面で、ご自身のAPIキーを発行します。<a id="llmApiKeyHelpLink" href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">OpenRouterでキーを取得</a></small></span></li>
+            <li><b>3</b><span><strong>貼り付けて保存する</strong><small>下のAPIキー欄へ貼り付け、「保存」を押すと解説が始まります。</small></span></li>
+          </ol>
+          <p class="llm-setup-guide-note">APIキーの発行には各サービスのアカウントが必要です。サービスによって料金が発生する場合があります。</p>
+        </section>
+        <label for="llmApiKeyInput">OpenRouter APIキー</label>
+        <div class="llm-api-key-row">
+          <input id="llmApiKeyInput" type="password" autocomplete="new-password" spellcheck="false" placeholder="sk-or-v1-..." />
+          <button class="llm-key-save" id="llmApiKeySave" type="button">保存</button>
+          <button class="llm-key-delete" id="llmApiKeyDelete" type="button">削除</button>
+        </div>
+        <p id="llmApiKeyStorageNote">APIキーはこのタブのセッション中だけ保持され、タブを閉じた後は再入力が必要です。</p>
+      </div>
+
+      <div class="llm-panel-status" id="llmPanelStatus" role="status" aria-live="polite"></div>
+      <div class="llm-explanation-body" id="llmExplanationBody" aria-live="polite"></div>
+      <div class="llm-conversation-controls">
+        <div class="llm-follow-up-suggestions" id="llmFollowUpSuggestions" aria-label="質問の例">
+          <button type="button" data-llm-prompt="もっとかみ砕いて、身近な例を使って説明して">かみ砕いて</button>
+          <button type="button" data-llm-prompt="各選択肢のどこが正しく、どこが誤りかを詳しく比較して">選択肢を比較</button>
+          <button type="button" data-llm-prompt="この問題から覚えるべきポイントを短く整理して">要点を整理</button>
+        </div>
+        <form class="llm-follow-up-form" id="llmFollowUpForm">
+          <textarea id="llmFollowUpInput" rows="1" maxlength="3000" placeholder="わからないところを続けて質問" aria-label="LLMへの追加質問"></textarea>
+          <button id="llmFollowUpSend" type="submit" title="質問を送信" aria-label="質問を送信">
+            <i data-lucide="arrow-up"></i>
+          </button>
+        </form>
+        <footer class="llm-panel-footer" id="llmPanelFooter"></footer>
+      </div>
+    </section>
+
+    <div class="result-burst hidden" id="resultBurst" aria-live="assertive" aria-atomic="true">
+      <span id="resultBurstText">正解</span>
+      <small id="resultBurstSub"></small>
+    </div>
+
+    <script type="module" src="./stage-bootstrap.js?v=20260826-security"></script>
+    <script src="./data.js?v=20260904-llm-key-guide"></script>
+    <script src="./app.js?v=1.0.0-release"></script>
+    <script src="./quiz-tour.js?v=1.0.0-guide-opt-out"></script>
+    <script src="./product-intro.js?v=1.0.0-guide-opt-out"></script>
+  </body>
+</html>
+

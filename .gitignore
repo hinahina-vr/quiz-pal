@@ -1,0 +1,22 @@
+node_modules/
+dist/
+artifacts/
+coverage/
+playwright-report/
+test-results/
+.wrangler/
+*.local
+.vite-server.*.log
+.chrome-native-test*/
+.DS_Store
+
+# Never include local data or build/test environments in the contest repository.
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+qa-local/
+.chrome-*/
+firefox-profile*/
+browser-profile*/
+*.log

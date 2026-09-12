@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "browser": "152.0.7977.83",
+  "url": "https://hinahina-vr.github.io/quiz-pal/",
+  "scope": "Actual Chrome on the specified hosted URL; no physical phone or live AI request",
+  "zipSha256": "2e5e6e022750e86d99ca4eb3fc48efde8d00ed13d655020743828e073a6c59eb",
+  "checks": [
+    "Web download introduction fits five desktop, narrow and landscape viewports and describes the HTML edition",
+    "Actual browser download from the local HTTP site has the exact prepared ZIP hash",
+    "Sidebar download and planned repository link point to the prepared destinations",
+    "Hosted quiz progress, actual image upload and Studio edit are included in a real exported backup",
+    "Legal page uses GitHub Pages copy and planned source/contact URLs; its download returns the same ZIP",
+    "No missing HTTP assets, browser exceptions or external requests during the preparation preview"
+  ],
+  "errors": [],
+  "failed": [],
+  "external": []
+}

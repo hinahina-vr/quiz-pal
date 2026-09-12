@@ -1,0 +1,553 @@
+{
+  "checkedAt": "2026-09-12T09:42:26.508Z",
+  "url": "https://hinahina-vr.github.io/quiz-pal/",
+  "files": 109,
+  "passed": true,
+  "results": [
+    {
+      "path": "_headers",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/event-horizon-mobile.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "app.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/academy-stage.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/event-horizon.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Bold-common.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Bold-extended.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Medium-common.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/OFL-Rounded.txt",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Regular-common.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Medium-extended.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/KaiseiOpti-Regular-extended.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/QuizPalRounded-Bold-common.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/QuizPalRounded-Bold-extended.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/QuizPalRounded-Medium-common.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/fonts/QuizPalRounded-Medium-extended.woff2",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/magic-academy-stage-mobile.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/magic-academy-stage.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/magic-academy-stage.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/mediterranean-sea-mobile.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/mediterranean-sea.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/christmas-mobile.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/event-horizon-mobile.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/event-horizon.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/christmas.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/halloween-mobile.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/halloween.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/hanami-mobile.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/hanami.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/hokkaido-mobile.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/hokkaido.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/mediterranean-sea-mobile.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/mediterranean-sea-preview.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/mediterranean-sea.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/mediterranean-sea.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/new-year-mobile.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/new-year.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/okinawa-mobile.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/weather/weather-clear.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/themes/okinawa.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/weather/weather-cloudy.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/weather/weather-drizzle.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/weather/weather-fog.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/weather/weather-partly.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/weather/weather-rain-emblem-card.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/weather/weather-rain.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/weather/weather-snow.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "assets/weather/weather-storm.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "brand.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "data/courses/sample-ap.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "data/courses/sample-electrician-2.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "data/courses/sample-fe.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "data/courses/sample-it-passport.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "data/courses/sample-math.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "data/courses/sample-web-safety.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "data.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "exam-progress.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "favicon.svg",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "fonts.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "graphing-calculator.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/ai-conversation-preview.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/ai-conversation.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/ai-first-answer-preview.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/ai-follow-up-preview.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/ai-first-answer.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/ai-follow-up.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/binary-study-note.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/image-library.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/image-library-preview.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "guide-captures/README.md",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "html-boot.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "html-pages.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "html-stage.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "intro-art/partners-flat.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "intro-art/partners-flat.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "intro-art/portable-flat.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "intro-art/portable-flat.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "intro-art/tutor-flat.webp",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "intro-art/tutor-flat.png",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "legacy-data-safety.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "legal.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "legal.html",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "LICENSE",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "LICENSE-CONTENT",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "llm-provider-bridge.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "native-math.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "native-runtime.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "native-stage.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "performance.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "product-intro.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "product-intro.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "quiz-bootstrap.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "quiz-controls.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "quiz-tour.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "quiz-tour.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "readable-ui.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "README.html",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "release-layout.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "site-links.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "stage-bootstrap.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "stage3d.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "studio.bundle.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "studio.html",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "studio.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "styles.css",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "theme-bootstrap.js",
+      "status": 200,
+      "match": true
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "status": 200,
+      "match": true
+    }
+  ]
+}

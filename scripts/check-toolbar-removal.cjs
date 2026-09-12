@@ -1,0 +1,30 @@
+const {chromium,expect}=require(process.env.PLAYWRIGHT_TEST_MODULE||'playwright/test');
+const fs=require('node:fs/promises'),path=require('node:path'),{pathToFileURL}=require('node:url');
+(async()=>{
+ const out=path.resolve(process.env.QA_OUTPUT),url=process.env.QA_URL||pathToFileURL(path.resolve(process.env.QA_HTML)).href,before=process.env.QA_BEFORE==='1';await fs.mkdir(out,{recursive:true});
+ const browser=await chromium.launch({executablePath:process.env.QA_CHROME||'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});const errors=[],checks=[];let page;
+ const start=async(mode='scroll')=>{const c=await browser.newContext({viewport:{width:1920,height:1080},deviceScaleFactor:2,acceptDownloads:true});await c.addInitScript(mode=>localStorage.setItem('quiz-zen-wheel-mode-v1',mode),mode);page=await c.newPage();page.on('pageerror',e=>errors.push(String(e)));page.on('dialog',d=>d.accept());await page.goto(url);await expect(page.locator('html')).toHaveAttribute('data-html-ready','quiz');await page.locator('#productIntroDoNotShow').check();await page.locator('.product-intro-close').click();if(await page.locator('.quiz-tour-skip').isVisible())await page.locator('.quiz-tour-skip').click();await page.evaluate(()=>document.fonts.ready);return c;};
+ try{
+  let c=await start();
+  if(before){await expect(page.locator('#wheelModeButton')).toHaveText('読む');await expect(page.locator('#favoriteModeButton')).toHaveText('理解');await page.screenshot({path:path.join(out,'before.png'),scale:'css'});checks.push('Original toolbar renders the two reported controls in saved reading mode');await c.close();}
+  else{
+   const removed=()=>expect(page.locator('#wheelModeButton,#wheelModeLabel,#favoriteModeButton')).toHaveCount(0);await removed();
+   for(const [width,height] of [[3840,2160],[2560,1440],[1920,1080],[1440,900],[980,900],[390,844],[320,640],[844,390]]){await page.setViewportSize({width,height});await removed();expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width+1);if([1920,390].includes(width))await page.screenshot({path:path.join(out,`toolbar-${width}.png`),scale:'css'});}
+   checks.push('Both toolbar controls are absent at eight viewport sizes, with no horizontal page overflow');await page.setViewportSize({width:1440,height:900});
+   await page.locator('[data-course="sample-fe"]').click();
+   await expect(page.locator('#questionText')).toHaveAttribute('data-typewriter-complete','true');const question=await page.locator('#questionText').innerText();await page.locator('#nextButton').click();await expect(page.locator('#questionText')).toHaveAttribute('data-typewriter-complete','true');await expect(page.locator('#questionText')).not.toHaveText(question);await page.locator('#prevButton').click();await expect(page.locator('#questionText')).toHaveText(question);
+   const partial=page.locator('[data-understanding-level="partial"]');await partial.click();await expect(partial).toHaveAttribute('aria-pressed','true');await page.locator('#nextButton').click();await page.locator('#prevButton').click();await expect(partial).toHaveAttribute('aria-pressed','true');
+   await page.locator('#sectionSearchToggle').click();await page.locator('#sectionSearchInput').fill('2進数');await expect(page.locator('#sectionSearchClear')).toBeVisible();await page.locator('#sectionSearchClear').click();await expect(page.locator('#sectionSearchInput')).toHaveValue('');await page.keyboard.press('Escape');
+   for(const id of ['calculationModeButton','nonCalculationModeButton']){const b=page.locator('#'+id);if(await b.isEnabled()){await b.click();await expect(b).toHaveAttribute('aria-pressed','true');await b.click();await expect(b).toHaveAttribute('aria-pressed','false');}}
+   await page.locator('#timerToggleButton').click();const timer=await page.locator('#timerToggleButton').getAttribute('aria-pressed');await page.locator('#timerToggleButton').click();await expect(page.locator('#timerToggleButton')).not.toHaveAttribute('aria-pressed',timer);
+   await page.locator('#themePickerToggle').click();await expect(page.locator('#themePickerPopover')).toBeVisible();await page.keyboard.press('Escape');
+   const correct=await page.evaluate(()=>currentViewQuestion().options.findIndex(o=>o.correct));await page.locator('#options .option-button').nth(correct).click();await expect(page.locator('#feedback')).toBeVisible();
+   checks.push('Previous/next, per-question understanding, search/clear, available calculation filters, timer, themes and answering work');
+   const snapshot=await page.evaluate(()=>({progress:state.progress,understanding:state.understanding}));expect(Object.keys(snapshot.progress).length).toBeGreaterThan(0);expect(Object.values(snapshot.understanding)).toContain('partial');
+   const dl=page.waitForEvent('download');await page.locator('#fullDataSaveButton').click();const saved=path.join(out,'backup.json');await(await dl).saveAs(saved);await page.reload();await expect(page.locator('html')).toHaveAttribute('data-html-ready','quiz');await removed();expect(await page.evaluate(()=>({progress:state.progress,understanding:state.understanding}))).toEqual(snapshot);await c.close();
+   c=await start('page');await removed();await page.locator('#fullDataLoadInput').setInputFiles(saved);await expect(page.locator('#fullDataStatus')).toContainText('ロード完了');await expect.poll(()=>page.evaluate(()=>({progress:state.progress,understanding:state.understanding}))).toEqual(snapshot);await removed();await c.close();
+   checks.push('Actual export, reload and restore into a clean browser preserve learning records; both prior wheel settings start without the removed controls');
+  }
+  expect(errors).toEqual([]);await fs.writeFile(path.join(out,'results.json'),JSON.stringify({passed:true,before,browser:browser.version(),checks,errors,scope:'Actual isolated browser; viewport/DPR emulation, no physical 4K display or phone'},null,2));console.log('PASS',checks);
+ }catch(e){await page?.screenshot({path:path.join(out,'failure.png'),scale:'css'}).catch(()=>{});throw e;}finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1});

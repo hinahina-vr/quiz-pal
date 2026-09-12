@@ -1,0 +1,10 @@
+/* 表示用の軽量画像。元画像は保持し、ガイドの拡大には元のPNGを使う。 */
+@media (min-width: 981px) and (pointer: fine) {
+:root[data-theme="mediterranean"] { --academy-bg: url("./assets/themes/mediterranean-sea-preview.webp"); --theme-scene: url("./assets/themes/mediterranean-sea-preview.webp"); }
+:root[data-theme="fantasy"] { --academy-bg: url("./assets/magic-academy-stage.webp"); --theme-scene: url("./assets/magic-academy-stage.webp"); }
+}
+
+/* 別タブを表示中は装飾のアニメーションを休止する。 */
+:root[data-page-hidden="true"] *,
+:root[data-page-hidden="true"] *::before,
+:root[data-page-hidden="true"] *::after { animation-play-state: paused !important; }

@@ -1,0 +1,280 @@
+.quiz-tour-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: rgba(2, 8, 12, 0.12);
+  color: #fff8e8;
+}
+
+.quiz-tour-spotlight {
+  position: fixed;
+  z-index: 1;
+  border: 2px solid color-mix(in srgb, var(--theme-highlight, var(--gold)) 76%, white);
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 9999px rgba(2, 8, 12, 0.76),
+    0 0 0 5px color-mix(in srgb, var(--theme-accent, #42d9e6) 15%, transparent),
+    0 0 34px color-mix(in srgb, var(--theme-highlight, var(--gold)) 48%, transparent);
+  pointer-events: none;
+  transition: inset 160ms ease, width 160ms ease, height 160ms ease;
+}
+
+.quiz-tour-card {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2;
+  display: block;
+  width: min(480px, calc(100vw - 32px));
+  height: max-content !important;
+  min-height: 0 !important;
+  max-height: calc(100dvh - 32px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 1px solid color-mix(in srgb, var(--theme-highlight, var(--gold)) 62%, white);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--theme-surface, #083d50) 96%, transparent), color-mix(in srgb, var(--theme-deep, #061b2b) 96%, transparent));
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.46), inset 0 1px rgba(255, 255, 255, 0.09);
+  color: #fff8e8;
+  backdrop-filter: blur(18px);
+  contain: layout paint;
+}
+
+.quiz-tour-accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--theme-highlight, var(--gold)), var(--theme-accent, #42d9e6));
+}
+
+.quiz-tour-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 22px 0;
+}
+
+.quiz-tour-kicker {
+  color: var(--theme-accent, #75eaff);
+  font-size: 0.7rem;
+  font-weight: 950;
+  letter-spacing: 0.18em;
+}
+
+.quiz-tour-progress {
+  color: #c7d8dc;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.quiz-tour-progress b {
+  color: var(--theme-highlight, #ffe37d);
+  font-size: 1rem;
+}
+
+.quiz-tour-title-row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 16px 22px 10px;
+}
+
+.quiz-tour-step-number {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--theme-accent, #75eaff) 64%, transparent);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--theme-accent, #75eaff) 12%, transparent);
+  color: var(--theme-accent, #75eaff);
+  font-size: 1rem;
+  font-weight: 950;
+}
+
+.quiz-tour-label {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--theme-highlight, #ffe37d);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+.quiz-tour-title {
+  margin: 0;
+  color: #fff8e8;
+  font-size: clamp(1.2rem, 2.2vw, 1.52rem);
+  line-height: 1.35;
+}
+
+.quiz-tour-body {
+  min-height: 4.5em;
+  margin: 0;
+  padding: 0 22px;
+  color: #d6e5e5;
+  font-size: 0.94rem;
+  font-weight: 750;
+  line-height: 1.75;
+}
+
+.quiz-tour-dots {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 5px;
+  padding: 16px 22px 17px;
+}
+
+.quiz-tour-dot {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(214, 229, 229, 0.18);
+}
+
+.quiz-tour-dot.done {
+  background: color-mix(in srgb, var(--theme-accent, #75eaff) 48%, transparent);
+}
+
+.quiz-tour-dot.active {
+  background: linear-gradient(90deg, var(--theme-highlight, #ffe37d), var(--theme-accent, #75eaff));
+  box-shadow: 0 0 12px color-mix(in srgb, var(--theme-accent, #75eaff) 42%, transparent);
+}
+
+.quiz-tour-actions {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 9px;
+  align-items: center;
+  padding: 15px 22px 19px;
+  border-top: 1px solid rgba(255, 241, 168, 0.22);
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.quiz-tour-actions button {
+  min-height: 44px;
+  border: 1px solid rgba(255, 241, 168, 0.42);
+  border-radius: 9px;
+  padding: 0 15px;
+  background: rgba(255, 248, 232, 0.07);
+  color: #fff8e8;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.quiz-tour-actions button:hover,
+.quiz-tour-actions button:focus-visible {
+  border-color: #fff1a8;
+  outline: none;
+  background: rgba(255, 248, 232, 0.14);
+}
+
+.quiz-tour-actions button:disabled {
+  cursor: default;
+  opacity: 0.38;
+}
+
+.quiz-tour-actions .quiz-tour-skip {
+  border-color: transparent;
+  background: transparent;
+  color: #c7d8dc;
+}
+
+.quiz-tour-actions .quiz-tour-next {
+  border-color: color-mix(in srgb, var(--theme-highlight, #ffe37d) 72%, white);
+  background: linear-gradient(135deg, var(--theme-highlight, #ffe37d), var(--theme-accent, #42d9e6));
+  color: #09232b;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 700px) {
+  .quiz-tour-card {
+    width: auto;
+    height: max-content !important;
+    min-height: 0 !important;
+    max-height: calc(100dvh - 20px);
+    overflow-y: auto;
+    border-radius: 15px;
+  }
+
+  .quiz-tour-card-header {
+    padding: 13px 15px 0;
+  }
+
+  .quiz-tour-title-row {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 11px;
+    padding: 12px 15px 8px;
+  }
+
+  .quiz-tour-step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+  .quiz-tour-title {
+    font-size: 1.07rem;
+  }
+
+  .quiz-tour-body {
+    min-height: 0;
+    padding: 0 15px;
+    font-size: 0.82rem;
+    line-height: 1.62;
+  }
+
+  .quiz-tour-dots {
+    gap: 4px;
+    padding: 12px 15px;
+  }
+
+  .quiz-tour-actions {
+    gap: 5px;
+    padding: 11px 15px 14px;
+  }
+
+  .quiz-tour-actions button {
+    min-height: 40px;
+    padding-inline: 10px;
+    font-size: 0.76rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-tour-spotlight {
+    transition: none;
+  }
+}
+
+/* Keep the first toolbar controls reachable when the row overflows. */
+.topbar .toolbar {
+  justify-content: flex-start;
+  justify-content: safe flex-end;
+}
+
+.quiz-tour-actions { position: sticky; bottom: 0; background: var(--theme-deep, #061b2b); }
+
+/* Keep labels legible when hover/focus overrides the primary-button background. */
+:root .quiz-tour-actions button:not(:disabled):is(:hover, :focus),
+:root .tour-actions button:not(:disabled):is(:hover, :focus) {
+  background: #fff1b8 !important;
+  color: #182f3f !important;
+  border-color: #fff1b8 !important;
+  text-shadow: none !important;
+  opacity: 1;
+}
+:root .quiz-tour-actions button:not(:disabled):focus,
+:root .tour-actions button:not(:disabled):focus {
+  outline: 3px solid #70e4ee !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px #102c3b !important;
+}
+
+
+.quiz-tour-opt-out { display: flex; align-items: center; gap: 9px; margin: 0 24px 14px; color: #eefaff; font-size: 14px; font-weight: 700; cursor: pointer; }
+.quiz-tour-opt-out input { flex: 0 0 auto; width: 20px; height: 20px; margin: 0; accent-color: #ffd86c; }
+.quiz-tour-opt-out input:focus-visible { outline: 2px solid #ffe48a; outline-offset: 3px; }
+.quiz-tour-opt-out small { font-size: 11px; color: #badbe5; }

@@ -1,0 +1,102 @@
+/* Let the toolbar wrap inside the available track at every breakpoint. */
+.topbar .toolbar {
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  min-height: 40px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: visible;
+  gap: 5px;
+}
+.topbar .toolbar > .icon-button { flex: 0 0 auto; }
+.section-search:not(.open) .section-search-popover { display: none; }
+.section-search-popover {
+  position: absolute;
+  top: var(--section-search-offset-y, calc(100% + 8px));
+  left: var(--section-search-offset-x, 0px);
+  width: min(360px, calc(100vw - 16px));
+}
+@media (min-width: 981px) {
+  .topbar { grid-template-rows: auto; }
+}
+@media (max-width: 980px) {
+  .topbar { grid-template-columns: minmax(0, 1fr); }
+  .topbar .toolbar .icon-button { height: 36px; min-height: 36px; }
+}
+
+/* Keep controls for unavailable course features hidden despite flex styling. */
+.topbar [hidden] { display: none !important; }
+
+.history-menu {
+  right: auto;
+  left: var(--history-menu-x, 0px);
+  top: var(--history-menu-y, calc(100% + 8px));
+  min-width: min(168px, calc(100vw - 16px));
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - 16px);
+  overflow-y: auto;
+}
+/* Compact desktop/tablet layout: reserve vertical space for the actual question. */
+@media (min-width: 981px) and (max-width: 1280px) {
+  .app-shell { grid-template-columns: 220px minmax(0, 1fr); }
+  .main { min-width: 0; }
+  .playfield { grid-template-columns: minmax(0, 1fr); height: auto; min-height: 0; }
+  .right-rail { display: none; }
+}
+@media (max-width: 1280px), (max-height: 800px) {
+  .topbar { gap: 6px; padding: 8px; }
+  .topbar .chapter-heading { min-width: 0; }
+  .topbar h2 { font-size: 18px; line-height: 1.35; overflow-wrap: anywhere; }
+  .topbar .header-cards { align-self: start; min-height: 0; }
+  .topbar .rank-card, .topbar .format-card { min-height: 0; height: auto; padding: 5px 8px; }
+  .topbar .header-cards strong { font-size: 14px; }
+  .topbar .toolbar .icon-button { min-height: 36px; height: 36px; padding: 5px 8px; font-size: 12px; }
+  .topbar .status-band { height: auto; min-height: 0; padding: 4px; grid-template-columns: repeat(6, minmax(0, 1fr)); overflow: visible; }
+  .topbar .status-cell { height: auto; min-height: 0; padding: 4px; }
+  .topbar .status-cell strong { font-size: 17px; line-height: 1.2; }
+  .topbar .status-cell .stat-label { font-size: 9px; }
+  .topbar .progress-cell { min-height: 16px; }
+  .quiz-panel .question-board { padding: 8px; }
+  .quiz-panel .question-text, .quiz-panel .question-text.html-question { min-height: 0; padding: 12px; font-size: clamp(18px, 2.1vw, 26px); line-height: 1.55; }
+  .quiz-panel .option-button, .quiz-panel.source-layout .option-button { min-height: 48px; padding: 7px 10px; font-size: 18px; }
+  .quiz-panel .options { gap: 6px; }
+}
+/* Narrow screens keep all score cells and action labels within their tracks. */
+@media (max-width: 600px) {
+  .topbar .status-band { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .topbar .status-band > .status-cell { grid-row: auto; }
+  .topbar .status-band > .progress-cell { grid-row: auto; grid-column: 1 / -1; }
+  .question-action-row { gap: 4px; max-width: 100%; }
+  .question-head .question-action-row > button { padding-inline: 7px; }
+  .quiz-panel .question-text, .quiz-panel .question-text.html-question { font-size: 18px; }
+}
+@media (min-width: 981px) and (max-width: 1280px) {
+  .app-shell { grid-template-columns: 250px minmax(0, 1fr); }
+}
+@media (max-width: 1280px), (max-height: 800px) {
+  .topbar { grid-template-rows: auto !important; }
+  .topbar .status-band { align-self: start; grid-template-rows: auto auto; line-height: 1.2; }
+  .topbar .status-cell .stat-label { display: block; line-height: 1.2; }
+  .topbar .status-band > .status-cell { padding-block: 4px; }
+  .topbar .status-band > .progress-cell { padding-block: 2px; line-height: 1.2; }
+  .quiz-panel .question-text, .quiz-panel .question-text.html-question { font-size: clamp(18px, 2.1vw, 26px) !important; }
+  .quiz-panel .option-button, .quiz-panel.source-layout .option-button { min-height: 44px !important; font-size: 18px !important; }
+  .sidebar .brand { padding: 8px; gap: 8px; }
+  .sidebar .brand h1 { font-size: 22px; }
+  .sidebar .brand p { font-size: 12px; }
+  .sidebar .sidebar-data-button { gap: 6px; padding: 8px; min-height: 64px; }
+  .sidebar .sidebar-data-button-icon { width: 30px; height: 36px; flex: 0 0 30px; }
+  .sidebar .sidebar-data-button-copy strong { font-size: 16px; white-space: nowrap; }
+  .sidebar .maintenance-entry { grid-template-columns: 32px minmax(0, 1fr) 16px; padding: 10px; gap: 8px; min-height: 74px; }
+  .sidebar .maintenance-entry-icon { width: 32px; height: 40px; }
+  .sidebar .maintenance-entry-copy strong { font-size: 16px; line-height: 1.4; }
+}
+/* Compact PCs retain one-line labels; their font size is fitted to the available width. */
+@media (min-width: 981px) and (max-width: 1280px) and (pointer: fine) {
+  .sidebar .course-tab-label, .sidebar .course-tab-line,
+  .sidebar .sidebar-data-button-copy strong, .sidebar .maintenance-entry-copy strong,
+  .topbar .chapter-heading h2 { display: block; white-space: nowrap !important; overflow-wrap: normal; text-wrap: nowrap; min-width: 0; }
+  .sidebar .course-tab-line { display: inline; }
+}
