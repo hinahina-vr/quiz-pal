@@ -8,7 +8,7 @@
 
 [Web版](https://hinahina-vr.github.io/quiz-pal/) · [ソース](https://github.com/hinahina-vr/quiz-pal) · [HTML版ZIP](docs/downloads/Quiz-Pal-HTML.zip) · [検証記録](QA.md)
 
-![Quiz Palのクイズ画面](assets/contest-thumbnail.png)
+![Quiz Palのクイズ画面](assets/quiz-screenshot.png)
 
 実行時の外部ライブラリは使用していません。
 
